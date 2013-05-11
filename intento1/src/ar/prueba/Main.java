@@ -1,4 +1,4 @@
-package ar.intento1;
+package ar.prueba;
 
 public class Main {
 
