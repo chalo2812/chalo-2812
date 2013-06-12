@@ -1,0 +1,7 @@
+Codigo Error	Descripcion
+
+1				Error de asignacion numerico, caracter(es) invalido(s).
+2				Error de asignacion de operador, operador ! invalido.
+3				Error cadena no finalizada adecuadamente, falta ' (No se permiten \n en cadenas)
+4				Error de lexema por caracteres invalidos 
+5				Mal uso de palabra reservada (fin) 

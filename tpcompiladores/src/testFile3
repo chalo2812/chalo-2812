@@ -1,0 +1,8 @@
+globales
+fin-globales;
+
+procedimiento PRINCIPAL();
+	var testvar:natural;
+comenzar
+ 	testvar := testvar /0;
+fin-proc;	 
