@@ -1,0 +1,9 @@
+
+funcion pepe(T: entero, val N2 : entero) :  ;
+ var N: entero;
+comenzar
+  si T << 0 entonces
+    N := 45;
+  sino
+    N := 70;
+  
