@@ -9,7 +9,7 @@ import tp.procesadores.analizador.sintactico.producciones.SP;
 
 public class SintacticAnalyzer {
 
-	private File file;
+	public File file;
 	public Token actual = new Token(0,0); 
 	public Token siguiente = new Token(0,0); 
 	private boolean estadoAnalisis = true;
