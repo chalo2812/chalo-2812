@@ -69,8 +69,11 @@ public class CompilerAndGenerator extends Compiler {
 		Assembler assembler = new Assembler();
 		assembler.generateGlobalMemory();
 		entrada.append(assembler.start());
+		//Metodo mostrar
+		entrada.append(assembler.mostrar());
+		
+		
 		entrada.append(assembler.finish());
-
 		return entrada.toString();
 
 	}
