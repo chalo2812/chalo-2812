@@ -1,0 +1,69 @@
+1.- Pasar el automata 
+
+2.- Clase Compiler metodo Main() - LISTO 
+		Crea el objeto File 
+		Crea el objeto AnalizadorLexico 
+		Mientras no EOF getToken() 
+		
+3.- Manejador de Errores
+		Recibe Tokens de tipo error y muestra la lista de errores con file y columna 
+		
+4.- AnalizadorLexico - IN PROGRESS 
+		getToken()
+			esComentario() 
+			esIgnorable()
+			IgnorarComentario() 
+		tratarLexema() // Devuelve un token 
+		
+5.- Verificador
+		esNumero() --OK OK 
+		esLetra() -- OK OK
+		esOperador()-- OK OK
+		esCadena() -- OK OK
+		esPPioComentario() -- OK OK
+		esEOF() // return READ(File) -- OK OK 
+		
+6.- LexemaHelper 
+		tratarPalabra() --OK
+		tratarNumero() --OK
+		tratarOperador() --OK
+		tratarCadena() --OK
+		tratarComentario() --OK
+		tratarError() 
+
+7.- Caracter
+		//ver que nuevas funciones tiene.
+
+Clases: 
+FileReader - LISTO 			  
+-- PeackableFileInputStream  // FUNC:READ(file):char FUNC:PEEK(file):char -- NO FUE NECESARIO 
+AnalizadorLexico 
+Verificador 
+LexemaHelper
+ManejadorErr  
+Tokens...  
+
+sacar la n del Natural y setearlo como int  - LISTO 
+* devolver las palabras que son reservadas. - LISTO 
+Tratar este caso!   mostrar A[ANATURAL(S) ++ 1n]; - LISTO 
+--------------- 
+Pasar todo a lower case antes de los new en los Tratar 
+para Tratar palabra antes de la comparacion, idem para tratar numero. 
+ 
+Tratar casos de error 
+
+ 
+ probar como afecta el tab a la posicion del cursor
+ escribir todas las palabras resrvadas 
+ 
+ Actualizar la documentacion con, restricciones: "no se acepta un enter en una cadena, no se acepta fin como 
+ variable o identificador", la implementacion del Patron Visitor, 
+ comentario de los javadocs, 
+ 
+ 
+ 
+ Casos de prueba 
+   		  	  			      			
+
+
+  
