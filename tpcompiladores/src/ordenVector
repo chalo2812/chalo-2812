@@ -1,0 +1,26 @@
+globales
+	const TAM : natural = 10n;
+	var A[TAM] : entero;
+fin-globales;
+
+
+procedimiento PRINCIPAL();
+	var i, j : entero;
+comenzar
+
+	{Implementacion de Ordenamiento por burbuja de mayor a menor}
+	
+	j:=1;
+	mientras (j <= aentero(TAM) ) hacer
+		i:=0;
+		mientras (i < aentero(TAM--1n) hacer
+			si ( a[i] < a[i+1] ) entonces
+				   temp := a[i];
+				   a[i] := a[i+1];
+				   a[i+1] := temp;
+			fin-si;
+			i := i + 1;
+		fin-mientras;
+		j := j + 1;	
+	fin-mientras;
+fin-proc;	 
