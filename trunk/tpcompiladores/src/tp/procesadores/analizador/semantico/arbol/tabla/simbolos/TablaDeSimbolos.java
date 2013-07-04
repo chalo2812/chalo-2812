@@ -14,7 +14,7 @@ public class TablaDeSimbolos extends ClaseNodo
 	private static final long serialVersionUID = 1L;
 	public List<FilaTabla> entradas = new ArrayList<FilaTabla>();
 	public List<Metodo> metodos = new ArrayList<Metodo>();
-	private TablaDeSimbolos padre; 
+	public TablaDeSimbolos padre; 
 
 	public void add(FilaTabla entrada) {
 		this.entradas.add(entrada);

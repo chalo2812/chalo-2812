@@ -35,6 +35,10 @@ public class FPOASIG0 extends ProduccionC {
 		if ( sintactic.siguiente.accept(visitor).equals("("))
 		{
 			NodeVisitor identVisitor = new NodeVisitor();
+			if (!tablaH.existeMetodo(arbolH.accept(identVisitor))){
+				identVisitor.setContexto(tablaH.metodos==null?tablaH.metodos.get(0).getNombre():"");
+				identVisitor.setLexema(tablaH.metodos==null?tablaH.metodos.get(0).getTipo():tablaH.padre.metodos.get(0).getNombre());
+			}
 			if (!tablaH.existeMetodo(arbolH.accept(identVisitor)) ) {
 				merrores.mostrarErrorSemantico("El metodo \'"+ arbolH.accept(identVisitor) + "\' NO esta declarado", sintactic);
 				sintactic.setEstadoAnalisis(false);
@@ -49,8 +53,10 @@ public class FPOASIG0 extends ProduccionC {
 			if ( sintactic.siguiente.accept(visitor).equals(":="))
 			{
 				NodeVisitor identVisitor = new NodeVisitor();
-				identVisitor.setContexto(tablaH.entradas.get(0).getTipo());
-				identVisitor.setLexema(tablaH.entradas.get(0).getId());
+				if (tablaH.entradas.size()!=0){
+					identVisitor.setContexto(tablaH.entradas.get(0).getTipo());
+					identVisitor.setLexema(tablaH.entradas.get(0).getId());
+				}
 				if(!tablaH.existeId(arbolH.accept(identVisitor))){ 
 					if (!tablaH.esParametroDelContexto(arbolH.accept(identVisitor)))
 					{
@@ -59,7 +65,7 @@ public class FPOASIG0 extends ProduccionC {
 					}
 				}else{
 					if(!tablaH.esVariable(arbolH.accept(identVisitor))){
-						merrores.mostrarErrorSemantico("No se puede realizar una asignación a una constante: \'"+ arbolH.accept(identVisitor) + "\'", sintactic);
+						merrores.mostrarErrorSemantico("No se puede realizar una asignación a una constante: \'"+ sintactic.actual.accept(visitor) + "\'", sintactic);
 						sintactic.setEstadoAnalisis(false);
 					}
 				}

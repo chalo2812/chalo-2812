@@ -2,8 +2,8 @@ package tp.procesadores.analizador.lexico.tokens.visitor;
 
 
 public class NodeVisitor {
-	private String lexema;
-	private String contexto;
+	public String lexema;
+	public String contexto;
 	
 	public String getLexema() {
 		return lexema;
