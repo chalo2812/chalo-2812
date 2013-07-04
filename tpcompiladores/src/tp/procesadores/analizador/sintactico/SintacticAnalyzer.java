@@ -30,7 +30,7 @@ public class SintacticAnalyzer {
 		this.siguiente = siguiente;
 	}
 
-	public void Compilar() {
+	public void Compilar() throws Exception {
 		boolean r;
 		TokensVisitor visitor = new TokensVisitor();
 		LexicAnalyzer lexic = new LexicAnalyzer(file);
@@ -57,6 +57,7 @@ public class SintacticAnalyzer {
 			} else {
 				System.out
 						.println("Hay error\\es presente\\s en el archivo.. :'( ");
+				throw new Exception("Hay error\\es presente\\s en el archivo.. :'( ");
 			}
 		}
 	}

@@ -40,6 +40,9 @@ public class PROCEDIMIENTO0 extends ProduccionC {
 		MetodoHandler metodoS = new MetodoHandler();
 		producciones.set(0, new ENCABEZADOP0());
 		r = producciones.get(0).reconocer(lexic, visitor, sintactic, metodoH, metodoS);
+		if (tablaH.equals(null)){
+			tablaH = new TablaDeSimbolos(); 
+		}
 		tablaH.addMethod(metodoS.getMetodo());
 
 		Procedimiento pAux = arbolH.acceptProcVisitor(new ProcedimientoNodeVisitor());
