@@ -16,11 +16,12 @@ import tp.procesadores.compilador.generadorcodigo.TempManager;
 public class Identificador extends ClaseNodo implements VisitableNode {
 
 	private static final long serialVersionUID = 1L;
-	private String lexema;
-	private String contexto; 
+	public String lexema;
+	public String contexto; 
 	
-	public Identificador(String lexema){
+	public Identificador(String lexema, String contexto){
 		this.setLexema(lexema);
+		this.setContexto(contexto);
 	}
 
 	public String getLexema() {

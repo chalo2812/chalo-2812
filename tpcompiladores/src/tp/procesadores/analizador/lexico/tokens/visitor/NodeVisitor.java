@@ -2,6 +2,7 @@ package tp.procesadores.analizador.lexico.tokens.visitor;
 
 
 public class NodeVisitor {
+
 	public String lexema;
 	public String contexto;
 	
@@ -17,7 +18,5 @@ public class NodeVisitor {
 	public void setContexto(String contexto) {
 		this.contexto = contexto;
 	} 
-	
-	
 	
 }

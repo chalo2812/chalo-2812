@@ -1,5 +1,6 @@
 package tp.procesadores.analizador.semantico.arbol.tabla.simbolos;
 
+
 public class FilaTabla {
 
 	private boolean esVariable; 
@@ -65,4 +66,8 @@ public class FilaTabla {
 		return valor;
 	}
 
+	public int obtenerIdentificador(){
+		return 0;//new Identificador("HDP");
+	}
+	
 }

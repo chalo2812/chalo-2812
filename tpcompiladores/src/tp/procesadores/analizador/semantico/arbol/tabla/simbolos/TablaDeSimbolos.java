@@ -5,6 +5,7 @@ import java.util.List;
 
 import tp.procesadores.analizador.lexico.tokens.visitor.TablaSimbolosVisitor;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
+import tp.procesadores.analizador.semantico.arbol.general.Identificador;
 import tp.procesadores.compilador.generadorcodigo.Codigo;
 import tp.procesadores.compilador.generadorcodigo.LabelManager;
 import tp.procesadores.compilador.generadorcodigo.TempManager;
@@ -357,6 +358,8 @@ public class TablaDeSimbolos extends ClaseNodo
 		}
 		return retorno;
 	}
+	
+
 	
 }
 

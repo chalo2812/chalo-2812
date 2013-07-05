@@ -18,13 +18,15 @@ public class CompilerAndGenerator extends Compiler {
 							+ "\n\nLa salida quedara guardada en un archivo programaObjeto.asm en el mismo directorio donde se encuentra el jar.");
 		} else {
 			SintacticAnalyzer sa = new SintacticAnalyzer(args[0]);
-			
+
 			try {
 				sa.Compilar();
 			} catch (Exception e) {
+				System.out
+						.println("Hay error\\es presente\\s en el archivo.. :'( ");
 				return;
 			}
-			
+
 			CompilerAndGenerator generar = new CompilerAndGenerator();
 			System.out.println("El archivo analizado se encuentra correcto "
 					+ "sintacticamente, yay! :) \n*****"

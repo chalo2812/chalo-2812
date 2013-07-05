@@ -27,6 +27,9 @@ public class ClaseNodo implements
 	private static final long serialVersionUID = 1L;
 	
 	public List<InterfazNodo> nodos = new ArrayList<InterfazNodo>();
+	public String lexema;
+	public String contexto; 
+	 
 	 
 	@Override
 	public void add(InterfazNodo nodo) {
@@ -79,5 +82,14 @@ public class ClaseNodo implements
 	public String accept(NodeVisitor identVisitor) {
 		return identVisitor.getLexema();
 	}
+	
+	public String getContexto(){
+		return this.contexto;
+	}
 
+	public String getLexema(){
+		return this.lexema;
+	}
+
+	
 }
