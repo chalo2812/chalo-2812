@@ -1,10 +1,14 @@
 package tp.procesadores.analizador.sintactico.producciones.bloques;
 
+import java.util.List;
+
 import tp.procesadores.analizador.lexico.LexicAnalyzer;
 import tp.procesadores.analizador.lexico.tokens.visitor.NodeVisitor;
 import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
+import tp.procesadores.analizador.semantico.arbol.general.Identificador;
+import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.FilaTabla;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
@@ -23,7 +27,7 @@ public class FPOASIG0 extends ProduccionC {
 
 	/**
 	 * FPOASIG ->	(PASAJE); |
-					:= EXP; | 
+					:= EXP;  
 					[EXP] := EXP;
 	 */
 	@Override 
@@ -35,15 +39,17 @@ public class FPOASIG0 extends ProduccionC {
 		if ( sintactic.siguiente.accept(visitor).equals("("))
 		{
 			NodeVisitor identVisitor = new NodeVisitor();
+			identVisitor.setContexto(null);
+			identVisitor.setLexema(null);
 			if (!tablaH.existeMetodo(arbolH.accept(identVisitor))){
 				identVisitor.setContexto(tablaH.metodos==null?tablaH.metodos.get(0).getNombre():"");
-				identVisitor.setLexema(tablaH.metodos==null?tablaH.metodos.get(0).getTipo():tablaH.padre.metodos.get(0).getNombre());
+				identVisitor.setLexema(tablaH.metodos==null?tablaH.getMetodo(arbolH.accept(identVisitor)).getNombre():"");
 			}
 			if (!tablaH.existeMetodo(arbolH.accept(identVisitor)) ) {
 				merrores.mostrarErrorSemantico("El metodo \'"+ arbolH.accept(identVisitor) + "\' NO esta declarado", sintactic);
 				sintactic.setEstadoAnalisis(false);
 			}
-			ArbolHandler arbolSp1 = new ArbolHandler();	
+			ArbolHandler arbolSp1 = new ArbolHandler();
 			producciones.set(0, new FPOASIG1());
 			r = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
 			arbolS.setArbol(arbolSp1.getArbol());
@@ -54,12 +60,15 @@ public class FPOASIG0 extends ProduccionC {
 			{
 				NodeVisitor identVisitor = new NodeVisitor();
 				if (tablaH.entradas.size()!=0){
-					identVisitor.setContexto(tablaH.entradas.get(0).getTipo());
-					identVisitor.setLexema(tablaH.entradas.get(0).getId());
+					identVisitor.setContexto(tablaH.entradas.get(tablaH.entradas.size()-1).getTipo());
+					identVisitor.setLexema(tablaH.entradas.get(tablaH.entradas.size()-1).getId());
 				}
 				if(!tablaH.existeId(arbolH.accept(identVisitor))){ 
 					if (!tablaH.esParametroDelContexto(arbolH.accept(identVisitor)))
 					{
+					//	obtener
+						identVisitor.setLexema(tablaH.padre.entradas!=null && tablaH.padre.entradas.size()>0?obtenerIdentificador(tablaH.padre.entradas,arbolH):"");
+						
 						merrores.mostrarErrorSemantico("El identificador \'"+ arbolH.accept(identVisitor) + "\' NO esta declarado", sintactic);
 						sintactic.setEstadoAnalisis(false);
 					}
@@ -92,5 +101,13 @@ public class FPOASIG0 extends ProduccionC {
 			}
 		}
 		return r;
+	}
+
+	private String obtenerIdentificador(List<FilaTabla> entradas, ClaseNodo lexico) {
+		for(int i=0;i<entradas.size();i++){
+			if (entradas.get(i).getId().equals(lexico.getLexema()))
+				return lexico.getLexema();
+		}
+		return null;
 	}
 }

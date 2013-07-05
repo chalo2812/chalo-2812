@@ -26,7 +26,7 @@ public class LINEA4 extends ProduccionC {
 		boolean r;
 //		System.out.println("LINEA4");
 		ArbolHandler arbolSp1 = new ArbolHandler();
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, new Identificador(""), arbolSp1, tablaH);
+		r = producciones.get(0).reconocer(lexic, visitor, sintactic, new Identificador("",""), arbolSp1, tablaH);
 		if ( r )
 		{
 			ArbolHandler arbolSp2 = new ArbolHandler();

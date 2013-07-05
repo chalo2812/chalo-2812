@@ -25,7 +25,7 @@ public class PALABRA extends ProduccionC {
 			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) {
 //		System.out.println("PALABRA");
 		if ( sintactic.siguiente.getClass() == Palabra.class){
-			Identificador identificador = new Identificador(sintactic.siguiente.accept(visitor));
+			Identificador identificador = new Identificador(sintactic.siguiente.accept(visitor),"");
 			identificador.add(tablaH);
 			identificador.setContexto(tablaH.getContexto());
 			sintactic.consumir(lexic);

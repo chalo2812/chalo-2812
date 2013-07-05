@@ -55,8 +55,6 @@ public class SintacticAnalyzer {
 				a.escribirArchivoSalida(file.getAbsolutePath(), arbolS.getArbol());
 				// tablaS.getTabla().mostrarTabla("");
 			} else {
-				System.out
-						.println("Hay error\\es presente\\s en el archivo.. :'( ");
 				throw new Exception("Hay error\\es presente\\s en el archivo.. :'( ");
 			}
 		}
