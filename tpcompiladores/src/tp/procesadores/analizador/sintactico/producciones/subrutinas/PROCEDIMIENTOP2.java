@@ -8,11 +8,11 @@ import tp.procesadores.analizador.semantico.arbol.principal.Bloque;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.bloques.BLOQUEP0;
 import tp.procesadores.analizador.sintactico.producciones.declaraciones.DECL0;
 
-public class PROCEDIMIENTOP2 extends ProduccionC {
+public class PROCEDIMIENTOP2 extends Produccion {
 
 	public PROCEDIMIENTOP2(){
 		DECL0 decl = null;

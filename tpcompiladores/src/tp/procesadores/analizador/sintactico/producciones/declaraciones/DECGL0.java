@@ -5,9 +5,9 @@ import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class DECGL0 extends ProduccionC 
+public class DECGL0 extends Produccion 
 {
 	public DECGL0 ()
 	{

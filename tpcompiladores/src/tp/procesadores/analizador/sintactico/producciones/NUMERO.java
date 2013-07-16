@@ -9,7 +9,7 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ElementoIdentificador;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
-public class NUMERO extends ProduccionC {
+public class NUMERO extends Produccion {
 	
 	public NUMERO(){
 		ENTERO entero = new ENTERO();

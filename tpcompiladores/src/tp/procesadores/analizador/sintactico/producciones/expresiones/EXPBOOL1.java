@@ -6,9 +6,9 @@ import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class EXPBOOL1 extends ProduccionC {
+public class EXPBOOL1 extends Produccion {
 
 		public EXPBOOL1(){
 			EXP0 exp = null;

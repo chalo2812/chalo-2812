@@ -6,9 +6,9 @@ import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class EXPBOOL3 extends ProduccionC{
+public class EXPBOOL3 extends Produccion{
 	
 	public EXPBOOL3(){
 		OR or = new OR(); 

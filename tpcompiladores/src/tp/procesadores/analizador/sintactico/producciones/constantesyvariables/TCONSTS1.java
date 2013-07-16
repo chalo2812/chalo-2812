@@ -6,10 +6,10 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LConstHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaConstantes;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.NUMERO;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class TCONSTS1 extends ProduccionC
+public class TCONSTS1 extends Produccion
 {
 	public TCONSTS1 ()
 	{		

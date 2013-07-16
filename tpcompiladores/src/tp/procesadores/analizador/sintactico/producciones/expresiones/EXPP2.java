@@ -7,10 +7,10 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.expresiones.RestaEntera;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class EXPP2 extends ProduccionC{
+public class EXPP2 extends Produccion{
 	
 	public EXPP2(){
 		SimboloTerminal mas = new SimboloTerminal("-");

@@ -11,9 +11,9 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.MetodoHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class PROCEDIMIENTO0 extends ProduccionC {
+public class PROCEDIMIENTO0 extends Produccion {
 	
 	public PROCEDIMIENTO0(){
 		ENCABEZADOP0 encabezadop = null;

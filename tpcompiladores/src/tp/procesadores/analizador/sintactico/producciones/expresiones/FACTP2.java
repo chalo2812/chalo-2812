@@ -7,10 +7,10 @@ import tp.procesadores.analizador.semantico.arbol.bloque.LlamadaFP;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class FACTP2 extends ProduccionC{
+public class FACTP2 extends Produccion{
 	
 	public FACTP2(){
 		SimboloTerminal parentesis1 = new SimboloTerminal("(");

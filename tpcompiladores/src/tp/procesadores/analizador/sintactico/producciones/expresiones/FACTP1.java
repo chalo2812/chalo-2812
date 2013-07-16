@@ -7,10 +7,10 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.expresiones.NodoExpresion;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class FACTP1 extends ProduccionC {
+public class FACTP1 extends Produccion {
 
 	public FACTP1(){
 		SimboloTerminal corchete1 = new SimboloTerminal("[");

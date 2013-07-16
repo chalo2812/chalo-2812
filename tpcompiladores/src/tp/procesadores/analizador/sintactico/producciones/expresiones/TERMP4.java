@@ -7,10 +7,10 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.expresiones.DivNatural;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class TERMP4 extends ProduccionC{
+public class TERMP4 extends Produccion{
 	
 	public TERMP4(){
 		SimboloTerminal div = new SimboloTerminal("//");

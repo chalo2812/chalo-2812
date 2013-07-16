@@ -6,9 +6,9 @@ import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class TERM0 extends ProduccionC{
+public class TERM0 extends Produccion{
 
 	public TERM0(){
 		FACT0 fact = new FACT0(); 

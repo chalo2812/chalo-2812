@@ -7,9 +7,9 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class PROCEDIMIENTOP0 extends ProduccionC {
+public class PROCEDIMIENTOP0 extends Produccion {
 	
 		public PROCEDIMIENTOP0(){
 			PROCEDIMIENTOP1 pp1 = new PROCEDIMIENTOP1();

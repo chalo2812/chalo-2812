@@ -8,10 +8,10 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.FuncionAnd;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class AND extends ProduccionC {
+public class AND extends Produccion {
 	
 	public AND(){
 		PalabraReservada and = new PalabraReservada("and"); 

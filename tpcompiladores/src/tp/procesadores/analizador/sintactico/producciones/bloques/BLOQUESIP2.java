@@ -7,11 +7,11 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.principal.Bloque;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class BLOQUESIP2 extends ProduccionC {
+public class BLOQUESIP2 extends Produccion {
 
 	public BLOQUESIP2()
 	{

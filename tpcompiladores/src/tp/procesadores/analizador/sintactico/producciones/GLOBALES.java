@@ -10,7 +10,7 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.declaraciones.DECGL0;
 
-public class GLOBALES extends ProduccionC {
+public class GLOBALES extends Produccion {
 
 	public GLOBALES(){
 		PalabraReservada globales = new PalabraReservada("globales");

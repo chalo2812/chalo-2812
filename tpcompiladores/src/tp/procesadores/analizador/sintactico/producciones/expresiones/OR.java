@@ -8,10 +8,10 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.FuncionOr;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class OR extends ProduccionC {
+public class OR extends Produccion {
 
 	
 	public OR(){

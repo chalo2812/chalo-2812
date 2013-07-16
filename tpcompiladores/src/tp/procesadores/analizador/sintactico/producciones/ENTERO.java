@@ -9,7 +9,7 @@ import tp.procesadores.analizador.semantico.arbol.general.NodoEntero;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ElementoIdentificador;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
-public class ENTERO extends ProduccionC {
+public class ENTERO extends Produccion {
 	
 	@Override
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS) 

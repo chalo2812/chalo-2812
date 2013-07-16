@@ -5,11 +5,11 @@ import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class BLOQUESIP1 extends ProduccionC {
+public class BLOQUESIP1 extends Produccion {
 
 	public BLOQUESIP1()
 	{

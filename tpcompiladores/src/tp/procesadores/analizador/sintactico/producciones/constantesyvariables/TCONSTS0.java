@@ -5,9 +5,9 @@ import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LConstHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaConstantes;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class TCONSTS0 extends ProduccionC
+public class TCONSTS0 extends Produccion
 {
 	public TCONSTS0 ()
 	{

@@ -5,9 +5,9 @@ import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LVarHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaVariables;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class TVARG0 extends ProduccionC {
+public class TVARG0 extends Produccion {
 
 	public TVARG0(){
 		TVARG1 tvarg1 = new TVARG1();

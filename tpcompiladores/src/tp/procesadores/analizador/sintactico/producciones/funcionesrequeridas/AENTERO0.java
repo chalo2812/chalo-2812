@@ -7,11 +7,11 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.funcionesrequeridas.NodoAEntero;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 import tp.procesadores.analizador.sintactico.producciones.expresiones.EXP0;
 
-public class AENTERO0 extends ProduccionC
+public class AENTERO0 extends Produccion
 
 {
 	public AENTERO0()

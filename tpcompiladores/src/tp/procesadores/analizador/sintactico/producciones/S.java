@@ -9,7 +9,7 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
-public class S extends ProduccionC {
+public class S extends Produccion {
 	
 	public S(){
 		GLOBALES globales = null; 

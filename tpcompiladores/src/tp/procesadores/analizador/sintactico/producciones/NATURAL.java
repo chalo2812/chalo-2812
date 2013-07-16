@@ -9,7 +9,7 @@ import tp.procesadores.analizador.semantico.arbol.general.NodoNatural;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ElementoIdentificador;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
-public class NATURAL extends ProduccionC {
+public class NATURAL extends Produccion {
 	
 	@Override
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS) 

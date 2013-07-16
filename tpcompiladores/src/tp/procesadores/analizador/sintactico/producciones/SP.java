@@ -8,7 +8,7 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
 
-public class SP extends ProduccionC{
+public class SP extends Produccion{
 	
 	public SP(){
 		S s = new S();

@@ -9,12 +9,12 @@ import tp.procesadores.analizador.semantico.arbol.palres.Mostrar;
 import tp.procesadores.analizador.semantico.arbol.palres.MostrarLn;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.funcionesrequeridas.LEER0;
 import tp.procesadores.analizador.sintactico.producciones.funcionesrequeridas.MOSTRAR0;
 import tp.procesadores.analizador.sintactico.producciones.funcionesrequeridas.MOSTRARLN0;
 
-public class PALRES extends ProduccionC {
+public class PALRES extends Produccion {
 
 	public PALRES() {
 		LEER0 leer = null;

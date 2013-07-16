@@ -6,12 +6,12 @@ import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.compilador.generadorcodigo.Codigo;
 import tp.procesadores.compilador.generadorcodigo.LabelManager;
 import tp.procesadores.compilador.generadorcodigo.TempManager;
 
-public class BLOQUE0 extends ProduccionC {
+public class BLOQUE0 extends Produccion {
 
 	public BLOQUE0()
 	{
@@ -22,32 +22,27 @@ public class BLOQUE0 extends ProduccionC {
 	}
 	
 	//	BLOQUE  ->   LINEA BLOQUE | lambda;
-	//	BLOQUE1.ArbolH = LINEA.ArbolS
-	//	BLOQUE.ArbolH.add ( BLOQUE1.ArbolS ) 
-	//	BLOQUE.ArbolS = BLOQUE.ArbolH
 
 	@Override  
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
 			 ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH)
 	{
-		boolean r;
-//		System.out.println("BLOQUE0");
+		boolean reconoce;
 		ArbolHandler arbolSp1 = new ArbolHandler();
 		producciones.set(0, new LINEA0());
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
-		if ( r )
-		{
+		reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
+		if (reconoce){
 			ArbolHandler arbolSp2 = new ArbolHandler();
 			producciones.set(1, new BLOQUE0());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH);
+			reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH);
 			arbolS.setArbol(arbolSp2.getArbol());
 		}
 		else
 		{
 			arbolS.setArbol(arbolH);
-			r = true;
+			reconoce = true;
 		}
-		return r;
+		return reconoce;
 	}
 	
 

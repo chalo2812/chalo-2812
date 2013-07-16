@@ -6,9 +6,9 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LVarHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaVariables;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PALABRA;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class VARSGP0 extends ProduccionC
+public class VARSGP0 extends Produccion
 {
 	public VARSGP0()
 	{

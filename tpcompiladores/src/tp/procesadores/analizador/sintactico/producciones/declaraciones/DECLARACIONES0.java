@@ -11,11 +11,11 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaVariables;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.constantesyvariables.*;
 import tp.procesadores.analizador.sintactico.producciones.subrutinas.*;
 
-public class DECLARACIONES0 extends ProduccionC 
+public class DECLARACIONES0 extends Produccion 
 {
 	public DECLARACIONES0()
 	{

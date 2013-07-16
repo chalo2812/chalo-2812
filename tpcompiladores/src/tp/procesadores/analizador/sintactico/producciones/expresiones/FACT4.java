@@ -6,10 +6,10 @@ import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.funcionesrequeridas.AENTERO0;
 
-public class FACT4 extends ProduccionC{
+public class FACT4 extends Produccion{
 	
 	public FACT4(){
 		AENTERO0 aentero = null;

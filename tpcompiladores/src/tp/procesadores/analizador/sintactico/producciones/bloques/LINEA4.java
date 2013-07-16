@@ -8,9 +8,9 @@ import tp.procesadores.analizador.semantico.arbol.general.Identificador;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PALABRA;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class LINEA4 extends ProduccionC {
+public class LINEA4 extends Produccion {
 	
 	public LINEA4(){
 		PALABRA palabra = new PALABRA();
