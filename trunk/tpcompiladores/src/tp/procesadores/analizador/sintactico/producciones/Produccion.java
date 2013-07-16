@@ -24,19 +24,19 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.manejador.errores.ManejadorErrores;
 
-public class ProduccionC implements ProduccionI{ 
+public class Produccion implements IProduccion{ 
 
-	public List<ProduccionI> producciones = new ArrayList<ProduccionI>();
+	public List<IProduccion> producciones = new ArrayList<IProduccion>();
 	public ManejadorErrores merrores = new ManejadorErrores();
 	public ArbolUtils arbolUtils = new ArbolUtils();
 	
 	@Override
-	public void add(ProduccionI simbolo) {
+	public void add(IProduccion simbolo) {
 		producciones.add(simbolo);
 	}
 
 	@Override
-	public void remove(ProduccionI simbolo) {
+	public void remove(IProduccion simbolo) {
 		producciones.remove(simbolo);
 	}
 
@@ -49,7 +49,6 @@ public class ProduccionC implements ProduccionI{
 	@Override
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor,
 			SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolSp1) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -57,7 +56,6 @@ public class ProduccionC implements ProduccionI{
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor,
 			SintacticAnalyzer sintactic, ListaConstantes listaH,
 			LConstHandler listaS) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

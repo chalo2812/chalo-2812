@@ -6,9 +6,9 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LVarHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaVariables;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class TVAR1 extends ProduccionC
+public class TVAR1 extends Produccion
 {
 	public TVAR1 ()
 	{
@@ -21,7 +21,7 @@ public class TVAR1 extends ProduccionC
 	//VARS'.ListaVariablesH = TVAR.ListaVariablesH 
 	//TVAR.ListaVariablesS = VARS'.ListaVariablesS 
 	
-	//TVAR -> , VARS’	
+	//TVAR -> , VARSï¿½	
 	@Override
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
 			ListaVariables listaH, LVarHandler listaS) 

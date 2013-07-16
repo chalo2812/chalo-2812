@@ -5,10 +5,10 @@ import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.Parametro;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ParametroHandler;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
 
-public class TIPOPARAM0 extends ProduccionC
+public class TIPOPARAM0 extends Produccion
 {
 	public TIPOPARAM0()
 	{

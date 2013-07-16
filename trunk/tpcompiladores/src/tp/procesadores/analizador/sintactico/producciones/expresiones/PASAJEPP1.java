@@ -7,9 +7,9 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PALABRA;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class PASAJEPP1 extends ProduccionC {
+public class PASAJEPP1 extends Produccion {
 
 	public PASAJEPP1(){
 		PALABRA palabra = new PALABRA();

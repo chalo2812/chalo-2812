@@ -18,7 +18,7 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ParametroHandle
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
-public class PALABRA extends ProduccionC {
+public class PALABRA extends Produccion {
 	
 	@Override 
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 

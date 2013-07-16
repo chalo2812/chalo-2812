@@ -5,9 +5,9 @@ import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LVarHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaVariables;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class VARSPP0 extends ProduccionC
+public class VARSPP0 extends Produccion
 {
 	public VARSPP0 ()
 	{
@@ -17,7 +17,7 @@ public class VARSPP0 extends ProduccionC
 		producciones.add(varspp2);
 	}
 
-	//VARS’' -> , VARS’ | ;
+	//VARSï¿½' -> , VARSï¿½ | ;
 	@Override
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
 			ListaVariables listaH, LVarHandler listaS) 

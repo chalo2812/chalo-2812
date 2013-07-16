@@ -8,12 +8,12 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.NodoExpresionBoole
 import tp.procesadores.analizador.semantico.arbol.principal.Bloque;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 import tp.procesadores.analizador.sintactico.producciones.expresiones.EXPBOOL0;
 
-public class BLOQUEM0 extends ProduccionC {
+public class BLOQUEM0 extends Produccion {
 
 	public BLOQUEM0()
 	{

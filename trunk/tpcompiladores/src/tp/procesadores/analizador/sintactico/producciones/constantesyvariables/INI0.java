@@ -4,10 +4,10 @@ import tp.procesadores.analizador.lexico.LexicAnalyzer;
 import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.NUMERO;
 
-public class INI0 extends ProduccionC
+public class INI0 extends Produccion
 {
 	public INI0()
 	{

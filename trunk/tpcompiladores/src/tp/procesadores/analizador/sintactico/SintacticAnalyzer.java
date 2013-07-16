@@ -45,11 +45,6 @@ public class SintacticAnalyzer {
 			// new TablaDeSimbolos());
 			r = sp.reconocer(lexic, visitor, this, arbolH, arbolS);
 			if (r && this.getEstadoAnalisis()) {
-				System.out
-						.println("El archivo analizado se encuentra correcto "
-								+ "sintacticamente, yay! :) \n*****"
-								+ "*********************************"
-								+ "*****************************\n");
 				ArbolUtils a = new ArbolUtils();
 				// a.showArbol(arbolS.getArbol());
 				a.escribirArchivoSalida(file.getAbsolutePath(), arbolS.getArbol());

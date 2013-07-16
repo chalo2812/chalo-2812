@@ -8,10 +8,10 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.MetodoHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.Parametro;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ParametroHandler;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 
-public class TIPO0 extends ProduccionC
+public class TIPO0 extends Produccion
 {
 	public TIPO0 ()	
 	{

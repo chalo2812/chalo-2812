@@ -12,11 +12,11 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.Parametro;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PALABRA;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 import tp.procesadores.analizador.sintactico.producciones.parametrizaciones.PARAMS0;
 
-public class ENCABEZADOP0 extends ProduccionC {
+public class ENCABEZADOP0 extends Produccion {
 
 		public ENCABEZADOP0(){
 			PalabraReservada procedimiento = new PalabraReservada("procedimiento");

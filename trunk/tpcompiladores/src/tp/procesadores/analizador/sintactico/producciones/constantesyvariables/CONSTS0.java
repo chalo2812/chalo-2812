@@ -5,10 +5,10 @@ import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LConstHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaConstantes;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 
-public class CONSTS0 extends ProduccionC
+public class CONSTS0 extends Produccion
 {
 	public CONSTS0 ()
 	{

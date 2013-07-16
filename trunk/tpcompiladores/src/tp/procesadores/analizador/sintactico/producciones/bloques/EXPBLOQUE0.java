@@ -6,12 +6,12 @@ import tp.procesadores.analizador.lexico.tokens.Natural;
 import tp.procesadores.analizador.lexico.tokens.Palabra;
 import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.expresiones.EXPBOOL0;
 import tp.procesadores.analizador.sintactico.producciones.funcionesrequeridas.ESIMPAR0;
 import tp.procesadores.analizador.sintactico.producciones.funcionesrequeridas.ESPAR0;
 
-public class EXPBLOQUE0 extends ProduccionC {
+public class EXPBLOQUE0 extends Produccion {
 
 	public EXPBLOQUE0()
 	{

@@ -11,9 +11,9 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.MetodoHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class FUNCION0 extends ProduccionC {
+public class FUNCION0 extends Produccion {
 	
 	public FUNCION0(){
 		ENCABEZADOF0 encabezado = null; 
@@ -33,7 +33,6 @@ public class FUNCION0 extends ProduccionC {
 			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH, TSHandler tablaS) 
 	{
 		boolean r; 
-//		System.out.println("FUNCION0");
 		TablaDeSimbolos tablaHija = new TablaDeSimbolos();
 		tablaHija.setPadre(tablaH);
 

@@ -7,9 +7,9 @@ import tp.procesadores.analizador.semantico.arbol.bloque.Mientras;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class LINEA2 extends ProduccionC {
+public class LINEA2 extends Produccion {
 	
 	public LINEA2(){
 		BLOQUEM0 bloquem = null;

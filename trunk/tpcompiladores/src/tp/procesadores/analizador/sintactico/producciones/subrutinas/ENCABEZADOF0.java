@@ -12,12 +12,12 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.Parametro;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PALABRA;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 import tp.procesadores.analizador.sintactico.producciones.constantesyvariables.TIPO0;
 import tp.procesadores.analizador.sintactico.producciones.parametrizaciones.PARAMS0;
 
-public class ENCABEZADOF0 extends ProduccionC {
+public class ENCABEZADOF0 extends Produccion {
 	
 	public ENCABEZADOF0(){
 		PalabraReservada funcion = new PalabraReservada("funcion");

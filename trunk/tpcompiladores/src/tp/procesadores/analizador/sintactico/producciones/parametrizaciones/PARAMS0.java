@@ -10,12 +10,12 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.Parametro;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ParametroHandler;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PALABRA;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 import tp.procesadores.analizador.sintactico.producciones.constantesyvariables.TIPO0;
 
 
-public class PARAMS0 extends ProduccionC
+public class PARAMS0 extends Produccion
 {
 	public PARAMS0()
 	{

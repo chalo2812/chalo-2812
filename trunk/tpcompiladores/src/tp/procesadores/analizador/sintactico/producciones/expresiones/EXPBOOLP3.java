@@ -8,10 +8,10 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.DistintoEnteros;
 import tp.procesadores.analizador.semantico.arbol.expresiones.NodoExpresion;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class EXPBOOLP3 extends ProduccionC {
+public class EXPBOOLP3 extends Produccion {
 
 	public EXPBOOLP3(){
 		SimboloTerminal igual = new SimboloTerminal("!=");

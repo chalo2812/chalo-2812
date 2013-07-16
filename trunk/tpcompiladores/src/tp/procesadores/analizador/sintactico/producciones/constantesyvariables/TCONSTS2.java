@@ -6,9 +6,9 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.LConstHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ListaConstantes;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class TCONSTS2 extends ProduccionC
+public class TCONSTS2 extends Produccion
 {
 	public TCONSTS2 ()
 	{

@@ -4,7 +4,7 @@ import tp.procesadores.analizador.lexico.LexicAnalyzer;
 import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
-public class SimboloTerminal extends ProduccionC {
+public class SimboloTerminal extends Produccion {
 
 	private String simbolo;
 	
@@ -21,12 +21,12 @@ public class SimboloTerminal extends ProduccionC {
 	}
 	
 	@Override
-	public void add(ProduccionI simbolo) {
+	public void add(IProduccion simbolo) {
 		System.out.println("ERROR: Un terminal no puede tener producciones hijas.");
 	}
 
 	@Override
-	public void remove(ProduccionI simbolo) {
+	public void remove(IProduccion simbolo) {
 		System.out.println("ERROR: Un terminal no puede tener producciones hijas.");
 	}
 	

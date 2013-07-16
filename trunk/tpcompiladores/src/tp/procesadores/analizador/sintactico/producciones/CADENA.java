@@ -8,7 +8,7 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
 import tp.procesadores.analizador.semantico.arbol.general.NodoCadena;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
-public class CADENA extends ProduccionC {
+public class CADENA extends Produccion {
 	
 	@Override 
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 

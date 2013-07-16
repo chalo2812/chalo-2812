@@ -9,9 +9,9 @@ import tp.procesadores.analizador.semantico.arbol.principal.Procedimiento;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TSHandler;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class FP0 extends ProduccionC {
+public class FP0 extends Produccion {
 	
 	public FP0(){
 		FUNCION0 funcion = new FUNCION0();

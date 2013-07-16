@@ -11,9 +11,9 @@ import tp.procesadores.analizador.semantico.arbol.general.Identificador;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.FilaTabla;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
-import tp.procesadores.analizador.sintactico.producciones.ProduccionC;
+import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class FPOASIG0 extends ProduccionC {
+public class FPOASIG0 extends Produccion {
 
 	public FPOASIG0()
 	{
