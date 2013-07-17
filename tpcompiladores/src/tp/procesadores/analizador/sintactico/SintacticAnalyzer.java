@@ -12,59 +12,54 @@ import tp.procesadores.analizador.sintactico.producciones.SP;
 
 public class SintacticAnalyzer {
 
-	private File file;
-	public Token actual = new Token(0, 0);
-	public Token siguiente = new Token(0, 0);
-	private boolean estadoAnalisis = true;
-	private String archivo;
+   private File file;
+   public Token actual = new Token(0, 0);
+   public Token siguiente = new Token(0, 0);
+   private boolean estadoAnalisis = true;
 
-	public SintacticAnalyzer(String filePath) {
-		file = new File(filePath);
-	}
+   public SintacticAnalyzer(String filePath) {
+      file = new File(filePath);
+   }
 
-	public void setActual(Token actual) {
-		this.actual = actual;
-	}
+   public void setActual(Token actual) {
+      this.actual = actual;
+   }
 
-	public void setSiguiente(Token siguiente) {
-		this.siguiente = siguiente;
-	}
+   public void setSiguiente(Token siguiente) {
+      this.siguiente = siguiente;
+   }
 
-	public void Compilar() throws Exception {
-		boolean r;
-		TokensVisitor visitor = new TokensVisitor();
-		LexicAnalyzer lexic = new LexicAnalyzer(file);
-		siguiente = lexic.getToken();
+   public void Compilar() throws Exception {
+      boolean valida;
+      TokensVisitor visitor = new TokensVisitor();
+      LexicAnalyzer lexic = new LexicAnalyzer(file);
+      siguiente = lexic.getToken();
 
-		SP sp = new SP();
-		ClaseNodo arbolH = new ClaseNodo();
-		ArbolHandler arbolS = new ArbolHandler();
+      SP sp = new SP();
+      ClaseNodo arbolH = new ClaseNodo();
+      ArbolHandler arbolS = new ArbolHandler();
 
-		if (siguiente.getClass() != Eof.class) {
-			// r = sp.reconocer(lexic, visitor, this, new Programa(), arbolS,
-			// new TablaDeSimbolos());
-			r = sp.reconocer(lexic, visitor, this, arbolH, arbolS);
-			if (r && this.getEstadoAnalisis()) {
-				ArbolUtils a = new ArbolUtils();
-				// a.showArbol(arbolS.getArbol());
-				a.escribirArchivoSalida(file.getAbsolutePath(), arbolS.getArbol());
-				// tablaS.getTabla().mostrarTabla("");
-			} else {
-				throw new Exception("Hay error\\es presente\\s en el archivo.. :'( ");
-			}
-		}
-	}
+      if (siguiente.getClass() != Eof.class) {
+         valida = sp.reconocer(lexic, visitor, this, arbolH, arbolS);
+         if (valida && this.getEstadoAnalisis()) {
+            ArbolUtils a = new ArbolUtils();
+            a.escribirArchivoSalida(file.getAbsolutePath(), arbolS.getArbol());
+         } else {
+            throw new Exception("Hay error\\es presente\\s en el archivo.. :'( ");
+         }
+      }
+   }
 
-	public void consumir(LexicAnalyzer lexic) {
-		setActual(siguiente);
-		setSiguiente(lexic.getToken());
-	}
+   public void consumir(LexicAnalyzer lexic) {
+      setActual(siguiente);
+      setSiguiente(lexic.getToken());
+   }
 
-	public boolean getEstadoAnalisis() {
-		return estadoAnalisis;
-	}
+   public boolean getEstadoAnalisis() {
+      return estadoAnalisis;
+   }
 
-	public void setEstadoAnalisis(boolean estadoAnalisis) {
-		this.estadoAnalisis = estadoAnalisis;
-	}
+   public void setEstadoAnalisis(boolean estadoAnalisis) {
+      this.estadoAnalisis = estadoAnalisis;
+   }
 }
