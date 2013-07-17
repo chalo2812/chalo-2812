@@ -6,38 +6,37 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
 public class PalabraReservada extends Produccion {
 
-	private String simbolo;
-	
-	public PalabraReservada(String s){
-		this.simbolo = s; 
-	}
+   private String simbolo;
 
-	public String getSimbolo() {
-		return simbolo;
-	}
+   public PalabraReservada(String s) {
+      this.simbolo = s;
+   }
 
-	public void setSimbolo(String simbolo) {
-		this.simbolo = simbolo;
-	}
-	
-	@Override
-	public void add(IProduccion simbolo) {
-		System.out.println("ERROR: Un terminal no puede tener producciones hijas.");
-	}
+   public String getSimbolo() {
+      return simbolo;
+   }
 
-	@Override
-	public void remove(IProduccion simbolo) {
-		System.out.println("ERROR: Un terminal no puede tener producciones hijas.");
-	}
-	
-	@Override 
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic) {
-		boolean r = false;
-		if(simbolo.equals(sintactic.siguiente.accept(visitor)))
-		{
-				sintactic.consumir(lexic);
-				r = true;
-		}
-		return r;
-	}
+   public void setSimbolo(String simbolo) {
+      this.simbolo = simbolo;
+   }
+
+   @Override
+   public void add(IProduccion simbolo) {
+      System.out.println("ERROR: Un terminal no puede tener producciones hijas.");
+   }
+
+   @Override
+   public void remove(IProduccion simbolo) {
+      System.out.println("ERROR: Un terminal no puede tener producciones hijas.");
+   }
+
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic) {
+      boolean valida = false;
+      if (simbolo.equals(sintactic.siguiente.accept(visitor))) {
+         sintactic.consumir(lexic);
+         valida = true;
+      }
+      return valida;
+   }
 }

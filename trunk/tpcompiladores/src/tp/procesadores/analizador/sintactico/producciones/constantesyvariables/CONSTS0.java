@@ -8,33 +8,24 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 
-public class CONSTS0 extends Produccion
-{
-	public CONSTS0 ()
-	{
-		PalabraReservada constante = new PalabraReservada("const");
-		producciones.add(constante);
-		CONSTSP0 constsp = null;
-		producciones.add(constsp);
-	}
-	
-	//CONSTS'.ListaConstanteslH = CONSTS.ListaConstantesH 
-	//CONSTS.ListaConstantesS = CONSTS'.ListaConstantesS  
-	
-	//CONSTS -> const CONSTS'
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
-			ListaConstantes listaH, LConstHandler listaS) 
-	{
-		boolean r; 
-//		System.out.println("CONSTS0");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		if ( r ) 
-		{
-			LConstHandler listaSp = new LConstHandler();
-			producciones.set(1, new CONSTSP0());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, listaH, listaSp);
-			listaS.setLista(listaSp.getLista());
-		}
-		return r; 	
-	}
+public class CONSTS0 extends Produccion {
+   public CONSTS0() {
+      PalabraReservada constante = new PalabraReservada("const");
+      producciones.add(constante);
+      CONSTSP0 constsp = null;
+      producciones.add(constsp);
+   }
+
+   // CONSTS -> const CONSTS'
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaConstantes listaH, LConstHandler listaS) {
+      boolean valida;
+      valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (valida) {
+         LConstHandler listaSp = new LConstHandler();
+         producciones.set(1, new CONSTSP0());
+         valida = producciones.get(1).reconocer(lexic, visitor, sintactic, listaH, listaSp);
+         listaS.setLista(listaSp.getLista());
+      }
+      return valida;
+   }
 }

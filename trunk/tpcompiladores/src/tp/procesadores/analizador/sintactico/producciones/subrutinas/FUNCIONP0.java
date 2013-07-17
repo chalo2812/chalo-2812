@@ -21,19 +21,18 @@ public class FUNCIONP0 extends Produccion {
 	
 
 	
-	/** FUNCION�-> adelantado; |
+	/** FUNCION -> adelantado; |
 	 *				DECL BLOQUEF
 	 **/
 	@Override 
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
 			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH, TSHandler tablaS) 
 	{
-		boolean r;
-//		System.out.println("FUNCIONP0");
+		boolean valida;
 		if ( sintactic.siguiente.accept(visitor).equals("adelantado")) 
 		{ 
 			producciones.set(0, new FUNCIONP1());
-			r = producciones.get(0).reconocer(lexic, visitor, sintactic);
+			valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
 			tablaH.metodos.get(tablaH.metodos.size()-1).setEsAdelantado(true);
 			tablaS.setTabla(tablaH);
 			arbolS.setArbol(arbolH);
@@ -42,11 +41,11 @@ public class FUNCIONP0 extends Produccion {
 			ArbolHandler arbolSp = new ArbolHandler();
 			TSHandler tablaSp = new TSHandler(); 
 			producciones.set(1, new FUNCIONP2());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH, tablaSp);
+			valida = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH, tablaSp);
 			tablaS.setTabla(tablaSp.getTabla());
 			arbolS.setArbol(arbolSp.getArbol());
 
 		}
-		return r;
+		return valida;
 	}
 }

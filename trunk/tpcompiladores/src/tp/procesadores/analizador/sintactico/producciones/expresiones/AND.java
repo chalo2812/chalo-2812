@@ -12,71 +12,62 @@ import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
 public class AND extends Produccion {
-	
-	public AND(){
-		PalabraReservada and = new PalabraReservada("and"); 
-		producciones.add(and);
-		SimboloTerminal parentesis1 = new SimboloTerminal("("); 
-		producciones.add(parentesis1);
-		EXPBOOL0 exp1 = null; 
-		producciones.add(exp1);
-		SimboloTerminal comma = new SimboloTerminal(","); 
-		producciones.add(comma);
-		EXPBOOL0 exp2 = null; 
-		producciones.add(exp2); 
-		SimboloTerminal parentesis2 = new SimboloTerminal(")"); 
-		producciones.add(parentesis2);
-	}
-	
-	//AND  ->   and(EXPBOOL,EXPBOOL)
-	@Override 
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-//		System.out.println("AND");
-		boolean r; 
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic); 
-		if ( r )
-		{
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic);
-			if ( r )
-			{
-				ArbolHandler arbolSp1 = new ArbolHandler();
-				producciones.set(2, new EXPBOOL0());
-				r = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
-				if ( r )
-				{ 
-					r = producciones.get(3).reconocer(lexic, visitor, sintactic);
-					if ( r )
-					{
-						ArbolHandler arbolSp2 = new ArbolHandler();
-						producciones.set(4, new EXPBOOL0());
-						r = producciones.get(4).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
-						if ( r )
-						{  
-							r = producciones.get(5).reconocer(lexic, visitor, sintactic);
-							arbolS.setArbol(new FuncionAnd(arbolSp1.getArbol(), arbolSp2.getArbol()));
-							if ( !r )
-							{ 
-								merrores.mostrarYSkipearError("Se espera parentesis ')'", lexic, sintactic, visitor);
-								sintactic.setEstadoAnalisis(false);
-								r = true;
-							}
-						}
-					}else
-					{
-						merrores.mostrarYSkipearError("Se espera coma ',' en funcion 'and'", lexic, sintactic, visitor);
-						sintactic.setEstadoAnalisis(false);
-						r = true;
-					}
-				}
-			}else
-			{
-				merrores.mostrarYSkipearError("Se espera parentesis '('", lexic, sintactic, visitor);
-				sintactic.setEstadoAnalisis(false);
-				r = true;	
-			}
-		}
-		return r;
-	}
+
+   public AND() {
+      PalabraReservada and = new PalabraReservada("and");
+      producciones.add(and);
+      SimboloTerminal parentesis1 = new SimboloTerminal("(");
+      producciones.add(parentesis1);
+      EXPBOOL0 exp1 = null;
+      producciones.add(exp1);
+      SimboloTerminal comma = new SimboloTerminal(",");
+      producciones.add(comma);
+      EXPBOOL0 exp2 = null;
+      producciones.add(exp2);
+      SimboloTerminal parentesis2 = new SimboloTerminal(")");
+      producciones.add(parentesis2);
+   }
+
+   // AND -> and(EXPBOOL,EXPBOOL)
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+
+      boolean valida;
+      valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (valida) {
+         valida = producciones.get(1).reconocer(lexic, visitor, sintactic);
+         if (valida) {
+            ArbolHandler arbolSp1 = new ArbolHandler();
+            producciones.set(2, new EXPBOOL0());
+            valida = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
+            if (valida) {
+               valida = producciones.get(3).reconocer(lexic, visitor, sintactic);
+               if (valida) {
+                  ArbolHandler arbolSp2 = new ArbolHandler();
+                  producciones.set(4, new EXPBOOL0());
+                  valida = producciones.get(4).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
+                  if (valida) {
+                     valida = producciones.get(5).reconocer(lexic, visitor, sintactic);
+                     arbolS.setArbol(new FuncionAnd(arbolSp1.getArbol(), arbolSp2.getArbol()));
+                     if (!valida) {
+                        merrores.mostrarYSkipearError("Se espera parentesis ')'", lexic, sintactic, visitor);
+                        sintactic.setEstadoAnalisis(false);
+                        valida = true;
+                     }
+                  }
+               } else {
+                  merrores.mostrarYSkipearError("Se espera coma ',' en funcion 'and'", lexic, sintactic, visitor);
+                  sintactic.setEstadoAnalisis(false);
+                  valida = true;
+               }
+            }
+         } else {
+            merrores.mostrarYSkipearError("Se espera parentesis '('", lexic, sintactic, visitor);
+            sintactic.setEstadoAnalisis(false);
+            valida = true;
+         }
+      }
+      return valida;
+   }
 }

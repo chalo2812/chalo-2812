@@ -11,36 +11,29 @@ import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
 public class BLOQUESIP1 extends Produccion {
 
-	public BLOQUESIP1()
-	{
-		PalabraReservada finsi = new PalabraReservada("fin-si");
-		producciones.add(finsi);
-		SimboloTerminal pyc = new SimboloTerminal(";");
-		producciones.add(pyc);
-	}
+   public BLOQUESIP1() {
+      PalabraReservada finsi = new PalabraReservada("fin-si");
+      producciones.add(finsi);
+      SimboloTerminal pyc = new SimboloTerminal(";");
+      producciones.add(pyc);
+   }
 
-	//BLOQUESIP0 ->   fin-si;
-		//	BLOQUESI'.ArbolS = BLOQUESI'.ArbolS
+   // BLOQUESIP0 -> fin-si;
+   // BLOQUESI'.ArbolS = BLOQUESI'.ArbolS
 
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			 ClaseNodo arbolH, ArbolHandler arbolS)
-	{
-		boolean r;
-//		System.out.println("BLOQUESIP1");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		if( r ){
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic);
-			
-			arbolS.setArbol(arbolH);
-			
-			if ( !r )
-			{
-				merrores.mostrarYSkipearError("Se espera punto y coma ';'", lexic, sintactic, visitor);
-				sintactic.setEstadoAnalisis(false);
-				r = true;
-			}
-		}
-		return r;
-	}
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS) {
+      boolean error;
+      error = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (error) {
+         error = producciones.get(1).reconocer(lexic, visitor, sintactic);
+         arbolS.setArbol(arbolH);
+         if (!error) {
+            merrores.mostrarYSkipearError("Se espera punto y coma ';'", lexic, sintactic, visitor);
+            sintactic.setEstadoAnalisis(false);
+            error = true;
+         }
+      }
+      return error;
+   }
 }
