@@ -27,36 +27,36 @@ public class GLOBALES extends Produccion {
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH, TSHandler tablaS) {
-      boolean valida;
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (valida) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
          Globales globales = new Globales();
          TSHandler tablaSp = new TSHandler();
          producciones.set(1, new DECGL0());
-         valida = producciones.get(1).reconocer(lexic, visitor, sintactic, tablaH, tablaSp);
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, tablaH, tablaSp);
          globales.add(tablaSp.getTabla());
          arbolH.add(globales);
          arbolS.setArbol(arbolH);
          tablaS.setTabla(tablaSp.getTabla());
-         if (valida) {
-            valida = producciones.get(2).reconocer(lexic, visitor, sintactic);
-            if (valida) {
-               valida = producciones.get(3).reconocer(lexic, visitor, sintactic);
-               if (!valida) {
+         if (reconoce) {
+            reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic);
+            if (reconoce) {
+               reconoce = producciones.get(3).reconocer(lexic, visitor, sintactic);
+               if (!reconoce) {
                   merrores.mostrarYSkipearError("Falta punto y coma ';'", lexic, sintactic, visitor);
                   sintactic.setEstadoAnalisis(false);
-                  valida = true;
+                  reconoce = true;
                }
             } else {
                merrores.mostrarYSkipearError("Se espera palabra reservada 'fin-globales'", lexic, sintactic, visitor);
                sintactic.setEstadoAnalisis(false);
-               valida = true;
+               reconoce = true;
             }
          }
       } else {
          arbolS.setArbol(arbolH);
-         valida = true;
+         reconoce = true;
       }
-      return valida;
+      return reconoce;
    }
 }

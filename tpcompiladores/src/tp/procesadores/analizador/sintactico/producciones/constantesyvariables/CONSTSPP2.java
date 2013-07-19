@@ -8,25 +8,19 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class CONSTSPP2 extends Produccion 
-{
-	public CONSTSPP2 ()
-	{
-		SimboloTerminal pycoma = new SimboloTerminal(";");
-		producciones.add(pycoma);
-	}
-	
-	//CONSTS''.ListaConstantesS = CONSTAS''.ListaConstantesH
-	
-	//CONSTS'' -> ;
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
-			ListaConstantes listaH, LConstHandler listaS) 
-	{
-		boolean r; 
-//		System.out.println("CONSTSPP2");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		listaS.setLista(listaH);
-		return r; 	
-	}
+public class CONSTSPP2 extends Produccion {
+   
+   public CONSTSPP2() {
+      SimboloTerminal pycoma = new SimboloTerminal(";");
+      producciones.add(pycoma);
+   }
+
+   // CONSTS'' -> ;
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaConstantes listaH, LConstHandler listaS) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      listaS.setLista(listaH);
+      return reconoce;
+   }
 }

@@ -27,28 +27,27 @@ public class FPOASIG2 extends Produccion {
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
-      boolean error;
-      // System.out.println("FPOASIG2");
+      boolean reconoce;
       Asignacion asignacion = new Asignacion();
       asignacion.add(arbolH);
-      error = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (error) {
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
          ArbolHandler arbolSp = new ArbolHandler();
          NodoExpresion expresion = new NodoExpresion();
          producciones.set(1, new EXP0());
-         error = producciones.get(1).reconocer(lexic, visitor, sintactic, new ClaseNodo(), arbolSp, tablaH);
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, new ClaseNodo(), arbolSp, tablaH);
          expresion.add(arbolSp.getArbol());
          asignacion.add(expresion);
          arbolS.setArbol(asignacion);
-         if (error) {
-            error = producciones.get(2).reconocer(lexic, visitor, sintactic);
-            if (!error) {
+         if (reconoce) {
+            reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic);
+            if (!reconoce) {
                merrores.mostrarYSkipearError("Se espera punto y coma ';'", lexic, sintactic, visitor);
                sintactic.setEstadoAnalisis(false);
-               error = true;
+               reconoce = true;
             }
          }
       }
-      return error;
+      return reconoce;
    }
 }

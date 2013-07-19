@@ -22,24 +22,24 @@ public class SUBRUTINA extends Produccion {
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH, TSHandler tablaS) {
-      boolean valida;
+      boolean reconoce;
 
       ArbolHandler arbolSp1 = new ArbolHandler();
       TSHandler tablaSp1 = new TSHandler();
       producciones.set(0, new FP0());
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH, tablaSp1);
-      if (valida) {
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH, tablaSp1);
+      if (reconoce) {
          ArbolHandler arbolSp2 = new ArbolHandler();
          TSHandler tablaSp2 = new TSHandler();
          producciones.set(1, new SUBRUTINA());
-         valida = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH, tablaSp2);
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH, tablaSp2);
          arbolS.setArbol(arbolSp2.getArbol());
          tablaS.setTabla(tablaSp2.getTabla());
       } else {
          arbolS.setArbol(arbolH);
          tablaS.setTabla(tablaH);
-         valida = true;
+         reconoce = true;
       }
-      return valida;
+      return reconoce;
    }
 }

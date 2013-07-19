@@ -19,88 +19,72 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
 public class PALABRA extends Produccion {
-	
-	@Override 
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) {
-//		System.out.println("PALABRA");
-		if ( sintactic.siguiente.getClass() == Palabra.class){
-			Identificador identificador = new Identificador(sintactic.siguiente.accept(visitor),"");
-			identificador.add(tablaH);
-			identificador.setContexto(tablaH.getContexto());
-			sintactic.consumir(lexic);
-			arbolS.setArbol(identificador);
-		}else
-		{
-			merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
-			sintactic.setEstadoAnalisis(false);
-		}
-		return true;
-	}
-	
-	
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ListaConstantes listaH, LConstHandler listaS){
-//		System.out.println("PALABRA");
-		if ( sintactic.siguiente.getClass() == Palabra.class){
-			ElementoIdentificador identificador = new ElementoIdentificador();
-			identificador.setLexema(sintactic.siguiente.accept(visitor));
-			sintactic.consumir(lexic);
-			listaH.identificadores.add(identificador);
-			listaS.setLista(listaH);
-		}else
-		{
-			merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
-			sintactic.setEstadoAnalisis(false);
-		}
-		return true;
-	}
-	
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ListaVariables listaH, LVarHandler listaS){
-//		System.out.println("PALABRA");
-		if ( sintactic.siguiente.getClass() == Palabra.class){
-			ElementoIdentificador identificador = new ElementoIdentificador();
-			identificador.setLexema(sintactic.siguiente.accept(visitor));
-			sintactic.consumir(lexic);
-			listaH.identificadores.add(identificador);
-			listaS.setLista(listaH);
-		}else
-		{
-			merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
-			sintactic.setEstadoAnalisis(false);
-		}
-		return true;
-	}
-	
-	
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			Metodo metodoH, MetodoHandler metodoS){
-//		System.out.println("PALABRA");
-		if ( sintactic.siguiente.getClass() == Palabra.class){
-			metodoH.setNombre(sintactic.siguiente.accept(visitor));
-			metodoS.setMetodo(metodoH);
-			sintactic.consumir(lexic);
-		}else
-		{
-			merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
-			sintactic.setEstadoAnalisis(false);
-		}
-		return true;
-	}
-	 
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			Parametro parametroH, ParametroHandler parametroS){
-//		System.out.println("PALABRA");
-		if ( sintactic.siguiente.getClass() == Palabra.class){
-			parametroH.setLexema(sintactic.siguiente.accept(visitor));
-			parametroS.setParametro(parametroH);
-			sintactic.consumir(lexic);
-		}else
-		{
-			merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
-			sintactic.setEstadoAnalisis(false);
-		}
-		return true;
-	}
+
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      if (sintactic.siguiente.getClass() == Palabra.class) {
+         Identificador identificador = new Identificador(sintactic.siguiente.accept(visitor), "");
+         identificador.add(tablaH);
+         identificador.setContexto(tablaH.getContexto());
+         sintactic.consumir(lexic);
+         arbolS.setArbol(identificador);
+      } else {
+         merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
+         sintactic.setEstadoAnalisis(false);
+      }
+      return true;
+   }
+
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaConstantes listaH, LConstHandler listaS) {
+      if (sintactic.siguiente.getClass() == Palabra.class) {
+         ElementoIdentificador identificador = new ElementoIdentificador();
+         identificador.setLexema(sintactic.siguiente.accept(visitor));
+         sintactic.consumir(lexic);
+         listaH.identificadores.add(identificador);
+         listaS.setLista(listaH);
+      } else {
+         merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
+         sintactic.setEstadoAnalisis(false);
+      }
+      return true;
+   }
+
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaVariables listaH, LVarHandler listaS) {
+      if (sintactic.siguiente.getClass() == Palabra.class) {
+         ElementoIdentificador identificador = new ElementoIdentificador();
+         identificador.setLexema(sintactic.siguiente.accept(visitor));
+         sintactic.consumir(lexic);
+         listaH.identificadores.add(identificador);
+         listaS.setLista(listaH);
+      } else {
+         merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
+         sintactic.setEstadoAnalisis(false);
+      }
+      return true;
+   }
+
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, Metodo metodoH, MetodoHandler metodoS) {
+      if (sintactic.siguiente.getClass() == Palabra.class) {
+         metodoH.setNombre(sintactic.siguiente.accept(visitor));
+         metodoS.setMetodo(metodoH);
+         sintactic.consumir(lexic);
+      } else {
+         merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
+         sintactic.setEstadoAnalisis(false);
+      }
+      return true;
+   }
+
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, Parametro parametroH, ParametroHandler parametroS) {
+      if (sintactic.siguiente.getClass() == Palabra.class) {
+         parametroH.setLexema(sintactic.siguiente.accept(visitor));
+         parametroS.setParametro(parametroH);
+         sintactic.consumir(lexic);
+      } else {
+         merrores.mostrarYSkipearError("Se espera identificador", lexic, sintactic, visitor);
+         sintactic.setEstadoAnalisis(false);
+      }
+      return true;
+   }
 }

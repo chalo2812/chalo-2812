@@ -13,33 +13,28 @@ import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
 public class EXPBOOLP2 extends Produccion {
 
-	public EXPBOOLP2(){
-		SimboloTerminal igual = new SimboloTerminal("<");
-		producciones.add(igual);
-		EXP0 exp = null;
-		producciones.add(exp);
-	}
-	
-	//EXP.ArbolH = CrearNodoMenorEntero ( EXPBOOL.ArbolH ) 
-	//EXPBOOL'.ArbolS = EXP.ArbolS 
-	
-	//EXPBOOL' ->  < EXP 
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r; 
-//		System.out.println("EXPBOOLP2");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		if ( r )
-		{
-			ArbolHandler arbolSp = new ArbolHandler();
-			producciones.set(1, new EXP0()); 
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, new NodoExpresion(), arbolSp, tablaH);
-			MenorEnteros menor = new MenorEnteros(arbolH, arbolSp.getArbol());
-			arbolS.setArbol(menor);
-		}
-		return r; 
-	}
-	 
+   public EXPBOOLP2() {
+      SimboloTerminal igual = new SimboloTerminal("<");
+      producciones.add(igual);
+      EXP0 exp = null;
+      producciones.add(exp);
+   }
+
+   // EXPBOOL' -> < EXP
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      boolean reconoce;
+
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
+         ArbolHandler arbolSp = new ArbolHandler();
+         producciones.set(1, new EXP0());
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, new NodoExpresion(), arbolSp, tablaH);
+         MenorEnteros menor = new MenorEnteros(arbolH, arbolSp.getArbol());
+         arbolS.setArbol(menor);
+      }
+      return reconoce;
+   }
+
 }

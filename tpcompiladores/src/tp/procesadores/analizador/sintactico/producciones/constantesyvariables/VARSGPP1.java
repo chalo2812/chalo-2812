@@ -10,31 +10,24 @@ import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
 public class VARSGPP1 extends Produccion {
 
-	public VARSGPP1(){
-		SimboloTerminal coma = new SimboloTerminal(",");
-		producciones.add(coma);
-		VARSGP0 varsgp = null;
-		producciones.add(varsgp);
-	}
+   public VARSGPP1() {
+      SimboloTerminal coma = new SimboloTerminal(",");
+      producciones.add(coma);
+      VARSGP0 varsgp = null;
+      producciones.add(varsgp);
+   }
 
-	//VARSG'.ListaVariablesH = TVARG.ListaVariablesH 
-	//TVARG.ListaVariablesS = VARSG'.ListaVariablesS 
-	
-	//VARSGPP ->   , VARSGP
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
-			ListaVariables listaH, LVarHandler listaS) 
-	{
-		boolean r;
-//		System.out.println("VARSGPP1");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		if ( r )
-		{
-			LVarHandler listaSp = new LVarHandler();
-			producciones.set(1, new VARSGP0()); 
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, listaH, listaSp);
-			listaS.setLista(listaSp.getLista());
-		}
-		return r; 	
-	}
+   // VARSGPP -> , VARSGP
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaVariables listaH, LVarHandler listaS) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
+         LVarHandler listaSp = new LVarHandler();
+         producciones.set(1, new VARSGP0());
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, listaH, listaSp);
+         listaS.setLista(listaSp.getLista());
+      }
+      return reconoce;
+   }
 }

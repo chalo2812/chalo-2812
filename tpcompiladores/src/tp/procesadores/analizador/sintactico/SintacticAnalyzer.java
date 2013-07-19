@@ -30,7 +30,7 @@ public class SintacticAnalyzer {
    }
 
    public void Compilar() throws Exception {
-      boolean valida;
+      boolean valido;
       TokensVisitor visitor = new TokensVisitor();
       LexicAnalyzer lexic = new LexicAnalyzer(file);
       siguiente = lexic.getToken();
@@ -40,8 +40,8 @@ public class SintacticAnalyzer {
       ArbolHandler arbolS = new ArbolHandler();
 
       if (siguiente.getClass() != Eof.class) {
-         valida = sp.reconocer(lexic, visitor, this, arbolH, arbolS);
-         if (valida && this.getEstadoAnalisis()) {
+         valido = sp.reconocer(lexic, visitor, this, arbolH, arbolS);
+         if (valido && this.getEstadoAnalisis()) {
             ArbolUtils a = new ArbolUtils();
             a.escribirArchivoSalida(file.getAbsolutePath(), arbolS.getArbol());
          } else {

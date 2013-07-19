@@ -9,33 +9,30 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.CADENA;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class MOSTRARAUX1 extends Produccion
-{
-	public MOSTRARAUX1()
-	{
-		CADENA caedena = new CADENA();
-		producciones.add(caedena);
-		MOSTRARAUXP0 mostrarauxp0 = null;
-		producciones.add(mostrarauxp0);
-	}
+public class MOSTRARAUX1 extends Produccion {
 
-	//MOSTRARAUX ->	CADENA MOSTRARAUX'
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r;
-//		System.out.println("MOSTRARAUX1");
-		ArbolHandler arbolSp1 = new ArbolHandler();
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, new ClaseNodo(), arbolSp1); 
-		arbolH.add(arbolSp1.getArbol());
-		if ( r )
-		{
-			ArbolHandler arbolSp2 = new ArbolHandler();
-			producciones.set(1, new MOSTRARAUXP0());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
-			arbolS.setArbol(arbolSp2.getArbol());
-		}
-		return r;
-	}
+   public MOSTRARAUX1() {
+      CADENA caedena = new CADENA();
+      producciones.add(caedena);
+      MOSTRARAUXP0 mostrarauxp0 = null;
+      producciones.add(mostrarauxp0);
+   }
+
+   // MOSTRARAUX -> CADENA MOSTRARAUX'
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      boolean reconoce;
+
+      ArbolHandler arbolSp1 = new ArbolHandler();
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, new ClaseNodo(), arbolSp1);
+      arbolH.add(arbolSp1.getArbol());
+      if (reconoce) {
+         ArbolHandler arbolSp2 = new ArbolHandler();
+         producciones.set(1, new MOSTRARAUXP0());
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
+         arbolS.setArbol(arbolSp2.getArbol());
+      }
+      return reconoce;
+   }
 }

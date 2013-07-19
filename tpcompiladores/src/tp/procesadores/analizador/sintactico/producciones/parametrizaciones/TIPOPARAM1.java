@@ -6,22 +6,17 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class TIPOPARAM1 extends Produccion 
-{
-	public TIPOPARAM1()
-	{
-		SimboloTerminal ref = new SimboloTerminal("ref");
-		producciones.add(ref);
-	}
+public class TIPOPARAM1 extends Produccion {
 
-	//	ref
-	
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor,
-			SintacticAnalyzer sintactic) 
-	{
-		boolean r;
-//		System.out.println("TIPOPARAM1");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic); 
-		return r;
-	}
+   public TIPOPARAM1() {
+      SimboloTerminal ref = new SimboloTerminal("ref");
+      producciones.add(ref);
+   }
+
+   // ref
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      return reconoce;
+   }
 }

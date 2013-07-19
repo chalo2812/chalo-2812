@@ -11,32 +11,26 @@ import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
 public class FACT2 extends Produccion {
 
-	public FACT2(){
-		PALABRA palabra = new PALABRA();
-		producciones.add(palabra);
-		FACTP0 factp = null; 
-		producciones.add(factp); 
-	}
-	
-	//FACT.ArbolH = CrearArbol (PALABRA.lexema, FACT'.ArbolH ) 
-	//FACT.ArbolS = FACT'.ArbolS
-	
-	//FACT ->   PALABRA FACT'
-//	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r;
-//		System.out.println("FACT2");
-		ArbolHandler arbolSp1 = new ArbolHandler();
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, new ClaseNodo(), arbolSp1, tablaH); 
-		if ( r )
-		{
-			ArbolHandler arbolSp2 = new ArbolHandler();
-			producciones.set(1, new FACTP0());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH);
-			arbolS.setArbol(arbolSp2.getArbol());
-		}
-		return r;
-	}
+   public FACT2() {
+      PALABRA palabra = new PALABRA();
+      producciones.add(palabra);
+      FACTP0 factp = null;
+      producciones.add(factp);
+   }
+
+   // FACT -> PALABRA FACT'
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      boolean reconoce;
+      ArbolHandler arbolSp1 = new ArbolHandler();
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, new ClaseNodo(), arbolSp1, tablaH);
+      if (reconoce) {
+         ArbolHandler arbolSp2 = new ArbolHandler();
+         producciones.set(1, new FACTP0());
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH);
+         arbolS.setArbol(arbolSp2.getArbol());
+      }
+      return reconoce;
+   }
 }

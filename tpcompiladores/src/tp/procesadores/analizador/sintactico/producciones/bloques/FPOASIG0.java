@@ -7,7 +7,6 @@ import tp.procesadores.analizador.lexico.tokens.visitor.NodeVisitor;
 import tp.procesadores.analizador.lexico.tokens.visitor.TokensVisitor;
 import tp.procesadores.analizador.semantico.arbol.ArbolHandler;
 import tp.procesadores.analizador.semantico.arbol.expresiones.ClaseNodo;
-import tp.procesadores.analizador.semantico.arbol.general.Identificador;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.FilaTabla;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
@@ -28,7 +27,7 @@ public class FPOASIG0 extends Produccion {
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
-      boolean error;
+      boolean reconoce;
       if (sintactic.siguiente.accept(visitor).equals("(")) {
          NodeVisitor identVisitor = new NodeVisitor();
          identVisitor.setContexto(null);
@@ -43,7 +42,7 @@ public class FPOASIG0 extends Produccion {
          }
          ArbolHandler arbolSp1 = new ArbolHandler();
          producciones.set(0, new FPOASIG1());
-         error = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
+         reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
          arbolS.setArbol(arbolSp1.getArbol());
       } else {
          if (sintactic.siguiente.accept(visitor).equals(":=")) {
@@ -56,9 +55,7 @@ public class FPOASIG0 extends Produccion {
                if (!tablaH.esParametroDelContexto(arbolH.accept(identVisitor))) {
 
                   identVisitor.setLexema(tablaH.padre.entradas != null && tablaH.padre.entradas.size() > 0 ? obtenerIdentificador(tablaH.padre.entradas,
-                                                                                                                                  arbolH)
-                                                                                                          : "");
-
+                                                                                                                                  arbolH): "");
                   merrores.mostrarErrorSemantico("El identificador \'" + arbolH.accept(identVisitor) + "\' NO esta declarado", sintactic);
                   sintactic.setEstadoAnalisis(false);
                }
@@ -71,22 +68,22 @@ public class FPOASIG0 extends Produccion {
             }
             ArbolHandler arbolSp2 = new ArbolHandler();
             producciones.set(1, new FPOASIG2());
-            error = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
+            reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
             arbolS.setArbol(arbolSp2.getArbol());
          } else {
             if (sintactic.siguiente.accept(visitor).equals("[")) {
                ArbolHandler arbolSp3 = new ArbolHandler();
                producciones.set(2, new FPOASIG3());
-               error = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp3, tablaH);
+               reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp3, tablaH);
                arbolS.setArbol(arbolSp3.getArbol());
             } else {
                merrores.mostrarYSkipearError("Se espera alguno de los siguientes operadores {'(',':=','['}", lexic, sintactic, visitor);
                sintactic.setEstadoAnalisis(false);
-               error = true;
+               reconoce = true;
             }
          }
       }
-      return error;
+      return reconoce;
    }
 
    private String obtenerIdentificador(List<FilaTabla> entradas, ClaseNodo lexico) {

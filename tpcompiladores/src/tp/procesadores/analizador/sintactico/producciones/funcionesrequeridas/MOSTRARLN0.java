@@ -9,32 +9,27 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class MOSTRARLN0 extends Produccion
+public class MOSTRARLN0 extends Produccion{
+   
+   public MOSTRARLN0() {
+      SimboloTerminal mostrarln = new SimboloTerminal("mostrarln");
+      producciones.add(mostrarln);
+      MOSTRARAUX0 mostraraux = null;
+      producciones.add(mostraraux);
+   }
 
-{
-	public MOSTRARLN0()
-	{
-		SimboloTerminal mostrarln = new SimboloTerminal("mostrarln");
-		producciones.add(mostrarln);
-		MOSTRARAUX0  mostraraux = null;
-		producciones.add(mostraraux);
-	}
-	
-	//MOSTRARLN ->   mostrarln MOSTRARAUX
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,  
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r;
-//		System.out.println("MOSTRARLN0");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic); 
-		if ( r )
-		{
-			ArbolHandler arbolSp = new ArbolHandler();
-			producciones.set(1, new MOSTRARAUX0());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH);
-			arbolS.setArbol(arbolSp.getArbol());
-		}
-		return r;
-	}
+   // MOSTRARLN -> mostrarln MOSTRARAUX
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
+         ArbolHandler arbolSp = new ArbolHandler();
+         producciones.set(1, new MOSTRARAUX0());
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH);
+         arbolS.setArbol(arbolSp.getArbol());
+      }
+      return reconoce;
+   }
 }

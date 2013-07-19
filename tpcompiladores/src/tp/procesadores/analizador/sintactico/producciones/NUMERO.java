@@ -10,62 +10,46 @@ import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.ElementoIdentif
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 
 public class NUMERO extends Produccion {
-	
-	public NUMERO(){
-		ENTERO entero = new ENTERO();
-		producciones.add(entero);
-		NATURAL natural = new NATURAL();
-		producciones.add(natural);
-	}
-	
-	//NUMERO.ArobolS = ENTERO.ArbolS
-	@Override 
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS)
-	{
-//		System.out.println("NUMERO");
-		boolean r;
-		if ( sintactic.siguiente.getClass() == Entero.class ) 
-		{
-			ArbolHandler arbolSp1 = new ArbolHandler();
-			r = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1);
-			arbolS.setArbol(arbolSp1.getArbol());
-		}else{
-			if ( sintactic.siguiente.getClass() == Natural.class )
-			{
-				ArbolHandler arbolSp2 = new ArbolHandler();
-				r = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2);
-				arbolS.setArbol(arbolSp2.getArbol());
-			}else 
-			{
-				r = false;
-			}
-		}
-		return r;
-	}
-	
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ElementoIdentificador elemento)
-	{
-//		System.out.println("NUMERO");
-		boolean r;
-		if ( sintactic.siguiente.getClass() == Entero.class ) 
-		{
-			r = producciones.get(0).reconocer(lexic, visitor, sintactic, elemento);
-		}else{
-			if ( sintactic.siguiente.getClass() == Natural.class )
-			{
-				r = producciones.get(1).reconocer(lexic, visitor, sintactic, elemento);
-			}else 
-			{
-				r = false;
-			}
-		}
-		return r;
-	}
-	
-	
-	
-	
-	
+
+   public NUMERO() {
+      ENTERO entero = new ENTERO();
+      producciones.add(entero);
+      NATURAL natural = new NATURAL();
+      producciones.add(natural);
+   }
+
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS) {
+      boolean reconoce;
+      if (sintactic.siguiente.getClass() == Entero.class) {
+         ArbolHandler arbolSp1 = new ArbolHandler();
+         reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1);
+         arbolS.setArbol(arbolSp1.getArbol());
+      } else {
+         if (sintactic.siguiente.getClass() == Natural.class) {
+            ArbolHandler arbolSp2 = new ArbolHandler();
+            reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2);
+            arbolS.setArbol(arbolSp2.getArbol());
+         } else {
+            reconoce = false;
+         }
+      }
+      return reconoce;
+   }
+
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ElementoIdentificador elemento) {
+      boolean reconoce;
+      if (sintactic.siguiente.getClass() == Entero.class) {
+         reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, elemento);
+      } else {
+         if (sintactic.siguiente.getClass() == Natural.class) {
+            reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, elemento);
+         } else {
+            reconoce = false;
+         }
+      }
+      return reconoce;
+   }
 
 }

@@ -8,42 +8,31 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PALABRA;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class VARSGP0 extends Produccion
-{
-	public VARSGP0()
-	{
-		PALABRA palabra = new PALABRA();
-		producciones.add(palabra);
-		TVARG0 tvarg = null;
-		producciones.add(tvarg); 
-	}
-	
-	//PALABRA.ListaVariablesH = VARSG'.ListaVariablesH
-	//TVARG.ListaVariablesH = PALABRA.ListaVariables 
-	//VARSG'.ListVariablesS = TVARG.ListaVariablesS 
-	
-	//VARSGO ->   PALABRA TVARG
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
-			ListaVariables listaH, LVarHandler listaS) 
-	{
-		boolean r; 
-//		System.out.println("VARSGP0");
-		LVarHandler listaSp1 = new LVarHandler();
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, listaH, listaSp1);
-		if ( r )
-		{
-			LVarHandler listaSp2 = new LVarHandler();
-			producciones.set(1, new TVARG0());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, listaSp1.getLista(), listaSp2);
-			listaS.setLista(listaSp2.getLista());
-		}
-		else
-		{
-			merrores.mostrarYSkipearError("Se esperaba un indentificador", lexic, sintactic, visitor);
-			sintactic.setEstadoAnalisis(false);
-			r = true;
-		}	
-		return r;
-	}
+public class VARSGP0 extends Produccion {
+   
+   public VARSGP0() {
+      PALABRA palabra = new PALABRA();
+      producciones.add(palabra);
+      TVARG0 tvarg = null;
+      producciones.add(tvarg);
+   }
+
+   // VARSGO -> PALABRA TVARG
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaVariables listaH, LVarHandler listaS) {
+      boolean reconoce;
+      LVarHandler listaSp1 = new LVarHandler();
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, listaH, listaSp1);
+      if (reconoce) {
+         LVarHandler listaSp2 = new LVarHandler();
+         producciones.set(1, new TVARG0());
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, listaSp1.getLista(), listaSp2);
+         listaS.setLista(listaSp2.getLista());
+      } else {
+         merrores.mostrarYSkipearError("Se esperaba un indentificador", lexic, sintactic, visitor);
+         sintactic.setEstadoAnalisis(false);
+         reconoce = true;
+      }
+      return reconoce;
+   }
 }

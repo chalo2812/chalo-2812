@@ -25,71 +25,51 @@ public class EXPBOOL0 extends Produccion {
 		producciones.add(espar);
 		EXPBOOL5 esimpar = null;
 		producciones.add(esimpar);
-		
 	}
-	
-	/** 
-	 * EXPBOOL ->   EXP EXPBOOL' |  { (, PALABRA, ENTERO, NATURAL, aentero, anatural }
-	 *				AND |			{ and }  
-	 *				OR	|			{ or }
-	 *				ESPAR | 		{ par }
-	 *				ESIMPAR			{ impar }
-	 */
-	
-
-	
+ 
+	 // EXPBOOL ->   EXP EXPBOOL' |  { (, PALABRA, ENTERO, NATURAL, aentero, anatural }
+	 //				AND |			{ and }  
+	 //				OR	|			{ or }
+	 //				ESPAR | 		{ par }
+	 //				ESIMPAR			{ impar }
 	@Override
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r = false;
-//		System.out.println("EXPBOOL0");
+			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH)	{
+		boolean reconoce = false;
+
 		if ((sintactic.siguiente.accept(visitor).equals("(")) || (sintactic.siguiente.getClass() == Palabra.class) 
 				|| (sintactic.siguiente.getClass() == Entero.class) || (sintactic.siguiente.getClass() == Natural.class) || (sintactic.siguiente.accept(visitor).equals("aentero")) 
-				|| (sintactic.siguiente.accept(visitor).equals("anatural")) ) 
-		{
+				|| (sintactic.siguiente.accept(visitor).equals("anatural")) ){
 				ArbolHandler arbolSp1 = new ArbolHandler();
-				r = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
+				reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
 				arbolS.setArbol(arbolSp1.getArbol());
-		}
-		else
-		{ 
-			if (sintactic.siguiente.accept(visitor).equals("and"))
-			{
+		}else{ 
+			if (sintactic.siguiente.accept(visitor).equals("and")){
 				ArbolHandler arbolSp2 = new ArbolHandler();
-				r = producciones.get(1).reconocer(lexic, visitor, sintactic,arbolH, arbolSp2, tablaH);
+				reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic,arbolH, arbolSp2, tablaH);
 				arbolS.setArbol(arbolSp2.getArbol());
-			}
-			else
-			{
-				if (sintactic.siguiente.accept(visitor).equals("or"))
-				{
+			}else	{
+				if (sintactic.siguiente.accept(visitor).equals("or"))	{
 					ArbolHandler arbolSp3 = new ArbolHandler();
-					r = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp3, tablaH);
+					reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp3, tablaH);
 					arbolS.setArbol(arbolSp3.getArbol());
-				}
-				else
-				{
-					if (sintactic.siguiente.accept(visitor).equals("par"))
-					{
+				} else{
+					if (sintactic.siguiente.accept(visitor).equals("par")) {
 						ArbolHandler arbolSp4 = new ArbolHandler();
 						producciones.set(3, new EXPBOOL4());
-						r = producciones.get(3).reconocer(lexic, visitor, sintactic, arbolH, arbolSp4, tablaH);
+						reconoce = producciones.get(3).reconocer(lexic, visitor, sintactic, arbolH, arbolSp4, tablaH);
 						arbolS.setArbol(arbolSp4.getArbol());
-					}	
-					else
-					{
-						if (sintactic.siguiente.accept(visitor).equals("impar")) 
-						{
+					} else {
+						if (sintactic.siguiente.accept(visitor).equals("impar")) {
 							ArbolHandler arbolSp5 = new ArbolHandler();
 							producciones.set(4, new EXPBOOL5());
-							r = producciones.get(4).reconocer(lexic, visitor, sintactic, arbolH, arbolSp5, tablaH);
+							reconoce = producciones.get(4).reconocer(lexic, visitor, sintactic, arbolH, arbolSp5, tablaH);
 							arbolS.setArbol(arbolSp5.getArbol());
 						}								
 					}
 				}					
 			}
 		}
-		return r;
+		return reconoce;
 	}
 }

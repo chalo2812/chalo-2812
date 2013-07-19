@@ -20,15 +20,13 @@ public class LINEA2 extends Produccion {
 		//	LINEA.ArbolS = BLOQUEM.ArbolS
 	
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			 ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH)
-	{
+			 ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH){
 		boolean r;
-//		System.out.println("LINEA2");
 		ArbolHandler arbolSp = new ArbolHandler();
 		producciones.set(0, new BLOQUEM0());
 		r = producciones.get(0).reconocer(lexic, visitor, sintactic, new Mientras(), arbolSp, tablaH);
 		arbolH.add(arbolSp.getArbol());
 		arbolS.setArbol(arbolH);
 		return r;
-	} 
+	}
 }

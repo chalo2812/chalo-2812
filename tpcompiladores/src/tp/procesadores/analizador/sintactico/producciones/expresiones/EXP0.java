@@ -17,9 +17,6 @@ public class EXP0 extends Produccion {
       this.add(expp);
    }
 
-   // EXP'.ArbolH = TERM.ArbolS
-   // EXP.ArbolS = EXP'.ArbolS
-
    // EXP -> TERM EXP'
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,

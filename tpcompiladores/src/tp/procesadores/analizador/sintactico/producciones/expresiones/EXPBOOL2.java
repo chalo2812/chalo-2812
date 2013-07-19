@@ -10,24 +10,19 @@ import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
 public class EXPBOOL2 extends Produccion {
 
-	public EXPBOOL2(){
-		AND and = new AND(); 
-		producciones.add(and);
-	}
+   public EXPBOOL2() {
+      AND and = new AND();
+      producciones.add(and);
+   }
 
-	//AND.ArbolH = EXPBOOL.ArbolH
-	//EXPBOOL.ArbolS = AND.ArbolS
-			
-	//EXPBOOL -> AND  
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r; 
-//		System.out.println("EXPBOOL2");
-		ArbolHandler arbolSp = new ArbolHandler();
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH);
-		arbolS.setArbol(arbolSp.getArbol());
-		return r;
-	}
+   // EXPBOOL -> AND
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      boolean reconoce;
+      ArbolHandler arbolSp = new ArbolHandler();
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH);
+      arbolS.setArbol(arbolSp.getArbol());
+      return reconoce;
+   }
 }

@@ -9,24 +9,20 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
-public class MOSTRARAUXP2 extends Produccion
-{
+public class MOSTRARAUXP2 extends Produccion {
 
-	public MOSTRARAUXP2()
-	{
-		SimboloTerminal ptoycoma = new SimboloTerminal(";");
-		producciones.add(ptoycoma);
-	}
+   public MOSTRARAUXP2() {
+      SimboloTerminal ptoycoma = new SimboloTerminal(";");
+      producciones.add(ptoycoma);
+   }
 
-	//MOSTRARAUX' -> ;
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r;
-//		System.out.println("MOSTRARAUXP2");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		arbolS.setArbol(arbolH);
-		return r;
-	}
+   // MOSTRARAUX' -> ;
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      arbolS.setArbol(arbolH);
+      return reconoce;
+   }
 }

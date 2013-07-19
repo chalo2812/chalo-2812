@@ -25,8 +25,6 @@ public class BLOQUEP0 extends Produccion {
 
    // BLOQUEP -> comenzar BLOQUE fin-proc;
 
-   // BLOQUEP.ArbolS = BLOQUE.ArbolS
-
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
       boolean reconoce;

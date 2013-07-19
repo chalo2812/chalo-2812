@@ -32,46 +32,46 @@ public class PARAMSP0 extends Produccion {
    // PARAMS' -> ,TIPOPARAM PALABRA: TIPO PARAMS' | lambda
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, List<Parametro> parametrosH,
                             ListaParametrosHandler parametrosS) {
-      boolean valida;
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (valida) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
          ParametroHandler parametroSp1 = new ParametroHandler();
          producciones.set(1, new TIPOPARAM0());
-         valida = producciones.get(1).reconocer(lexic, visitor, sintactic, new Parametro(), parametroSp1);
-         if (valida) {
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, new Parametro(), parametroSp1);
+         if (reconoce) {
             ParametroHandler parametroSp2 = new ParametroHandler();
-            valida = producciones.get(2).reconocer(lexic, visitor, sintactic, parametroSp1.getParametro(), parametroSp2);
-            if (valida) {
-               valida = producciones.get(3).reconocer(lexic, visitor, sintactic);
-               if (valida) {
+            reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic, parametroSp1.getParametro(), parametroSp2);
+            if (reconoce) {
+               reconoce = producciones.get(3).reconocer(lexic, visitor, sintactic);
+               if (reconoce) {
                   ParametroHandler parametroSp3 = new ParametroHandler();
                   producciones.set(4, new TIPO0());
-                  valida = producciones.get(4).reconocer(lexic, visitor, sintactic, parametroSp2.getParametro(), parametroSp3);
+                  reconoce = producciones.get(4).reconocer(lexic, visitor, sintactic, parametroSp2.getParametro(), parametroSp3);
                   parametrosH.add(parametroSp3.getParametro());
-                  if (valida) {
+                  if (reconoce) {
                      ListaParametrosHandler parametrosSp = new ListaParametrosHandler();
                      producciones.set(5, new PARAMSP0());
-                     valida = producciones.get(5).reconocer(lexic, visitor, sintactic, parametrosH, parametrosSp);
+                     reconoce = producciones.get(5).reconocer(lexic, visitor, sintactic, parametrosH, parametrosSp);
                      parametrosS.setParametros(parametrosSp.getParametros());
                   }
                } else {
                   merrores.mostrarYSkipearError("Se espera dos puntos ':'", lexic, sintactic, visitor);
                   sintactic.setEstadoAnalisis(false);
-                  valida = true;
+                  reconoce = true;
                }
             }
          }
       } else {
          if (sintactic.siguiente.accept(visitor).equals(")")) {
-            valida = true;
+            reconoce = true;
             parametrosS.setParametros(parametrosH);
          } else {
             merrores.mostrarYSkipearError("Se espera parentesis ')' o comma ',' y mas parametros", lexic, sintactic, visitor);
             sintactic.setEstadoAnalisis(false);
-            valida = true;
+            reconoce = true;
          }
       }
-      return valida;
+      return reconoce;
    }
 
 }

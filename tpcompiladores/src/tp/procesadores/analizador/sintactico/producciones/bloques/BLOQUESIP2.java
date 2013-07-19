@@ -28,30 +28,30 @@ public class BLOQUESIP2 extends Produccion {
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
-      boolean error;
-      error = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (error) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
          ArbolHandler arbolSp1 = new ArbolHandler();
          producciones.set(1, new BLOQUE0());
-         error = producciones.get(1).reconocer(lexic, visitor, sintactic, new Bloque(), arbolSp1, tablaH);
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, new Bloque(), arbolSp1, tablaH);
          arbolH.add(arbolSp1.getArbol());
          arbolS.setArbol(arbolH);
-         if (error) {
-            error = producciones.get(2).reconocer(lexic, visitor, sintactic);
-            if (error) {
-               error = producciones.get(3).reconocer(lexic, visitor, sintactic);
-               if (!error) {
+         if (reconoce) {
+            reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic);
+            if (reconoce) {
+               reconoce = producciones.get(3).reconocer(lexic, visitor, sintactic);
+               if (!reconoce) {
                   merrores.mostrarYSkipearError("Se punto y coma ';'", lexic, sintactic, visitor);
                   sintactic.setEstadoAnalisis(false);
-                  error = true;
+                  reconoce = true;
                }
             } else {
                merrores.mostrarYSkipearError("Se espera palabra reservada 'fin-si'", lexic, sintactic, visitor);
                sintactic.setEstadoAnalisis(false);
-               error = true;
+               reconoce = true;
             }
          }
       }
-      return error;
+      return reconoce;
    }
 }
