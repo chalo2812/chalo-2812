@@ -9,28 +9,22 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.NUMERO;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class FACT3 extends Produccion{
-	
-	public FACT3(){
-		NUMERO numero = new NUMERO();
-		producciones.add(numero);
-	}
+public class FACT3 extends Produccion {
 
+   public FACT3() {
+      NUMERO numero = new NUMERO();
+      producciones.add(numero);
+   }
 
-	//NUMERO.ArbolH = FACT.ArbolH 
-	//FACT.ArbolS = NUMERO.ArbolS
-	
-	//FACT ->   NUMERO
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH) 
-	{
-		boolean r; 
-//		System.out.println("FACT3");
-		ArbolHandler arbolSp = new ArbolHandler();
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp);
-		arbolS.setArbol(arbolSp.getArbol());
-		return r;
-	}	
+   // FACT -> NUMERO
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
+                            TablaDeSimbolos tablaH) {
+      boolean reconoce;
+      ArbolHandler arbolSp = new ArbolHandler();
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp);
+      arbolS.setArbol(arbolSp.getArbol());
+      return reconoce;
+   }
 
 }

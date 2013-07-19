@@ -32,11 +32,11 @@ public class PalabraReservada extends Produccion {
 
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic) {
-      boolean valida = false;
+      boolean reconoce = false;
       if (simbolo.equals(sintactic.siguiente.accept(visitor))) {
          sintactic.consumir(lexic);
-         valida = true;
+         reconoce = true;
       }
-      return valida;
+      return reconoce;
    }
 }

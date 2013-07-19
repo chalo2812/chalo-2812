@@ -18,9 +18,6 @@ public class PASAJE1 extends Produccion{
 		producciones.add(pasajep);
 	}
 	
-	//PASAJE'.ArbolH = PALABRA.ArbolS
-	//PASAJE.ArbolS = PASAJE'.ArbolS
-	
 	//PASAJE ->   PALABRA PASAJE'
 	@Override
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 

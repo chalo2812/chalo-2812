@@ -31,12 +31,12 @@ public class ClaseNodo implements
 	public String contexto; 
 	 
 	 
-	@Override
+
 	public void add(InterfazNodo nodo) {
 		nodos.add(nodo);
 	}
 
-	@Override
+
 	public void remove(InterfazNodo nodo) {
 		nodos.remove(nodo);
 	}
@@ -51,7 +51,7 @@ public class ClaseNodo implements
 	    }
 	}
 	
-	@Override
+
 	public String accept(NodeVisitorInterface visitor) {
 		return null;
 	}
@@ -69,12 +69,11 @@ public class ClaseNodo implements
 		return null;
 	}
 
-	@Override
+
 	public Funcion acceptFuncVisitor(FuncionNodeVisitor visitor) {
 		return new Funcion();
 	}
 
-	@Override
 	public TablaDeSimbolos acceptTSVisitor(TablaSimbolosVisitor visitor) {
 		return null;
 	}

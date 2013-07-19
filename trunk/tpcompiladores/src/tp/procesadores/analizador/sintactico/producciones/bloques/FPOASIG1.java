@@ -28,33 +28,33 @@ public class FPOASIG1 extends Produccion {
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
-      boolean error;
+      boolean reconoce;
 
       LlamadaFP llamadaFP = new LlamadaFP();
       llamadaFP.add(tablaH);
       llamadaFP.add(arbolH);
-      error = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (error) {
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
          ArbolHandler arbolSp = new ArbolHandler();
          producciones.set(1, new PASAJE0());
-         error = producciones.get(1).reconocer(lexic, visitor, sintactic, llamadaFP, arbolSp, tablaH);
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, llamadaFP, arbolSp, tablaH);
          arbolS.setArbol(arbolSp.getArbol());
-         if (error) {
-            error = producciones.get(2).reconocer(lexic, visitor, sintactic);
-            if (error) {
-               error = producciones.get(3).reconocer(lexic, visitor, sintactic);
-               if (!error) {
+         if (reconoce) {
+            reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic);
+            if (reconoce) {
+               reconoce = producciones.get(3).reconocer(lexic, visitor, sintactic);
+               if (!reconoce) {
                   merrores.mostrarYSkipearError("Se espera punto y coma ';'", lexic, sintactic, visitor);
                   sintactic.setEstadoAnalisis(false);
-                  error = true;
+                  reconoce = true;
                }
             } else {
                merrores.mostrarYSkipearError("Se espera parentesis ')'", lexic, sintactic, visitor);
                sintactic.setEstadoAnalisis(false);
-               error = true;
+               reconoce = true;
             }
          }
       }
-      return error;
+      return reconoce;
    }
 }

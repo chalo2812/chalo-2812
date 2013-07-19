@@ -17,21 +17,18 @@ public class TERM0 extends Produccion {
       producciones.add(termp);
    }
 
-   // TERM'.ArbolH = FACT.ArbolS
-   // TERM.ArbolS = TERM'.ArbolS
-
    // TERM -> FACT TERM'
-   // @Override
+   @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
-      boolean valida;
+      boolean reconoce;
       ArbolHandler arbolSp1 = new ArbolHandler();
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
-      if (valida) {
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
+      if (reconoce) {
          ArbolHandler arbolSp2 = new ArbolHandler();
-         valida = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH);
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, arbolSp1.getArbol(), arbolSp2, tablaH);
          arbolS.setArbol(arbolSp2.getArbol());
       }
-      return valida;
+      return reconoce;
    }
 }

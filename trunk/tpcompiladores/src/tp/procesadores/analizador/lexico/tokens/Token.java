@@ -15,7 +15,6 @@ public class Token
 		coord = new Coordenadas(columna,fila); 
 	} 
 
-	@Override
 	public String accept(TokensVisitor visitor) 
 	{
 		return visitor.visit(this);

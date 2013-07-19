@@ -8,24 +8,19 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 
-public class VARSPP2 extends Produccion
-{
-	public VARSPP2 ()
-	{
-		PalabraReservada puntoycomma = new PalabraReservada(";");
-		producciones.add(puntoycomma);
-	}
+public class VARSPP2 extends Produccion {
+   public VARSPP2() {
+      PalabraReservada puntoycomma = new PalabraReservada(";");
+      producciones.add(puntoycomma);
+   }
 
-	//VARS�' -> ;
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
-			ListaVariables listaH, LVarHandler listaS) 
-	{		
-		boolean r;
-//		System.out.println("VARSPP2");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		listaS.setLista(listaH);
-		return r;
-	}
+   // VARS' -> ;
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaVariables listaH, LVarHandler listaS) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      listaS.setLista(listaH);
+      return reconoce;
+   }
 
 }

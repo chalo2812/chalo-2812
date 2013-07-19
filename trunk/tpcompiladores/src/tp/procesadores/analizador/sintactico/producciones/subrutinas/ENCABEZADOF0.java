@@ -41,55 +41,55 @@ public class ENCABEZADOF0 extends Produccion {
    // ENCABEZADOF -> funcion PALABRA(PARAMS): TIPO;
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, Metodo metodoH, MetodoHandler metodoS) {
-      boolean valida;
+      boolean reconoce;
 
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (valida) {
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
          metodoH.setEsFuncion(true);
          MetodoHandler metodoSp1 = new MetodoHandler();
-         valida = producciones.get(1).reconocer(lexic, visitor, sintactic, metodoH, metodoSp1);
-         if (valida) {
-            valida = producciones.get(2).reconocer(lexic, visitor, sintactic);
-            if (valida) {
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, metodoH, metodoSp1);
+         if (reconoce) {
+            reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic);
+            if (reconoce) {
                List<Parametro> parametrosH = new ArrayList<Parametro>();
                ListaParametrosHandler parametrosS = new ListaParametrosHandler();
                producciones.set(3, new PARAMS0());
-               valida = producciones.get(3).reconocer(lexic, visitor, sintactic, parametrosH, parametrosS);
+               reconoce = producciones.get(3).reconocer(lexic, visitor, sintactic, parametrosH, parametrosS);
                metodoSp1.getMetodo().setParametros(parametrosS.getParametros());
-               if (valida) {
-                  valida = producciones.get(4).reconocer(lexic, visitor, sintactic);
-                  if (valida) {
-                     valida = producciones.get(5).reconocer(lexic, visitor, sintactic);
-                     if (valida) {
+               if (reconoce) {
+                  reconoce = producciones.get(4).reconocer(lexic, visitor, sintactic);
+                  if (reconoce) {
+                     reconoce = producciones.get(5).reconocer(lexic, visitor, sintactic);
+                     if (reconoce) {
                         MetodoHandler metodoSp2 = new MetodoHandler();
                         producciones.set(6, new TIPO0());
-                        valida = producciones.get(6).reconocer(lexic, visitor, sintactic, metodoSp1.getMetodo(), metodoSp2);
+                        reconoce = producciones.get(6).reconocer(lexic, visitor, sintactic, metodoSp1.getMetodo(), metodoSp2);
                         metodoS.setMetodo(metodoSp2.getMetodo());
-                        if (valida) {
-                           valida = producciones.get(7).reconocer(lexic, visitor, sintactic);
-                           if (!valida) {
+                        if (reconoce) {
+                           reconoce = producciones.get(7).reconocer(lexic, visitor, sintactic);
+                           if (!reconoce) {
                               merrores.mostrarYSkipearError("Se espera punto y coma ';'", lexic, sintactic, visitor);
                               sintactic.setEstadoAnalisis(false);
-                              valida = true;
+                              reconoce = true;
                            }
                         }
                      } else {
                         merrores.mostrarYSkipearError("Se espera asignacion de tipo ': tipo'", lexic, sintactic, visitor);
                         sintactic.setEstadoAnalisis(false);
-                        valida = true;
+                        reconoce = true;
                      }
                   }
                }
             } else {
                merrores.mostrarYSkipearError("Se espera parentesis '(' ", lexic, sintactic, visitor);
                sintactic.setEstadoAnalisis(false);
-               valida = true;
+               reconoce = true;
             }
          }
       }
-      if (!valida) {
+      if (!reconoce) {
          sintactic.setEstadoAnalisis(false);
       }
-      return valida;
+      return reconoce;
    }
 }

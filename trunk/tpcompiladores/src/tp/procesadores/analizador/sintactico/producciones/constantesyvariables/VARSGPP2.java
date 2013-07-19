@@ -10,23 +10,18 @@ import tp.procesadores.analizador.sintactico.producciones.SimboloTerminal;
 
 public class VARSGPP2 extends Produccion {
 
-	public VARSGPP2(){
-		SimboloTerminal pycoma = new SimboloTerminal (";"); 
-		producciones.add(pycoma);
-	}
-	
-	//VARSG''.ListaVariablesS = VARSG''.ListaVariablesH 
-			
-	//VARSGPP ->  ;
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			ListaVariables listaH, LVarHandler listaS) 
-	{
-		boolean r; 
-//		System.out.println("VARSGPP2");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		listaS.setLista(listaH);
-		return r;
-	}
+   public VARSGPP2() {
+      SimboloTerminal pycoma = new SimboloTerminal(";");
+      producciones.add(pycoma);
+   }
+
+   // VARSGPP -> ;
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaVariables listaH, LVarHandler listaS) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      listaS.setLista(listaH);
+      return reconoce;
+   }
 
 }

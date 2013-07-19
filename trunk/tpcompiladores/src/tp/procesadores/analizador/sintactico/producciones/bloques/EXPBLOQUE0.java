@@ -20,31 +20,29 @@ public class EXPBLOQUE0 extends Produccion {
       producciones.add(espar);
       ESIMPAR0 esimpar = null;
       producciones.add(esimpar);
-
    }
 
    // EXPBLOQUE -> EXPBOOL | ESPAR | ESIMPAR
-
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic) {
-      boolean error = false;
+      boolean reconoce = false;
       if ((sintactic.siguiente.accept(visitor).equals("(")) || (sintactic.siguiente.getClass() == Palabra.class)
           || (sintactic.siguiente.getClass() == Entero.class) || (sintactic.siguiente.getClass() == Natural.class)
           || (sintactic.siguiente.accept(visitor).equals("aentero")) || (sintactic.siguiente.accept(visitor).equals("anatural"))
           || sintactic.siguiente.accept(visitor).equals("and") || sintactic.siguiente.accept(visitor).equals("or")) {
          producciones.set(0, new EXPBOOL0());
-         error = producciones.get(0).reconocer(lexic, visitor, sintactic);
+         reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
       } else {
          if (sintactic.siguiente.accept(visitor).equals("par")) {
             producciones.set(1, new ESPAR0());
-            error = producciones.get(1).reconocer(lexic, visitor, sintactic);
+            reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic);
 
          } else {
             if (sintactic.siguiente.accept(visitor).equals("impar")) {
                producciones.set(2, new ESIMPAR0());
-               error = producciones.get(2).reconocer(lexic, visitor, sintactic);
+               reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic);
             }
          }
       }
-      return error;
+      return reconoce;
    }
 }

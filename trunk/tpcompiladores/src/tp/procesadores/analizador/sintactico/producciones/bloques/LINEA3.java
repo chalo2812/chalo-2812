@@ -16,17 +16,14 @@ public class LINEA3 extends Produccion {
 	}
 	
 	//LINEA ->   PALRES 
-		//	LINEA.ArbolS = PALRES.ArbolS
-	
+	//	LINEA.ArbolS = PALRES.ArbolS	
 	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, 
-			 ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH)
-	{
-		boolean r;
-//		System.out.println("LINEA3");
+			 ClaseNodo arbolH, ArbolHandler arbolS, TablaDeSimbolos tablaH)	{
+		boolean reconoce;
 		ArbolHandler arbolSp = new ArbolHandler();
 		producciones.set(0, new PALRES());
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH);
+		reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp, tablaH);
 		arbolS.setArbol(arbolSp.getArbol());
-		return r;
+		return reconoce;
 	} 
 }

@@ -33,41 +33,41 @@ public class AND extends Produccion {
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
 
-      boolean valida;
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (valida) {
-         valida = producciones.get(1).reconocer(lexic, visitor, sintactic);
-         if (valida) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic);
+         if (reconoce) {
             ArbolHandler arbolSp1 = new ArbolHandler();
             producciones.set(2, new EXPBOOL0());
-            valida = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
-            if (valida) {
-               valida = producciones.get(3).reconocer(lexic, visitor, sintactic);
-               if (valida) {
+            reconoce = producciones.get(2).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1, tablaH);
+            if (reconoce) {
+               reconoce = producciones.get(3).reconocer(lexic, visitor, sintactic);
+               if (reconoce) {
                   ArbolHandler arbolSp2 = new ArbolHandler();
                   producciones.set(4, new EXPBOOL0());
-                  valida = producciones.get(4).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
-                  if (valida) {
-                     valida = producciones.get(5).reconocer(lexic, visitor, sintactic);
+                  reconoce = producciones.get(4).reconocer(lexic, visitor, sintactic, arbolH, arbolSp2, tablaH);
+                  if (reconoce) {
+                     reconoce = producciones.get(5).reconocer(lexic, visitor, sintactic);
                      arbolS.setArbol(new FuncionAnd(arbolSp1.getArbol(), arbolSp2.getArbol()));
-                     if (!valida) {
+                     if (!reconoce) {
                         merrores.mostrarYSkipearError("Se espera parentesis ')'", lexic, sintactic, visitor);
                         sintactic.setEstadoAnalisis(false);
-                        valida = true;
+                        reconoce = true;
                      }
                   }
                } else {
                   merrores.mostrarYSkipearError("Se espera coma ',' en funcion 'and'", lexic, sintactic, visitor);
                   sintactic.setEstadoAnalisis(false);
-                  valida = true;
+                  reconoce = true;
                }
             }
          } else {
             merrores.mostrarYSkipearError("Se espera parentesis '('", lexic, sintactic, visitor);
             sintactic.setEstadoAnalisis(false);
-            valida = true;
+            reconoce = true;
          }
       }
-      return valida;
+      return reconoce;
    }
 }

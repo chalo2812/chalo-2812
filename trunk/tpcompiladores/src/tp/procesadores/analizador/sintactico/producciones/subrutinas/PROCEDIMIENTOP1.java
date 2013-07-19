@@ -16,19 +16,19 @@ public class PROCEDIMIENTOP1 extends Produccion {
       producciones.add(comma);
    }
 
-   // PROCEDIMIENTO� -> adelantado;
+   // PROCEDIMIENTO' -> adelantado;
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic) {
-      boolean valida;
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic);
-      if (valida) {
-         valida = producciones.get(1).reconocer(lexic, visitor, sintactic);
-         if (!valida) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic);
+         if (!reconoce) {
             merrores.mostrarYSkipearError("Falta punto y coma ';'", lexic, sintactic, visitor);
             sintactic.setEstadoAnalisis(false);
-            valida = true;
+            reconoce = true;
          }
       }
-      return valida;
+      return reconoce;
    }
 }

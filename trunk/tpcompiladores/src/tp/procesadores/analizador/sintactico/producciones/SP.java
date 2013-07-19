@@ -14,19 +14,16 @@ public class SP extends Produccion {
       this.add(s);
    }
 
-   // S.ArbolH = SP.ArbolH
-   // SP.ArbolS = S.ArbolS
-
    // SP -> S EOF
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS) {
-      boolean valida = false;
+      boolean reconoce = false;
       ArbolHandler arbolSp = new ArbolHandler();
-      valida = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp);
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp);
       arbolS.setArbol(arbolSp.getArbol());
-      if (valida && sintactic.siguiente.getClass() == Eof.class) {
-         valida = true;
+      if (reconoce && sintactic.siguiente.getClass() == Eof.class) {
+         reconoce = true;
       }
-      return valida;
+      return reconoce;
    }
 }

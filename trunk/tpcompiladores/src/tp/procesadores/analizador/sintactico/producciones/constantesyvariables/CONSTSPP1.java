@@ -8,34 +8,26 @@ import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
 import tp.procesadores.analizador.sintactico.producciones.Produccion;
 import tp.procesadores.analizador.sintactico.producciones.PalabraReservada;
 
-public class CONSTSPP1 extends Produccion 
-{
-	public CONSTSPP1 ()
-	{
-		PalabraReservada comma = new PalabraReservada(",");
-		producciones.add(comma);
-		CONSTSP0 constsp = null;
-		producciones.add(constsp);
-	}
-	
-	//CONSTS'.ListaConstantesH = CONSTS''.ListaConstantesH 
-	//CONSTS''.ListaConstantesS = CONSTS'.ListaConstantesS 
-			
-	//CONSTS'' -> , CONSTS' 
-	@Override
-	public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic,
-			ListaConstantes listaH, LConstHandler listaS) 
-	{
-		boolean r; 
-//		System.out.println("CONSTSPP1");
-		r = producciones.get(0).reconocer(lexic, visitor, sintactic);
-		if ( r ) 
-		{
-			LConstHandler listaSp = new LConstHandler();
-			producciones.set(1, new CONSTSP0());
-			r = producciones.get(1).reconocer(lexic, visitor, sintactic, listaH, listaSp);
-			listaS.setLista(listaSp.getLista());
-		}
-		return r; 	
-	}
+public class CONSTSPP1 extends Produccion {
+   
+   public CONSTSPP1() {
+      PalabraReservada comma = new PalabraReservada(",");
+      producciones.add(comma);
+      CONSTSP0 constsp = null;
+      producciones.add(constsp);
+   }
+
+   // CONSTS'' -> , CONSTS'
+   @Override
+   public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ListaConstantes listaH, LConstHandler listaS) {
+      boolean reconoce;
+      reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic);
+      if (reconoce) {
+         LConstHandler listaSp = new LConstHandler();
+         producciones.set(1, new CONSTSP0());
+         reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, listaH, listaSp);
+         listaS.setLista(listaSp.getLista());
+      }
+      return reconoce;
+   }
 }

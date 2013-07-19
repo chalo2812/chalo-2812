@@ -22,25 +22,25 @@ public class BLOQUESIP0 extends Produccion {
    @Override
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
-      boolean error;
+      boolean reconoce;
       if (sintactic.siguiente.accept(visitor).equals("fin-si")) {
          ArbolHandler arbolSp1 = new ArbolHandler();
          producciones.set(0, new BLOQUESIP1());
-         error = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1);
+         reconoce = producciones.get(0).reconocer(lexic, visitor, sintactic, arbolH, arbolSp1);
          arbolS.setArbol(arbolH);
       } else {
          if (sintactic.siguiente.accept(visitor).equals("sino")) {
             ArbolHandler arbolSp = new ArbolHandler();
             producciones.set(1, new BLOQUESIP2());
-            error = producciones.get(1).reconocer(lexic, visitor, sintactic, new Sino(), arbolSp, tablaH);
+            reconoce = producciones.get(1).reconocer(lexic, visitor, sintactic, new Sino(), arbolSp, tablaH);
             arbolH.add(arbolSp.getArbol());
             arbolS.setArbol(arbolH);
          } else {
             merrores.mostrarYSkipearError("Se espara palabra reservada 'fin-si' o bloque 'sino .. fin-si'", lexic, sintactic, visitor);
             sintactic.setEstadoAnalisis(false);
-            error = true;
+            reconoce = true;
          }
       }
-      return error;
+      return reconoce;
    }
 }

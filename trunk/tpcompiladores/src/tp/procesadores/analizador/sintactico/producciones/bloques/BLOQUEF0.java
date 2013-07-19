@@ -29,10 +29,6 @@ public class BLOQUEF0 extends Produccion {
 
    // BLOQUEF -> comenzar BLOQUE fin-func EXP;
 
-   // BLOQUEF.ArbolH.add ( BLOQUE.ArbolS )
-   // BLOQUEF.ArbolH.add ( EXP.ArbolS )
-   // BLOQUEF.ArbolS = BLOQUEF.ArbolH
-
    public boolean reconocer(LexicAnalyzer lexic, TokensVisitor visitor, SintacticAnalyzer sintactic, ClaseNodo arbolH, ArbolHandler arbolS,
                             TablaDeSimbolos tablaH) {
       boolean reconoce;
