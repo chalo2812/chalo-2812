@@ -60,7 +60,6 @@ public class ClaseNodo implements
 	{
 		Codigo resultado = new Codigo();
 		resultado.setCodigo(codigo.getCodigo());
-		
 		return resultado;
 	}
 

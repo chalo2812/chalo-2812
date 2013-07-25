@@ -29,7 +29,7 @@ public class SintacticAnalyzer {
       this.siguiente = siguiente;
    }
 
-   public void Compilar() throws Exception {
+   public void compilar() throws Exception {
       boolean valido;
       TokensVisitor visitor = new TokensVisitor();
       LexicAnalyzer lexic = new LexicAnalyzer(file);
