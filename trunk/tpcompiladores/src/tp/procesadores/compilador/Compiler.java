@@ -18,7 +18,7 @@ public class Compiler {
 		{ 
 			SintacticAnalyzer sa = new SintacticAnalyzer(args[0]); 
 			try {
-				sa.Compilar();
+				sa.compilar();
 			} catch (Exception e) {
 				return;
 			}

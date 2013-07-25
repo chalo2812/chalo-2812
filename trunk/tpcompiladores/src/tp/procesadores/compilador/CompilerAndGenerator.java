@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import tp.procesadores.analizador.sintactico.SintacticAnalyzer;
+import tp.procesadores.compilador.generadorcodigo.GeneradorCodigoUtils;
 import tp.procesadores.compilador.generadorcodigo.constantes.Constants;
 
 public class CompilerAndGenerator extends Compiler {
@@ -20,7 +21,7 @@ public class CompilerAndGenerator extends Compiler {
 			SintacticAnalyzer sa = new SintacticAnalyzer(args[0]);
 
 			try {
-				sa.Compilar();
+				sa.compilar();
 			} catch (Exception e) {
 				System.out
 						.println("Hay error\\es presente\\s en el archivo.. :'( ");
@@ -38,6 +39,7 @@ public class CompilerAndGenerator extends Compiler {
 
 	private void transformarAssembler(SintacticAnalyzer sa, String file) {
 		borrarASM(file);
+		
 		crearASM(file);
 	}
 
@@ -63,6 +65,8 @@ public class CompilerAndGenerator extends Compiler {
 		StringBuilder mensaje = new StringBuilder();
 		mensaje.append(encabezadoASM());
 		mensaje.append(parteDelArchEntradaASM());
+		GeneradorCodigoUtils prueba = new GeneradorCodigoUtils();
+      mensaje.append(prueba.generarFuncionMostrarLn("hola"));
 		mensaje.append(finASM());
 		return mensaje.toString();
 	}

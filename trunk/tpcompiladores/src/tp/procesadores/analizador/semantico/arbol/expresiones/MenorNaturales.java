@@ -28,11 +28,11 @@ public class MenorNaturales extends ClaseNodo {
         String entero2 = codigoAux.getLabel(); 
         if (codigo.getLabel().equals("or"))
         	codigo.setCodigo(codigo.getCodigo() + 
-            		gc.generarExprBool(entero1, entero2, labelManager.getTabulacion()) +
+            		gc.generarExpresionBooleana(entero1, entero2, labelManager.getTabulacion()) +
             		labelManager.getTabulacion() + "JL\t");
         else
         	codigo.setCodigo(codigo.getCodigo() + 
-        		gc.generarExprBool(entero1, entero2, labelManager.getTabulacion()) +
+        		gc.generarExpresionBooleana(entero1, entero2, labelManager.getTabulacion()) +
         		labelManager.getTabulacion() + "JGE\t");
         return codigo; 
 	}
