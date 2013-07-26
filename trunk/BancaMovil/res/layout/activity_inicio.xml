@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="top"
+    tools:context=".InicioActivity" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerInParent="false"
+        android:contentDescription="@string/hello_world"
+        android:cropToPadding="false"
+        android:paddingLeft="0dp"
+        android:scaleType="fitEnd"
+        android:onClick="@drawable/imagen_credicoop"
+        android:src="@drawable/imagen_credicoop" />
+
+</RelativeLayout>

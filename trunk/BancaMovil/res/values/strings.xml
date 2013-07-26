@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Intento 1</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">La Banca Mobile!</string>
+    <string name="Titulo">Banco Credicoop</string>
+    <string name="title_activity_inicio">InicioActivity</string>
+
+</resources>
