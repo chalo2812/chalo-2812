@@ -3,9 +3,13 @@ package tp.procesadores.compilador.generadorcodigo.constantes;
 public class Constants {
 
 	// Variables utiles
-	public static final String TAB = "\t";
-	public static final String ENTER = "\n";
+	private static final String TAB = "\t";
+	private static final String ENTER = "\n";
 
+	public static final String FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO_MAS_TAB = ENTER + ENTER + TAB;
+	public static final String FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO = ENTER + ENTER;
+	public static final String FIN_DE_LINEA_MAS_TAB = ENTER + TAB;
+	public static final String FIN_DE_LINEA = ENTER;
 	// Funciones Generales
 	public static final String encabezado = "ORG 0100h" + ENTER + ENTER;
 	public static final String writeSTR = "; ***Comienzo rutina writeSTR***"
