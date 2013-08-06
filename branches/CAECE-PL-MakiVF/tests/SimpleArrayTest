@@ -1,0 +1,25 @@
+var A[5] : natural;
+ 
+procedure MAIN();
+var X: natural;
+var j: natural;
+begin
+  showLN 'Este algoritmo generar un arreglo de tope 5 con los numeros ingresados';
+  j := 0n;
+  showLN ' ';
+  
+  while j < 5n do
+  	showLN 'Ingresar numero';
+  	read X;
+  	A[j] := X;
+  	showLN ' ';
+  	j := j + 1n;
+  end-while;
+  
+  j := 0n;
+  while j < 5n do
+  	showLN 'Mostrar Arreglo, Posicion ', j,' es ', A[j];
+  	j := j + 1n;
+  end-while;
+
+end-proc;

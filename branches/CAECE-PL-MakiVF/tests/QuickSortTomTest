@@ -1,0 +1,98 @@
+VAR A[10]: integer;
+VAR MENOR[10]: integer;
+VAR MAYOR[10]: integer;
+
+
+procedure QUICKSORT( i : integer, j: integer);
+var pivote : integer;
+var aux: integer;
+var auxmenor: integer;
+var auxmayor: integer;
+
+var auxa: integer;
+
+var pmenor : integer;
+
+var pmayor: integer;
+
+begin
+   pivote := A[i];
+   aux := i+1;
+   pmenor := 0;
+   pmayor := 0;
+   auxa := 0;
+   
+   while aux < j do
+       if A[aux] < A[i] then
+           MENOR[pmenor] := A[aux];
+           pmenor := pmenor+1;
+         else
+             MAYOR[pmayor] := A[AUX];
+             pmayor := pmayor+1;
+         end-if;
+       
+       aux := aux +1;
+   end-while;
+   
+   auxmenor := 0;
+   while auxmenor < pmenor do
+       A[auxa] := MENOR[auxmenor];
+       auxmenor := auxmenor +1;
+       auxa := auxa +1 ;
+   end-while;
+   
+   A[auxa] := pivote;
+   auxa := auxa+1;
+   
+   auxmayor := 0;
+   while auxmayor < pmayor do
+       A[auxa] := MAYOR[auxmayor];
+       auxmayor := auxmayor +1;
+       auxa := auxa +1 ;
+   end-while;
+   
+   if pmenor >1 then
+       QUICKSORT(0, pmenor-1);
+   end-if;
+   
+   if pmayor > 1 then
+       QUICKSORT(j- pmayor+1,j);
+   end-if;
+   
+end-proc;
+
+
+procedure INGRESO();
+var X: integer;
+var j: integer;
+begin
+ showLN 'Este algoritmo ordena un arreglo de 5 elementos, por el algoritmo de QuickSort';
+ j := 0;
+ showLN ' ';
+ 
+ while j < 10 do
+     showLN 'Ingresar numero (', j,'/10):';
+     read X;
+     A[j] := X;
+     showLN ' ';
+     j := j + 1;
+ end-while;
+end-proc;
+
+procedure PRINT();
+var j : integer;
+begin
+
+j := 0;
+ while j < 5 do
+     showLN 'Mostrar Arreglo, Posicion ', j,' es ', A[j];
+     j := j + 1;
+ end-while;
+end-proc;
+
+procedure MAIN();
+begin
+ INGRESO();
+ QUICKSORT(0,9);
+ PRINT();
+end-proc;

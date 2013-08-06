@@ -1,0 +1,67 @@
+"procedure MAIN(); "  +
+"begin " +
+"end-proc; " ;		
+
+"procedure MAIN(); "  +
+"var X: integer; "  +
+"begin " +
+"end-proc; " ;
+
+"procedure MAIN(); "  +
+"var X: integer; "  +
+"var y: integer; "  +
+"begin " +
+"end-proc; " ;
+
+"procedure MAIN(); "  +
+"var X: integer; "  +
+"var y: integer; "  +
+"begin " +
+"X := 3; "  +
+"end-proc; " ;
+
+"procedure MAIN(); "  +
+"var X: integer; "  +
+"var y: integer; "  +
+"begin " +
+"X := 3; "  +
+"y := 6; "  +
+"end-proc; " ;
+
+"procedure MAIN(); "  +
+"var X: integer; "  +
+"var y: integer; "  +
+"begin " +
+"X := 3; "  +
+"X := 6; "  +
+"X := X + Y; "  +
+"end-proc; " ;
+
+"procedure MAIN(); "  +
+"var X: integer; "  +
+"var y: integer; "  +
+"begin " +
+"X := 3; "  +
+"X := 6; "  +
+"X := X - Y; "  +
+"end-proc; " ;
+
+"procedure MAIN(); "  +
+"var X: integer; "  +
+"var y: integer; "  +
+"begin " +
+"X := 3; "  +
+"X := 6; "  +
+"Y := X + Y; "  +
+"end-proc; " ;
+
+
+"var X: integer; "  +
+						 "begin " +
+							 "PROC1(); "  +
+							 "S := M + 1; "  +
+							 "PROC2(S); "  +
+							 "X := FUN1(5, 8); "  +
+							 "A[5n] := X; "  +
+							 "show A[TONATURAL(S) ++ 1n]; "  +
+						 "end-proc; " ;

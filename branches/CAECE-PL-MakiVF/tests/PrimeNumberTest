@@ -1,0 +1,39 @@
+procedure MAIN();
+var i, numero, divisores, suma, cociente, residuo: integer;
+begin
+  showLN 'Este algoritmo calcula si el numero ingresado es un numero primo';
+  showLN ' ';
+
+  numero := 0;
+  divisores := 0;
+  suma := 0;
+    
+  showLN 'Ingresar Numero';
+  read numero;
+    
+  i:= 1;
+  while i <= numero do
+  	
+	showLN '[Debug] ', 'i: ',i;
+  	cociente := numero / i;
+  	residuo := (cociente * i) - numero;
+  	
+  	if residuo = 0 then
+    	divisores := divisores + 1;
+    	showLN '[Debug] ', numero, ' es divisible por ', i, '. Tengo ',divisores, ' divisores.';
+        suma := suma + i;
+    end-if;
+  	
+  	 
+  	i := i + 1;
+  end-while;
+  
+  showLN '[Debug] ','Encontre ', divisores , ' divisores';
+  
+   if divisores = 2 then
+    showLN 'Es Primo';
+   else
+		showLN 'No es Primo';
+   end-if;
+  
+end-proc;

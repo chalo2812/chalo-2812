@@ -1,0 +1,28 @@
+var j: integer;
+
+function factorial(n: integer) : integer;
+begin
+ 	if n <> 1 then
+		n := n * FACTORIAL(n-1);
+	end-if;
+end-func n;
+ 
+procedure main();
+var X: integer;
+begin
+	showLN 'Calculo de todos los factoriales hasta el numero ingresado.';
+	showLN '(Ej: 3!=3x2x1)';
+	showLN ' ';
+	
+	show 'Ingresar numero:';
+	read X;
+	
+	j := 1;
+	showLN ' ';
+	
+	while j <= X do 
+		showLN j, '!=' , factorial(j);
+		j := j + 1;
+	end-while;
+	
+end-proc;

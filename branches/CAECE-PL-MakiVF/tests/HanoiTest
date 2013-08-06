@@ -1,0 +1,19 @@
+procedure HANOI(N: natural, O: integer, D: integer, A: integer);
+var actual, ant1, ant2, i: integer;
+begin
+  if N > 1n then
+    HANOI(N-1, O, A, D);
+    showLN 'De ',O,' a ',D;
+    HANOI(N-1, A, D, O);
+  end-if;
+end-proc;
+ 
+procedure MAIN();
+var N: natural;
+begin
+  showLN 'Este algoritmo calcula la sucesion de fibonacci para el numero ingresado';
+  showLN 'Ingresar numero';
+  read N;
+  showLN ' ';
+  HANOI(N, 1, 2, 3);
+end-proc;

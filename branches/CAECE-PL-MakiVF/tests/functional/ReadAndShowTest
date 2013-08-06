@@ -1,0 +1,37 @@
+var estadoerror:integer;
+
+procedure ACTIVARFLAG();
+begin
+	estadoerror := 2;
+end-proc;
+
+procedure READVALUE();
+begin
+
+	read estadoerror;
+	showLN '';
+	showLN 'Has escrito:', estadoerror;
+end-proc;
+
+
+procedure MAIN();
+var X,Y: integer;
+begin
+	showLN 'Test funcional de SHOW y READ';
+	estadoerror := 0;
+	
+	if estadoerror = 0 then
+	else
+  		showLN '[TEST ERROR] Debe ser 0, y es:',estadoerror;
+  	end-if;
+  	
+  	READVALUE();
+  	showLN 'Has escrito:', estadoerror;
+	
+	ACTIVARFLAG();  	
+  	if estadoerror = 1 then
+  		showLN 'TEST OK!';
+  	else
+  		showLN '[TEST ERROR] Debe ser 1, y es:', estadoerror;
+  	end-if;
+end-proc;
