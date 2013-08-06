@@ -88,6 +88,10 @@ public class ClaseNodo implements
 	public String getLexema(){
 		return this.lexema;
 	}
+	
+	public void setContexto(String mensaje){
+		this.contexto = mensaje;
+	}
 
 	
 }

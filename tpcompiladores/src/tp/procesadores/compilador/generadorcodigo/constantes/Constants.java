@@ -256,4 +256,6 @@ public class Constants {
 			+ ENTER + TAB + "RET 2" 
 			+ ENTER + "readln ENDP" + ENTER 
 			+ ENTER + "; ***Fin rutina readln***" + ENTER;
+	public static final String VARIABLES_SIN_VALOR = " DB ";
+	
 }
