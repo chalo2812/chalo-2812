@@ -27,9 +27,7 @@ public class ArbolUtils {
       PrintWriter fileWriter;
       try {
          fileWriter = new PrintWriter(output);
-         Codigo resultado = new Codigo();
-         resultado = nodo.generarCodigo(new Codigo(), new TempManager(), new LabelManager());
-         fileWriter.write(resultado.getCodigo());
+         fileWriter.write(nodo.getContexto());
          fileWriter.close();
       } catch (IOException e) {
          e.printStackTrace();
