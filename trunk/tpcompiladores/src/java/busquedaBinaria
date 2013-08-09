@@ -1,0 +1,51 @@
+globales
+	const 1TAM : natural = 15n;
+	var A[TAM] : entero;
+fin-globales
+
+procedimiento PRINCIPAL();
+	var busca, temp, bajo, alto, central, j, i : entero;
+comenzar
+	{Ordenando arreglo...}
+	
+	j:=1;
+	mientras (j <= aentero(TAM)) hacer
+		i:=0;
+		mientras (i < aentero(TAM--1n) hacer
+			si ( a[i+1] <= a[i] ) entonces
+				   temp := a[i];
+				   a[i] := a[i+1];
+				   a[i+1] := temp;
+			fin-si;
+			i := i + 1;
+		fin-mientras;
+		j := j + 1;
+	fin-mientras;
+	
+	{Implementacion de busqueda binaria}
+	
+	{Seteo el valor a buscar}
+	busca := 12;
+
+	bajo := 0;
+	alto := aentero(TAM--1n);
+	central := (bajo+alto)/2;
+
+	mientras ( and( bajo < alto , busca != a[central] ) ) hacer
+
+		si ( a[central] <= busca ) entonces
+			bajo = central+1;
+		sino
+			alto = central-1;
+		fin-si;
+		
+		central=(bajo+alto)/2;
+		
+	fin-mientras;
+
+	si (busca == a[central]) entonces
+		mostrarln  busca,' encontrado en posicion ', central;
+	sino
+		mostrarln 'No existe ', busca;
+	fin-si;
+fin-proc;
