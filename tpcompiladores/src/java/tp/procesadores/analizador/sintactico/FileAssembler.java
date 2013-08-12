@@ -12,7 +12,7 @@ public class FileAssembler {
 
 	public String armarASM(ClaseNodo claseNodo) {
 		// Variables Globales
-
+		String encabezado = Constants.encabezado + Constants.jumpprocedimientoPrincipal;
 		String resultadoConstantes = tratarGlobales((Globales) claseNodo.nodos.get(0));
 		if (resultadoConstantes != null) {
 			resultadoConstantes = resultadoConstantes + Constants.FIN_DE_LINEA;
@@ -22,8 +22,8 @@ public class FileAssembler {
 		if (resultadoProcedimientos != null) {
 			resultadoProcedimientos += Constants.FIN_DE_LINEA;
 		}
-		claseNodo.setContexto(Constants.encabezado + resultadoConstantes
-				+ resultadoProcedimientos);
+		claseNodo.setContexto(encabezado + resultadoConstantes
+				+ resultadoProcedimientos + Constants.finprocedimiento);
 		return Constants.encabezado + resultadoConstantes
 				+ resultadoProcedimientos;
 	}
@@ -42,7 +42,7 @@ public class FileAssembler {
 							+ Constants.FIN_DE_LINEA;
 				} else {
 					resultado = resultado + entrada.getId()
-							+ Constants.VARIABLES_SIN_VALOR + " "
+							+ Constants.VARIABLES_SIN_VALOR + ""
 							+ entrada.getValor() + Constants.FIN_DE_LINEA;
 				}
 				System.out.println(resultados.entradas.get(i).toString());
@@ -62,13 +62,12 @@ public class FileAssembler {
 				variable = (FilaTabla) tablaSimbolo.entradas.get(j);
 				System.out.println(variable.getId() + " " + variable.getTipo()
 						+ " " + variable.getValor());
-				resultado = resultado + "";
 			}
 			Metodo bloque = (Metodo) tablaSimbolo.padre.metodos.get(0);
 			bloque.toString();
 		}
-
-		return resultado;
+		
+		return resultado!=null?resultado:null;
 	}
 
 }
