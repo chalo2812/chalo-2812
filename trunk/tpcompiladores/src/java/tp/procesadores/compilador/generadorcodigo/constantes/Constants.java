@@ -3,8 +3,8 @@ package tp.procesadores.compilador.generadorcodigo.constantes;
 public class Constants {
 
 	// Variables utiles
-	private static final String TAB = "\t";
-	private static final String ENTER = "\n";
+	public static final String TAB = "\t";
+	public static final String ENTER = "\n";
 
 	public static final String FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO_MAS_TAB = ENTER
 			+ ENTER + TAB;
@@ -264,7 +264,6 @@ public class Constants {
 			+ "readln ENDP" + ENTER + ENTER + "; ***Fin rutina readln***"
 			+ ENTER;
 	public static final String VARIABLES_SIN_VALOR = " DB ";
-	public static final String finprocedimiento = ENTER + TAB + "int 21h"
-			+ ENTER + "main endp";
+	public static final String finprocedimiento = ENTER + TAB + "int 21h";
 
 }
