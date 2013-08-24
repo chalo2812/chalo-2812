@@ -16,7 +16,7 @@ import tp.procesadores.compilador.generadorcodigo.TempManager;
 public class Funcion extends ClaseNodo {
 
 	private static final long serialVersionUID = 1L;
-	private String nombreFuncion;
+	public String nombreFuncion;
 	
 	
 	public String getNombreFuncion() {
