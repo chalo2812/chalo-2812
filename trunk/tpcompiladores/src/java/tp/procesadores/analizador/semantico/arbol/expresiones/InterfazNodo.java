@@ -22,5 +22,9 @@ import tp.procesadores.compilador.generadorcodigo.TempManager;
 				LabelManager labelManager);
 		public String accept(NodeVisitor identVisitor);
 		
+		//Para verificar al generar codigo
+		public boolean esFuncion(InterfazNodo posicion);
+		public boolean esProcedimiento(InterfazNodo posicion);
+		public boolean esGlobales(InterfazNodo posicion);
 	}
  

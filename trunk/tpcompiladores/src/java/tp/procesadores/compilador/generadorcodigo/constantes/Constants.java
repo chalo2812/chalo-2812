@@ -263,7 +263,7 @@ public class Constants {
 			+ ENTER + TAB + "POP		bp" + ENTER + TAB + "RET 2" + ENTER
 			+ "readln ENDP" + ENTER + ENTER + "; ***Fin rutina readln***"
 			+ ENTER;
-	public static final String VARIABLES_SIN_VALOR = " DB ";
+	public static final String VARIABLES_SIN_VALOR = " dw ";
 	public static final String finprocedimiento = ENTER + TAB + "int 21h";
 
 }

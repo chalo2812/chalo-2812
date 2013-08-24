@@ -14,6 +14,7 @@ import tp.procesadores.analizador.lexico.tokens.visitor.VisitableNode;
 import tp.procesadores.analizador.lexico.tokens.visitor.VisitableProcedimientoNode;
 import tp.procesadores.analizador.lexico.tokens.visitor.VisitableTablaDeSimbolos;
 import tp.procesadores.analizador.semantico.arbol.principal.Funcion;
+import tp.procesadores.analizador.semantico.arbol.principal.Globales;
 import tp.procesadores.analizador.semantico.arbol.principal.Procedimiento;
 import tp.procesadores.analizador.semantico.arbol.tabla.simbolos.TablaDeSimbolos;
 import tp.procesadores.compilador.generadorcodigo.Codigo;
@@ -93,5 +94,23 @@ public class ClaseNodo implements
 		this.contexto = mensaje;
 	}
 
+	public boolean esFuncion(InterfazNodo interfazNodo){
+		if (interfazNodo.getClass().equals(Funcion.class))
+			return true;
+		return false;
+	}
+
+	public boolean esProcedimiento(InterfazNodo interfazNodo){
+		if (interfazNodo.getClass().equals(Procedimiento.class))
+			return true;
+		return false;
+	}
+	
+	public boolean esGlobales(InterfazNodo interfazNodo){
+		if (interfazNodo.getClass().equals(Globales.class))
+			return true;
+		return false;
+	}
+	
 	
 }
