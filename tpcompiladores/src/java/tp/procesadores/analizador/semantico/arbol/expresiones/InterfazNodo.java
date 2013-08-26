@@ -1,5 +1,7 @@
 package tp.procesadores.analizador.semantico.arbol.expresiones;
 
+import java.util.List;
+
 import tp.procesadores.analizador.lexico.tokens.visitor.NodeVisitor;
 import tp.procesadores.analizador.lexico.tokens.visitor.TablaSimbolosVisitor;
 import tp.procesadores.analizador.lexico.tokens.visitor.VisitableNode;
@@ -26,5 +28,7 @@ import tp.procesadores.compilador.generadorcodigo.TempManager;
 		public boolean esFuncion(InterfazNodo posicion);
 		public boolean esProcedimiento(InterfazNodo posicion);
 		public boolean esGlobales(InterfazNodo posicion);
+		public String nombreDelProceso(List<InterfazNodo> posicion,int pos, int posMetodo);
+
 	}
  
