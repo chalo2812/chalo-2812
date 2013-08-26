@@ -111,6 +111,14 @@ public class ClaseNodo implements
 			return true;
 		return false;
 	}
+
+
+
+	public String nombreDelProceso(List<InterfazNodo> posicion, int pos, int posMetodo) {
+		TablaDeSimbolos objeto = (TablaDeSimbolos) posicion.get(0);
+		String mensaje = objeto.padre.metodos.get(posMetodo).getNombre();
+		return mensaje;
+	}
 	
 	
 }
