@@ -1,0 +1,28 @@
+globales
+var movimientos: entero;
+fin-globales;
+
+funcion mover(ref N: entero, val A: natural, ref B: natural, ref C: natural): entero;
+var movimientos: entero;
+comenzar
+si 0 << N  entonces
+	movimientos := mover(N-1, A, B, C);
+	mostrar 'mover disco ', a;
+	mostrarln ' a ', c;
+	movimientos := movimientos + 1;
+	movimientos := mover(N-1; b; a; c);
+fin-si;
+fin-func: movimientos:
+
+procedimiento Principal();
+var movimientos: entero;
+var A: natural;
+var B: natural;
+var C: natural;
+var n: natural;
+comenzar
+     mostrar 'Numero de discos: ';
+     leer n;
+     movimientos := mover(n, A, B, C);
+     mostrar 'Movimientos efectuados: ', movimientos;
+fin-proc;

@@ -1,0 +1,14 @@
+globales
+	var N, S : natural;
+	var T : entero;
+fin-globales;
+
+funcion fun1() : entero;
+var T: entero;
+comenzar
+	T := 45;
+fin-func T;
+
+procedimiento Principal();
+comenzar
+fin-proc;

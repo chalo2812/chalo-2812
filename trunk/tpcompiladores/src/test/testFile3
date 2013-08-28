@@ -1,10 +1,8 @@
 globales
-	const b:natural = 7n;
-	const gon:natural = 10n;
 fin-globales;
 
 procedimiento PRINCIPAL();
 	var testvar:natural;
 comenzar
- 	testvar := testvar /1;
-fin-proc;	 
+ 	testvar := testvar * 10;
+fin-proc;
