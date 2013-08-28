@@ -1,0 +1,44 @@
+funcion potencia(n : natural, v : natural) : natural;
+var p : natural;
+comenzar
+
+	p := n;
+	v := v -- 1n;
+	mientras v > 0 hacer
+		p := p ** n;
+		v := v--1n;
+	fin-mientras;
+fin-func p;
+
+procedimiento PRINCIPAL();
+
+var q: natural;
+var w : natural;
+
+var p : entero;
+var e : entero;
+var c: entero;
+comenzar
+
+	w := 0n;
+	
+	mostrarln '---programa potencia---';
+	c := 1;
+	mientras c <> 0 hacer
+		mostrarln 'Ingrese un numero';
+		leer p;
+		mostrarln 'Ingrese un exponente';
+		leer e;
+		si p < 0 entonces
+			mostrarln 'el número debe ser mayor a 0';
+		sino
+			q := potencia(p,e);
+		fin-si;
+		mostrarln q;
+		
+		mostrarln 'Continuar? (0 salir)';
+		
+		leer c;
+	fin-mientras;
+
+fin-proc;

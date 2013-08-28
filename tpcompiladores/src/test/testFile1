@@ -1,6 +1,6 @@
 globales
 	const M : natural = 7n, R : entero = 90;
-	var N, S : entero;
+	var N, S : natural;
 	var Z[12n] : natural;
 fin-globales;
 
@@ -26,8 +26,8 @@ var W11 : entero;
 var W12, Q, PP :natural;
 var Y: entero;
 comenzar
-  S := (S ++ M) ** 2n;
-  Q := 1n;
+  
+  q:= 1;
   leer W11;  {lectura de teclado}
   W12 := ANATURAL(W11 * 2 + S);
   mientras (W12 + 2) < PP + S hacer
@@ -45,14 +45,14 @@ comenzar
   Z[1n] := Q;
 fin-proc;
 
-funcion FUN1(T: entero, val N : entero) : entero;
+funcion FUN1(T: entero, N2 : entero) : entero;
 comenzar
-  si T << 0 entonces
-    N := 45;
+  si T < 0 entonces
+    N2 := 45;
   sino
-    N := 70;
+    N2 := 70;
   fin-si;
-fin-func N * 2;
+fin-func N2;
 
 procedimiento PRINCIPAL();
 var X: entero;

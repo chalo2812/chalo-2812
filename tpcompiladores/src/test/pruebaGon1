@@ -1,0 +1,6 @@
+procedimiento PRINCIPAL();
+var S: entero;
+comenzar
+  S :=  1;
+  mostrar S;
+fin-proc;
