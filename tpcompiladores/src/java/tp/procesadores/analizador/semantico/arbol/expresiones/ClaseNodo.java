@@ -21,22 +21,18 @@ import tp.procesadores.compilador.generadorcodigo.Codigo;
 import tp.procesadores.compilador.generadorcodigo.LabelManager;
 import tp.procesadores.compilador.generadorcodigo.TempManager;
 
-public class ClaseNodo implements 
-		InterfazNodo, Serializable, VisitableNode, VisitableProcedimientoNode, 
-		VisitableFuncionNode, VisitableTablaDeSimbolos{
+public class ClaseNodo implements InterfazNodo, Serializable, VisitableNode, 
+		VisitableProcedimientoNode,	VisitableFuncionNode, VisitableTablaDeSimbolos{
 	
 	private static final long serialVersionUID = 1L;
 	
 	public List<InterfazNodo> nodos = new ArrayList<InterfazNodo>();
 	public String lexema;
 	public String contexto; 
-	 
-	 
 
 	public void add(InterfazNodo nodo) {
 		nodos.add(nodo);
 	}
-
 
 	public void remove(InterfazNodo nodo) {
 		nodos.remove(nodo);
@@ -51,7 +47,6 @@ public class ClaseNodo implements
 	      return this;
 	    }
 	}
-	
 
 	public String accept(NodeVisitorInterface visitor) {
 		return null;
@@ -63,12 +58,10 @@ public class ClaseNodo implements
 		resultado.setCodigo(codigo.getCodigo());
 		return resultado;
 	}
-
 	
 	public Procedimiento acceptProcVisitor(ProcedimientoNodeVisitor visitor) {
 		return null;
 	}
-
 
 	public Funcion acceptFuncVisitor(FuncionNodeVisitor visitor) {
 		return new Funcion();
@@ -112,13 +105,10 @@ public class ClaseNodo implements
 		return false;
 	}
 
-
-
 	public String nombreDelProceso(List<InterfazNodo> posicion, int pos, int posMetodo) {
 		TablaDeSimbolos objeto = (TablaDeSimbolos) posicion.get(0);
 		String mensaje = objeto.padre.metodos.get(posMetodo).getNombre();
 		return mensaje;
-	}
-	
+	}	
 	
 }
