@@ -24,8 +24,7 @@ import tp.procesadores.compilador.generadorcodigo.TempManager;
 public class ClaseNodo implements InterfazNodo, Serializable, VisitableNode, 
 		VisitableProcedimientoNode,	VisitableFuncionNode, VisitableTablaDeSimbolos{
 	
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 7322187738235400509L;
 	public List<InterfazNodo> nodos = new ArrayList<InterfazNodo>();
 	public String lexema;
 	public String contexto; 
