@@ -1,7 +1,7 @@
 globales
 	const 1TAM : natural = 15n;
 	var A[TAM] : entero;
-fin-globales
+fin-globales;
 
 procedimiento PRINCIPAL();
 	var busca, temp, bajo, alto, central, j, i : entero;

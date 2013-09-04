@@ -13,11 +13,11 @@ funcion fibonacci (n:entero):entero;
 			nAux2 := n-1;
 			a := fibonacci(nAux1);
 			b := fibonacci(nAux2);
-			fib := a + b;
-			
+			fib := a + b;			
 		fin-si;	
 	fin-func fib;
 	
+
 procedimiento PRINCIPAL();
 	var nro, i, rta:entero;
 comenzar

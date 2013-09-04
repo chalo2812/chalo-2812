@@ -1,6 +1,7 @@
 package tp.procesadores.analizador.sintactico;
 
 import tp.procesadores.analizador.semantico.arbol.bloque.Asignacion;
+import tp.procesadores.analizador.semantico.arbol.bloque.LlamadaFP;
 import tp.procesadores.analizador.semantico.arbol.bloque.Mientras;
 import tp.procesadores.analizador.semantico.arbol.bloque.Si;
 import tp.procesadores.analizador.semantico.arbol.bloque.Sino;
@@ -10,7 +11,13 @@ import tp.procesadores.analizador.semantico.arbol.expresiones.IgualdadNaturales;
 import tp.procesadores.analizador.semantico.arbol.expresiones.MenorEnteros;
 import tp.procesadores.analizador.semantico.arbol.expresiones.MenorNaturales;
 import tp.procesadores.analizador.semantico.arbol.expresiones.NodoExpresionBooleana;
+import tp.procesadores.analizador.semantico.arbol.expresiones.NodoSumaEnteros;
+import tp.procesadores.analizador.semantico.arbol.expresiones.NodoSumaNatural;
+import tp.procesadores.analizador.semantico.arbol.expresiones.RestaEntera;
+import tp.procesadores.analizador.semantico.arbol.expresiones.RestaNatural;
 import tp.procesadores.analizador.semantico.arbol.general.Identificador;
+import tp.procesadores.analizador.semantico.arbol.general.NodoEntero;
+import tp.procesadores.analizador.semantico.arbol.general.NodoNatural;
 import tp.procesadores.analizador.semantico.arbol.palres.Leer;
 import tp.procesadores.analizador.semantico.arbol.palres.Mostrar;
 import tp.procesadores.analizador.semantico.arbol.palres.MostrarLn;
@@ -32,6 +39,7 @@ public class FileAssembler {
 	public String encabezado = Constants.encabezado
 			+ Constants.jumpprocedimientoPrincipal;
 	public String procedimientosDefault = PreDefinedFunctions.sb.toString();
+	public String metodosAdicionales = "";
 	public int posMetodos;
 
 	public String armarASM(ClaseNodo claseNodo) {
@@ -46,9 +54,11 @@ public class FileAssembler {
 				proc = (Procedimiento) claseNodo.nodos.get(i);
 				resultadoProcedimientos = tratarProcedimientos(proc);
 				if (proc.getNombreProcedimiento() != null)
-					encabezado += proc.getNombreProcedimiento() + Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO;
+					encabezado += proc.getNombreProcedimiento()
+							+ Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO;
 				else
-					encabezado += "principal" + Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO;
+					encabezado += "principal"
+							+ Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO;
 			} else {
 				variables = (Globales) claseNodo.nodos.get(i);
 				resultadoConstantes = tratarGlobales((Globales) variables);
@@ -59,10 +69,10 @@ public class FileAssembler {
 
 		}
 		claseNodo.setContexto(encabezado + resultadoConstantes
-				+ procedimientosDefault + resultadoFunciones
+				+ procedimientosDefault + resultadoFunciones + metodosAdicionales 
 				+ resultadoProcedimientos + Constants.finprocedimiento);
 		return encabezado + resultadoConstantes + procedimientosDefault
-				+ resultadoFunciones + resultadoProcedimientos
+				+ resultadoFunciones + metodosAdicionales +resultadoProcedimientos
 				+ Constants.finprocedimiento;
 
 	}
@@ -89,8 +99,10 @@ public class FileAssembler {
 
 		}
 		return resultadoFunciones
-				+ Constants.FIN_DE_LINEA_MAS_TAB + "RET"
-				+ Constants.ENTER + "; Fin de Funcion "
+				+ Constants.FIN_DE_LINEA_MAS_TAB
+				+ "RET"
+				+ Constants.ENTER
+				+ "; Fin de Funcion "
 				+ funcion.nodos.get(posicion).nombreDelProceso(funcion.nodos,
 						posicion, posMetodos - cantidadSumados)
 				+ Constants.ENTER;
@@ -111,8 +123,10 @@ public class FileAssembler {
 				mensaje += invocarMostrarLn((MostrarLn) bloque.nodos.get(i));
 			} else if (bloque.nodos.get(i).getClass().equals(Si.class)) {
 				mensaje += invocarSi((Si) bloque.nodos.get(i));
-			} else if (bloque.nodos.get(i).getClass().equals(Identificador.class)) {
-				mensaje += invocarIdentificador((Identificador) bloque.nodos.get(i));
+			} else if (bloque.nodos.get(i).getClass()
+					.equals(Identificador.class)) {
+				mensaje += invocarIdentificador((Identificador) bloque.nodos
+						.get(i));
 			} else if (bloque.nodos.get(i).getClass().equals(Mientras.class)) {
 				mensaje += invocarMientras((Mientras) bloque.nodos.get(i));
 			} else if (bloque.nodos.get(i).getClass().equals(Leer.class)) {
@@ -125,22 +139,47 @@ public class FileAssembler {
 	}
 
 	private String invocarAsignacion(Asignacion asignacion) {
+		
 		ClaseNodo valor1 = (ClaseNodo) asignacion.nodos.get(1);
 		ClaseNodo valor2 = (ClaseNodo) valor1.nodos.get(0);
-		
-		return "mov ax," + valor2.getLexema() + Constants.ENTER + Constants.TAB;
+		//Llamada a recursibidad
+		if (valor2.getClass().equals(LlamadaFP.class)){
+			Identificador identificado = (Identificador) asignacion.nodos.get(0);
+			
+//			CALL valor1.
+		}else if (valor2.getClass().equals(NodoEntero.class)){
+			Identificador asign = (Identificador) asignacion.nodos.get(0);
+			NodoEntero valor = (NodoEntero) valor1.nodos.get(0);
+			return Constants.TAB + "mov " + asign.getLexema() +"," + valor.getLexema() + Constants.ENTER; 	
+		}else if(valor2.getClass().equals(NodoNatural.class)){
+			Identificador variable = (Identificador) valor2.nodos.get(0);
+			NodoNatural valor = (NodoNatural) valor2.nodos.get(1);
+			return Constants.TAB + "mov " + variable.getLexema() +"," + valor.getLexema() + Constants.ENTER;	
+			//return Constants.TAB + "mov ax," + valor2.getLexema() + Constants.ENTER;
+		} else if (valor2.getClass().equals(RestaEntera.class)){
+			Identificador variable = (Identificador) asignacion.nodos.get(0);
+			//NodoEntero
+			return Constants.TAB + "mov " + variable.getLexema() +","  + Constants.ENTER;
+		} else if (valor2.getClass().equals(RestaNatural.class)){
+			
+		} else if (valor2.getClass().equals(NodoSumaEnteros.class)){
+			
+		}else if (valor2.getClass().equals(NodoSumaNatural.class)){
+			
+		}
+		return "";//mensaje;//Constants.TAB + "mov ax," + valor2.getLexema() + Constants.ENTER;
 	}
 
 	private String invocarIdentificador(Identificador identificador) {
-		return Constants.ENTER + Constants.TAB + "";
+		return Constants.TAB + "" + Constants.ENTER;
 	}
 
 	private String invocarLeer(Leer leer) {
-		return Constants.ENTER + Constants.TAB + "";
-	}
+		return Constants.TAB + "" + Constants.ENTER;
+	} 
 
 	private String invocarMientras(Mientras mientras) {
-		return Constants.ENTER + Constants.TAB + "";
+		return Constants.TAB + "" + Constants.ENTER;
 	}
 
 	private String invocarSi(Si si) {
@@ -152,7 +191,7 @@ public class FileAssembler {
 				condicionalSi += tratarNodoExpresionBooleana(nodo);
 			} else if (objeto.getClass().equals(Bloque.class)) {
 				condicionalSi += tratarBloque((Bloque) objeto);
-			} else if (objeto.getClass().equals(Sino.class)){
+			} else if (objeto.getClass().equals(Sino.class)) {
 				condicionalSi += tratarSino(objeto);
 			}
 		}
@@ -171,74 +210,81 @@ public class FileAssembler {
 		ClaseNodo variable2;
 		String resultado = null;
 		if (nodo.getClass().equals(IgualdadEnteros.class)) {
-//			MOV AH, ent1
-//			MOV AL, ent2
-//			CMP AH, AL
-//			JE igual
-				   
+			// MOV AH, ent1
+			// MOV AL, ent2
+			// CMP AH, AL
+			// JE igual
+
 			variable1 = (ClaseNodo) nodo.nodos.get(0);
 			variable2 = (ClaseNodo) nodo.nodos.get(1);
-			resultado = Constants.TAB 
-					  + "MOV AH," + variable1.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "MOV AL," + variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "JE igual" + Constants.FIN_DE_LINEA 
-					  + "igual:" 
-					  + Constants.FIN_DE_LINEA_MAS_TAB + "MOV AH,09h"
-					  //+ Constants.FIN_DE_LINEA_MAS_TAB + "lea DX,msg3"
-					  + Constants.FIN_DE_LINEA_MAS_TAB + "INT 21h" + Constants.ENTER;
+			resultado = Constants.TAB + "MOV AH," + variable1.getLexema()
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "MOV AL,"
+					+ variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "JE igual" + Constants.FIN_DE_LINEA;
+			metodosAdicionales = "igual:" + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "MOV AH,09h"
+					// + Constants.FIN_DE_LINEA_MAS_TAB + "lea DX,msg3"
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "INT 21h"
+					+ Constants.ENTER;
 
 		} else if (nodo.getClass().equals(IgualdadNaturales.class)) {
-//			MOV AH, nat1
-//			MOV AL, nat2
-//			CMP AH, AL
-//			JE igual
+			// MOV AH, nat1
+			// MOV AL, nat2
+			// CMP AH, AL
+			// JE igual
 			variable1 = (ClaseNodo) nodo.nodos.get(0);
 			variable2 = (ClaseNodo) nodo.nodos.get(1);
-			resultado = Constants.TAB 
-					  + "MOV AH," + variable1.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "MOV AL," + variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "JE menor" + Constants.FIN_DE_LINEA 
-					  + "igual:" 
-					  + Constants.FIN_DE_LINEA_MAS_TAB + "mov ah,09h"
-					  + Constants.FIN_DE_LINEA_MAS_TAB + "int 21h" + Constants.ENTER;
+			resultado = Constants.TAB + "MOV AH," + variable1.getLexema()
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "MOV AL,"
+					+ variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "JE menor" + Constants.FIN_DE_LINEA;
+			metodosAdicionales = "igual:" + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "mov ah,09h" + Constants.FIN_DE_LINEA_MAS_TAB + "int 21h"
+					+ Constants.ENTER;
 		} else if (nodo.getClass().equals(MenorEnteros.class)) {
-//			MOV AH, ent1
-//			MOV AL, ent2
-//			CMP AH, AL
-//			JL menor
+			// MOV AH, ent1
+			// MOV AL, ent2
+			// CMP AH, AL
+			// JL menor
 			variable1 = (ClaseNodo) nodo.nodos.get(0);
 			variable2 = (ClaseNodo) nodo.nodos.get(1);
-			resultado = Constants.TAB 
-					  + "MOV AH," + variable1.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "MOV AL," + variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "JL menor" + Constants.FIN_DE_LINEA 
-					  + "menor: " + Constants.FIN_DE_LINEA_MAS_TAB
-					  + "mov ah,09h" + Constants.FIN_DE_LINEA_MAS_TAB
-					  + "int 21h" + Constants.FIN_DE_LINEA;
+			resultado = Constants.TAB + "MOV AH," + variable1.getLexema()
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "MOV AL,"
+					+ variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "JL menor" + Constants.FIN_DE_LINEA;
+			metodosAdicionales = "menor: "
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "mov ah,09h"
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "int 21h"
+					+ Constants.FIN_DE_LINEA;
 		} else if (nodo.getClass().equals(MenorNaturales.class)) {
-//			MOV AH, nat1
-//			MOV AL, nat2
-//			CMP AH, AL
-//			JB menor
+			// MOV AH, nat1
+			// MOV AL, nat2
+			// CMP AH, AL
+			// JB menor
 			variable1 = (ClaseNodo) nodo.nodos.get(0);
 			variable2 = (ClaseNodo) nodo.nodos.get(1);
-			resultado = Constants.TAB + "MOV AH," + variable1.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "MOV AL," + variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB 
-					  + "JB menor" + Constants.FIN_DE_LINEA 
-					  + "menor: " + Constants.FIN_DE_LINEA_MAS_TAB
-					  + "mov ah,09h" + Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO
-					  + "lea dx,msg2" + Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO
-					  + "int 21h" + Constants.FIN_DE_LINEA;
+			resultado = Constants.TAB + "MOV AH," + variable1.getLexema()
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "MOV AL,"
+					+ variable2.getLexema() + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "CMP AH, AL" + Constants.FIN_DE_LINEA_MAS_TAB
+					+ "JB menor" + Constants.FIN_DE_LINEA;
+			metodosAdicionales = "menor: "
+					+ Constants.FIN_DE_LINEA_MAS_TAB + "mov ah,09h"
+					+ Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO
+					+ "lea dx,msg2"
+					+ Constants.FIN_DE_LINEA_MAS_LINEA_DE_ESPACIO + "int 21h"
+					+ Constants.FIN_DE_LINEA;
 		}
 		return resultado;
 	}
 
 	private String invocarMostrarLn(MostrarLn mostrarLn) {
-		return Constants.ENTER + Constants.TAB + "";
+		
+		//return ;
+		return Constants.ENTER + "PUSH OFFSET" + mostrarLn.getLexema() + "PUSH 41" +	"CALL writeSTR"+ Constants.TAB + "";
 	}
 
 	private String invocarMostrar(Mostrar mostrar) {
