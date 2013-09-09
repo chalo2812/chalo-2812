@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://default_package/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://default_package/" version="1.0">
+<xs:element name="generarODE" type="tns:generarODE"/>
+<xs:element name="generarODEResponse" type="tns:generarODEResponse"/>
+<xs:element name="obtenerDocumentos" type="tns:obtenerDocumentos"/>
+<xs:element name="obtenerDocumentosResponse" type="tns:obtenerDocumentosResponse"/>
+<xs:element name="obtenerODE" type="tns:obtenerODE"/>
+<xs:element name="obtenerODEResponse" type="tns:obtenerODEResponse"/>
+<xs:element name="obtenerReferencias" type="tns:obtenerReferencias"/>
+<xs:element name="obtenerReferenciasResponse" type="tns:obtenerReferenciasResponse"/>
+<xs:element name="obtenerTiposDocumentos" type="tns:obtenerTiposDocumentos"/>
+<xs:element name="obtenerTiposDocumentosResponse" type="tns:obtenerTiposDocumentosResponse"/>
+<xs:complexType name="obtenerReferencias">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="obtenerReferenciasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:respuestaODEDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="respuestaODEDTO">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="obtenerTiposDocumentos">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="obtenerTiposDocumentosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:respuestaODEDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="obtenerDocumentos">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="obtenerDocumentosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:respuestaODEDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="obtenerODE">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="obtenerODEResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:respuestaODEDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="generarODE">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="generarODEResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:respuestaODEDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
