@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ExtraccionSinTarjetaService" targetNamespace="http://default_package/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://default_package/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions name="ExtraccionSinTarjetaService" 
+	targetNamespace="http://default_package/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:tns="http://default_package/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
     <schema xmlns="http://www.w3.org/2001/XMLSchema">
   <import namespace="http://default_package/" schemaLocation="extraccionsintarjeta_schema1.xsd"/>
