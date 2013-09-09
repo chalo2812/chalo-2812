@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ExtraccionSinTarjetaService" targetNamespace="http://default_package/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://default_package/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://default_package/" schemaLocation="extraccionsintarjeta_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="obtenerODE">
+    <wsdl:part name="parameters" element="tns:obtenerODE">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerReferencias">
+    <wsdl:part name="parameters" element="tns:obtenerReferencias">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerODEResponse">
+    <wsdl:part name="parameters" element="tns:obtenerODEResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerReferenciasResponse">
+    <wsdl:part name="parameters" element="tns:obtenerReferenciasResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentosResponse">
+    <wsdl:part name="parameters" element="tns:obtenerDocumentosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTiposDocumentos">
+    <wsdl:part name="parameters" element="tns:obtenerTiposDocumentos">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerTiposDocumentosResponse">
+    <wsdl:part name="parameters" element="tns:obtenerTiposDocumentosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentos">
+    <wsdl:part name="parameters" element="tns:obtenerDocumentos">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarODE">
+    <wsdl:part name="parameters" element="tns:generarODE">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarODEResponse">
+    <wsdl:part name="parameters" element="tns:generarODEResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="prueba">
+    <wsdl:operation name="obtenerReferencias">
+      <wsdl:input name="obtenerReferencias" message="tns:obtenerReferencias">
+    </wsdl:input>
+      <wsdl:output name="obtenerReferenciasResponse" message="tns:obtenerReferenciasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTiposDocumentos">
+      <wsdl:input name="obtenerTiposDocumentos" message="tns:obtenerTiposDocumentos">
+    </wsdl:input>
+      <wsdl:output name="obtenerTiposDocumentosResponse" message="tns:obtenerTiposDocumentosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentos">
+      <wsdl:input name="obtenerDocumentos" message="tns:obtenerDocumentos">
+    </wsdl:input>
+      <wsdl:output name="obtenerDocumentosResponse" message="tns:obtenerDocumentosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerODE">
+      <wsdl:input name="obtenerODE" message="tns:obtenerODE">
+    </wsdl:input>
+      <wsdl:output name="obtenerODEResponse" message="tns:obtenerODEResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarODE">
+      <wsdl:input name="generarODE" message="tns:generarODE">
+    </wsdl:input>
+      <wsdl:output name="generarODEResponse" message="tns:generarODEResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExtraccionSinTarjetaServiceSoapBinding" type="tns:prueba">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="obtenerReferencias">
+      <soap:operation soapAction="urn:ObtenerReferencias" style="document"/>
+      <wsdl:input name="obtenerReferencias">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerReferenciasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerTiposDocumentos">
+      <soap:operation soapAction="urn:ObtenerTiposDocumentos" style="document"/>
+      <wsdl:input name="obtenerTiposDocumentos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerTiposDocumentosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentos">
+      <soap:operation soapAction="urn:ObtenerDocumentos" style="document"/>
+      <wsdl:input name="obtenerDocumentos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerDocumentosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarODE">
+      <soap:operation soapAction="urn:GenerarODE" style="document"/>
+      <wsdl:input name="generarODE">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="generarODEResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerODE">
+      <soap:operation soapAction="urn:ObtenerODE" style="document"/>
+      <wsdl:input name="obtenerODE">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerODEResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExtraccionSinTarjetaService">
+    <wsdl:port name="ExtraccionSinTarjetaPort" binding="tns:ExtraccionSinTarjetaServiceSoapBinding">
+      <soap:address location="http://localhost:8080/WS/services/ExtraccionSinTarjetaPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
