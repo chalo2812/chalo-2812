@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="WSESTService"
+	targetNamespace="http://services.est.ws.linkpagos.link.com.ar/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:tns="http://default_package/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ns1="http://www.w3.org/TR/html4/">
+	<!-- Se agrego wsdl,tns,xsd,soap,xs, ns1 falta  --><wsdl:types>
+		<xs:schema attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://services.est.ws.linkpagos.link.com.ar/">
+			<xs:import namespace="http://request.est.ws.linkpagos.link.com.ar/" />
+			<xs:import namespace="http://request.ws.backservices.link.com.ar/" />
+			<xs:import namespace="http://request.ws.8.backservices.link.com.ar/" />
+			<xs:element name="generarODE" type="tns:generarODE" />
+			<xs:element name="generarODEResponse" type="tns:generarODEResponse" />
+			<xs:element name="obtenerDocumentos" type="tns:obtenerDocumentos" />
+			<xs:element name="obtenerDocumentosResponse" type="tns:obtenerDocumentosResponse" />
+			<xs:element name="obtenerODEs" type="tns:obtenerODEs" />
+			<xs:element name="obtenerODEsResponse" type="tns:obtenerODEsResponse" />
+			<xs:element name="obtenerReferencias" type="tns:obtenerReferencias" />
+			<xs:element name="obtenerReferenciasResponse" type="tns:obtenerReferenciasResponse" />
+			<xs:element name="obtenerTiposDocumentos" type="tns:obtenerTiposDocumentos" />
+			<xs:element name="obtenerTiposDocumentosResponse" type="tns:obtenerTiposDocumentosResponse" />
+			<xs:complexType name="obtenerTiposDocumentos">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+						name="requerimientoObtenerTiposDocumentos" type="tns:wsObtenerTiposDocumentosRequest" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerTiposDocumentosRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractRequest">
+						<xs:sequence>
+							<xs:element ref="ns1:datosObtenerTiposDocumentos" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType abstract="true" name="wsAbstractRequest">
+				<xs:sequence>
+					<xs:element ref="ns2:cabecera" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosObtenerTiposDocumentosODEsRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaComunes">
+						<xs:sequence />
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosEntradaComunes">
+				<xs:sequence>
+					<xs:element name="tipoTerminal" type="xs:string" />
+					<xs:element name="numeroTarjeta" type="xs:string" />
+					<xs:element name="idEntidadEmisora" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsHeaderRequest">
+				<xs:sequence>
+					<xs:element name="idRequerimiento" type="xs:string" />
+					<xs:element name="ipCliente" type="xs:string" />
+					<xs:element name="timeStamp" type="xs:string" />
+					<xs:element name="idEntidad" type="xs:string" />
+					<xs:element name="idUsuario" type="xs:string" />
+					<xs:element name="canal" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="obtenerTiposDocumentosResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="respuestaObtenerTiposDocumentos"
+						type="tns:wsObtenerTiposDocumentosODEsResponse" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerTiposDocumentosODEsResponse">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractResponse">
+						<xs:sequence>
+							<xs:element name="tiposDocumentos">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="tipoDocumento" type="tns:wsTipoDocumento" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsAbstractResponse">
+				<xs:sequence>
+					<xs:element ref="ns3:cabecera" />
+					<xs:element name="codigoResultado" type="xs:string" />
+					<xs:element minOccurs="0" name="descripcionResultado"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsTipoDocumento">
+				<xs:sequence>
+					<xs:element name="tipoDocumento" type="xs:string" />
+					<xs:element name="descripcionDocumento" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsHeaderResponse">
+				<xs:sequence>
+					<xs:element name="timeStamp" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="obtenerODEs">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="requerimientoObtenerODEs"
+						type="tns:wsObtenerODEsRequest" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerODEsRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractRequest">
+						<xs:sequence>
+							<xs:element ref="ns1:datosObtenerODEs" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosObtenerODEsRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaRangoFecha">
+						<xs:sequence>
+							<xs:element name="importe" type="xs:string" />
+							<xs:element name="referencia" type="xs:string" />
+							<xs:element name="documento" type="tns:wsDocumento" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosEntradaRangoFecha">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaPaginado">
+						<xs:sequence>
+							<xs:element name="fechaDesde" type="xs:string" />
+							<xs:element name="fechaHasta" type="xs:string" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosEntradaPaginado">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaComunes">
+						<xs:sequence>
+							<xs:element name="paginaActual" type="xs:int" />
+							<xs:element name="cantidadPorPagina" type="xs:int" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsDocumento">
+				<xs:sequence>
+					<xs:element name="tipoDocumento" type="xs:string" />
+					<xs:element name="descripcionDocumento" type="xs:string" />
+					<xs:element name="numeroDocumento" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="obtenerODEsResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="respuestaObtenerODEs"
+						type="tns:wsObtenerODEsResponse" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerODEsResponse">
+				<xs:complexContent>
+					<xs:extension base="tns:wsPaginadoResponse">
+						<xs:sequence>
+							<xs:element name="odesGeneradas">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="odeGenerada" type="tns:wsode" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsPaginadoResponse">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractResponse">
+						<xs:sequence>
+							<xs:element name="numeroPagina" type="xs:int" />
+							<xs:element name="cantidadTotal" type="xs:int" />
+							<xs:element name="cantidadPorPagina" type="xs:int" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsode">
+				<xs:sequence>
+					<xs:element name="importe" type="xs:string" />
+					<xs:element name="referencia" type="xs:string" />
+					<xs:element name="estadoODE" type="tns:wsEstadosODE" />
+					<xs:element name="fechaCreacion" type="xs:string" />
+					<xs:element name="horaCreacion" type="xs:string" />
+					<xs:element name="fechaVencimiento" type="xs:string" />
+					<xs:element name="numeroSecuencia" type="xs:string" />
+					<xs:element name="cuenta" type="tns:wsCuenta" />
+					<xs:element name="documento" type="tns:wsDocumento" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsCuenta">
+				<xs:sequence>
+					<xs:element name="tipoCuenta" type="xs:string" />
+					<xs:element name="cuentaPBF" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="obtenerDocumentos">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="requerimientoObtenerDocumentos"
+						type="tns:wsObtenerDocumentosRequest" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerDocumentosRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractRequest">
+						<xs:sequence>
+							<xs:element ref="ns1:datosObtenerDocumentos" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosObtenerDocumentosODEsRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaComunes">
+						<xs:sequence>
+							<xs:element name="tipoDocumento" type="xs:string" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="obtenerDocumentosResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="respuestaObtenerDocumentos"
+						type="tns:wsObtenerDocumentosResponse" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerDocumentosResponse">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractResponse">
+						<xs:sequence>
+							<xs:element name="documentos">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="documento" type="tns:wsDocumento" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="generarODE">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="requerimientoGenerarODE"
+						type="tns:wsGenerarODERequest" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsGenerarODERequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractRequest">
+						<xs:sequence>
+							<xs:element ref="ns1:datosGenerarODE" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosGenerarODEODERequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaMonetario">
+						<xs:sequence>
+							<xs:element name="documento" type="tns:wsDocumento" />
+							<xs:element name="referencia" type="xs:string" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosEntradaMonetario">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaSegurizados">
+						<xs:sequence>
+							<xs:element name="importe" type="xs:string" />
+							<xs:element name="cuenta" type="tns:wsCuenta" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosEntradaSegurizados">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaComunes">
+						<xs:sequence>
+							<xs:element name="pin" type="xs:string" />
+							<xs:element name="hbnet" type="xs:string" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="generarODEResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="respuestaGenerarODE"
+						type="tns:wsGenerarODEResponse" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsGenerarODEResponse">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractResponse">
+						<xs:sequence>
+							<xs:element name="pinODE" type="xs:string" />
+							<xs:element name="idODE" type="xs:string" />
+							<xs:element name="fechaCreacion" type="xs:string" />
+							<xs:element name="horaCreacion" type="xs:string" />
+							<xs:element name="fechaVencimiento" type="xs:string" />
+							<xs:element name="numeroSecuencia" type="xs:string" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="obtenerReferencias">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="requerimientoObtenerReferencias"
+						type="tns:wsObtenerReferenciasODEsRequest" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerReferenciasODEsRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractRequest">
+						<xs:sequence>
+							<xs:element ref="ns1:datosObtenerReferenciasODEs" />
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsParametrosObtenerReferenciasODEsRequest">
+				<xs:complexContent>
+					<xs:extension base="tns:wsParametrosEntradaComunes">
+						<xs:sequence />
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="obtenerReferenciasResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="respuestaObtenerReferencias"
+						type="tns:wsObtenerReferenciasODEsResponse" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsObtenerReferenciasODEsResponse">
+				<xs:complexContent>
+					<xs:extension base="tns:wsAbstractResponse">
+						<xs:sequence>
+							<xs:element name="referencias">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" minOccurs="0"
+											name="referencia" type="tns:wsReferenciaODE" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="wsReferenciaODE">
+				<xs:sequence>
+					<xs:element name="descripcion" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="wsEstadosODE">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="INDEFINIDO" />
+					<xs:enumeration value="VENCIDA" />
+					<xs:enumeration value="EXTRAIDA" />
+					<xs:enumeration value="BLOQUEDA" />
+					<xs:enumeration value="BAJA" />
+					<xs:enumeration value="PENDIENTE" />
+					<xs:enumeration value="DUPLICADA" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://request.ws.backservices.link.com.ar/">
+			<xs:import namespace="http://services.est.ws.linkpagos.link.com.ar/" />
+			<xs:element name="cabecera" type="ns1:wsHeaderRequest" />
+		</xs:schema>
+		<xs:schema attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://request.ws.8.backservices.link.com.ar/">
+			<xs:import namespace="http://services.est.ws.linkpagos.link.com.ar/" />
+			<xs:element name="cabecera" type="ns1:wsHeaderResponse" />
+		</xs:schema>
+		<xs:schema attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://request.est.ws.linkpagos.link.com.ar/">
+			<xs:import namespace="http://services.est.ws.linkpagos.link.com.ar/" />
+			<xs:element name="datosGenerarODE" type="ns1:wsParametrosGenerarODEODERequest" />
+			<xs:element name="datosObtenerDocumentos"
+				type="ns1:wsParametrosObtenerDocumentosODEsRequest" />
+			<xs:element name="datosObtenerODEs" type="ns1:wsParametrosObtenerODEsRequest" />
+			<xs:element name="datosObtenerReferenciasODEs"
+				type="ns1:wsParametrosObtenerReferenciasODEsRequest" />
+			<xs:element name="datosObtenerTiposDocumentos"
+				type="ns1:wsParametrosObtenerTiposDocumentosODEsRequest" />
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="obtenerReferencias">
+		<wsdl:part element="ns1:obtenerReferencias" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="obtenerTiposDocumentosResponse">
+		<wsdl:part element="ns1:obtenerTiposDocumentosResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="obtenerTiposDocumentos">
+		<wsdl:part element="ns1:obtenerTiposDocumentos" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="obtenerReferenciasResponse">
+		<wsdl:part element="ns1:obtenerReferenciasResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="obtenerDocumentosResponse">
+		<wsdl:part element="ns1:obtenerDocumentosResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="obtenerODEs">
+		<wsdl:part element="ns1:obtenerODEs" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="generarODE">
+		<wsdl:part element="ns1:generarODE" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="obtenerDocumentos">
+		<wsdl:part element="ns1:obtenerDocumentos" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="obtenerODEsResponse">
+		<wsdl:part element="ns1:obtenerODEsResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="generarODEResponse">
+		<wsdl:part element="ns1:generarODEResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="WSESTService">
+		<wsdl:operation name="obtenerTiposDocumentos">
+			<wsdl:input message="ns1:obtenerTiposDocumentos" name="obtenerTiposDocumentos">
+			</wsdl:input>
+			<wsdl:output message="ns1:obtenerTiposDocumentosResponse"
+				name="obtenerTiposDocumentosResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="obtenerODEs">
+			<wsdl:input message="ns1:obtenerODEs" name="obtenerODEs">
+			</wsdl:input>
+			<wsdl:output message="ns1:obtenerODEsResponse" name="obtenerODEsResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="obtenerDocumentos">
+			<wsdl:input message="ns1:obtenerDocumentos" name="obtenerDocumentos">
+			</wsdl:input>
+			<wsdl:output message="ns1:obtenerDocumentosResponse"
+				name="obtenerDocumentosResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="generarODE">
+			<wsdl:input message="ns1:generarODE" name="generarODE">
+			</wsdl:input>
+			<wsdl:output message="ns1:generarODEResponse" name="generarODEResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="obtenerReferencias">
+			<wsdl:input message="ns1:obtenerReferencias" name="obtenerReferencias">
+			</wsdl:input>
+			<wsdl:output message="ns1:obtenerReferenciasResponse"
+				name="obtenerReferenciasResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>
