@@ -7,7 +7,9 @@
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:ns1="http://www.w3.org/TR/html4/">
-	<!-- Se agrego wsdl,tns,xsd,soap,xs, ns1 falta  --><wsdl:types>
+	<!----> 
+	<!-- Se agrego wsdl,tns,xsd,soap,xs, ns1 falta  -->
+	<wsdl:types>
 		<xs:schema attributeFormDefault="unqualified"
 			elementFormDefault="unqualified" targetNamespace="http://services.est.ws.linkpagos.link.com.ar/">
 			<xs:import namespace="http://request.est.ws.linkpagos.link.com.ar/" />
@@ -40,7 +42,7 @@
 			</xs:complexType>
 			<xs:complexType abstract="true" name="wsAbstractRequest">
 				<xs:sequence>
-					<xs:element ref="ns2:cabecera" />
+					<xs:element ref="ns2:cabecera"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="wsParametrosObtenerTiposDocumentosODEsRequest">
@@ -413,8 +415,7 @@
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="obtenerTiposDocumentosResponse">
-		<wsdl:part element="ns1:obtenerTiposDocumentosResponse"
-			name="parameters">
+		<wsdl:part element="ns1:obtenerTiposDocumentosResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="obtenerTiposDocumentos">
@@ -453,8 +454,7 @@
 		<wsdl:operation name="obtenerTiposDocumentos">
 			<wsdl:input message="ns1:obtenerTiposDocumentos" name="obtenerTiposDocumentos">
 			</wsdl:input>
-			<wsdl:output message="ns1:obtenerTiposDocumentosResponse"
-				name="obtenerTiposDocumentosResponse">
+			<wsdl:output message="ns1:obtenerTiposDocumentosResponse" name="obtenerTiposDocumentosResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="obtenerODEs">
@@ -466,8 +466,7 @@
 		<wsdl:operation name="obtenerDocumentos">
 			<wsdl:input message="ns1:obtenerDocumentos" name="obtenerDocumentos">
 			</wsdl:input>
-			<wsdl:output message="ns1:obtenerDocumentosResponse"
-				name="obtenerDocumentosResponse">
+			<wsdl:output message="ns1:obtenerDocumentosResponse" name="obtenerDocumentosResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="generarODE">

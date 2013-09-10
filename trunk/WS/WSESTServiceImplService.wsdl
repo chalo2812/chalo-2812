@@ -1,5 +1,10 @@
 <wsdl:definitions name="WSESTServiceImplService"
-	targetNamespace="http://impl.services.est.ws.linkpagos.link.com.ar/">
+	targetNamespace="http://impl.services.est.ws.linkpagos.link.com.ar/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:tns="http://default_package/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns1="http://www.w3.org/TR/html4/">
 	<wsdl:import
 		location="http://200.45.17.36:80/lpservices/ws/ESTSServices?wsdl=WSESTService.wsdl"
 		namespace="http://services.est.ws.linkpagos.link.com.ar/">
