@@ -1,8 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.agenda.MainActivity"
-    tools:ignore="MergeRootFrame" />
+    android:layout_height="match_parent" >
 
+    <Button
+        android:id="@+id/buttonInsertar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="20dp"
+        android:onClick=""
+        android:text="@string/botonInsertar" />
+
+    <Button
+        android:id="@+id/buttonMostar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonInsertar"
+        android:layout_alignBottom="@+id/buttonInsertar"
+        android:layout_centerHorizontal="true"
+        android:text="@string/botonMostrar" />
+
+    <Button
+        android:id="@+id/botonEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonMostar"
+        android:layout_alignBottom="@+id/buttonMostar"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="19dp"
+        android:text="@string/botonEliminar" />
+
+</RelativeLayout>

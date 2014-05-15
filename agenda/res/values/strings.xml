@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">agenda</string>
+    <string name="app_name">Agenda</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="botonInsertar">Insertar</string>
+    <string name="botonMostrar">Mostrar</string>
+    <string name="botonEliminar">Eliminar</string>
+    <string name="botonVolver">Volver</string>
+    <string name="title_activity_insertar">InsertarActivity</string>
+    <string name="title_activity_eliminar">EliminarActivity</string>
+    <string name="title_activity_mostrar">MostrarActivity</string>
+    <string name="txtNombre">Nombre</string>
+    <string name="txtTelefono1">Telefono 1</string>
+    <string name="txtTelefono2">Telefono 2</string>
+    <string name="txtCorreo">Correoo</string>
+	<string name="txtDireccion">Direccion</string>
+	<string name="txtCelular">Celular</string>
 
 </resources>
