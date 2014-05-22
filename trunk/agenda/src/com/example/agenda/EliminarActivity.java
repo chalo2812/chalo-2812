@@ -5,10 +5,10 @@ import android.os.Bundle;
 
 public class EliminarActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	setContentView(R.layout.activity_eliminar);
-    }
-    
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_eliminar);
+	}
+
 }
