@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tateti</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Ajuste</string>
+    <string name="HumanVsHuman">Jugador Vs Jugador</string>
+    <string name="PlayerVsPc">Jugador Vs PC</string>
+    <string name="PcVsPc">PC Vs PC</string>
+    <string name="salida">Salir</string>
+
+</resources>
