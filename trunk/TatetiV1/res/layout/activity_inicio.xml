@@ -1,0 +1,60 @@
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:layout_x="2dp"
+        android:layout_y="0dp"
+        android:src="@drawable/icono_tateti_fondo_negro" />
+
+    <Button
+        android:id="@+id/buttonSalida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="150dp"
+        android:layout_y="400dp"
+        android:background="@android:color/black"
+        android:text="@string/salida"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonPcVsPc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="132dp"
+        android:layout_y="190dp"
+        android:background="@android:color/black"
+        android:text="@string/PcVsPc"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonPvC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="114dp"
+        android:layout_y="163dp"
+        android:background="@android:color/black"
+        android:text="@string/PlayerVsPc"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonPvP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="98dp"
+        android:layout_y="134dp"
+        android:background="@android:color/black"
+        android:text="@string/HumanVsHuman"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+</AbsoluteLayout>
+
