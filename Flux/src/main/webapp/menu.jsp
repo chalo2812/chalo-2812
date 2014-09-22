@@ -6,12 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
-	<a href="listadoDocumento.jsp" target="_parent">Lista Documento</a>	<br>
-	<a href="altaDocumento.jsp" target="_parent">Alta de Documentos</a>	<br>
- 	<a href="editarDocumento.jsp"  target="_parent">Editar Documentos</a> <br>
- 	<a href="eliminarDocumento.jsp"  target="_parent">Eliminar Documentos</a> <br>
- 	<a href="asignacionUsuario.jsp" target="_parent">Asignación de Usuarios</a> <br>
- 	<a href="detalleDocumento.jsp" target="_parent">Detalle de Documento</a> <br>
- 	<a href="buscadorDocumento.jsp" target="_parent">Buscador de documento</a> <br>
+	<a href="paginas/listadoDocumento.jsp" target="_parent">Lista Documento</a>	<br>
+	<a href="paginas/altaDocumento.jsp" target="_parent">Alta de Documentos</a>	<br>
+ 	<a href="paginas/editarDocumento.jsp"  target="_parent">Editar Documentos</a> <br>
+ 	<a href="paginas/eliminarDocumento.jsp"  target="_parent">Eliminar Documentos</a> <br>
+ 	<a href="paginas/asignacionUsuario.jsp" target="_parent">Asignación de Usuarios</a> <br>
+ 	<a href="paginas/detalleDocumento.jsp" target="_parent">Detalle de Documento</a> <br>
+ 	<a href="paginas/buscadorDocumento.jsp" target="_parent">Buscador de documento</a> <br>
 </body>
 </html>

@@ -16,8 +16,7 @@
 	</data-sources>
 
 	<form-beans>
-		<form-bean name="testSwapForm" dynamic="true"
-			type="org.apache.struts.validator.DynaValidatorForm">
+		<form-bean name="home" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="campo1" type="java.lang.String[]" />
 			<form-property name="campo2" type="java.lang.String[]" />
 			<form-property name="campo3" type="java.lang.String" />
@@ -52,8 +51,6 @@
 
 	</global-exceptions>
 
-	<!-- =================================== Global Forward Definitions -->
-
 	<global-forwards>
 		<!-- Default forward to "Welcome" action -->
 		<!-- Demonstrates using index.jsp to forward -->
@@ -62,19 +59,18 @@
 		<forward name="systemFailure" path="/systemerror.jsp" />
 		<forward name="sessionTimeOut" path="/sessiontimeout.jsp" />
 		<forward name="login" path="/userLogin.do?reqCode=setLoginPage" />
-		<forward name="functionPermissionDenied" path="/definition.do?def=function.permissionDenied"
+		<forward name="functionPermissionDenied" path="/definition.do?def=function.permissionDenied" 
 			redirect="false" />
-		<forward name="result" path="/definition.do?def=function.result"
-			redirect="false" />
+		<forward name="result" path="/definition.do?def=function.result" redirect="false" />
 	</global-forwards>
 
 
-	<!-- ========== Action Mapping Definitions ============================== -->
 	<action-mappings>
-
-		<action path="/bloqOperadores" type="com.cubika.cbank.web.actions.adherente.AdherenteDispatchAction"
-			scope="request" parameter="reqCode" name="adherenteForm" input="/bloqOperadores.do?reqCode=consultarOperadores">
-			<forward name="consultarOperadores" path="/definition.do?def=adherente.bloquear.operadores" redirect="false" />
+		<action path="/documentos" type="ar.com.fluxIT.dispatch.AdherenteDispatchAction" 
+			scope="request" 
+			parameter="reqCode" name="documentoForm" 	
+			input="/documentos.do?reqCode=home">
+			<forward name="home" path="/definition.do?def=adherente.bloquear.operadores" redirect="false" />
 			<forward name="solicitarPIN" path="/definition.do?def=adherente.bloquear.operadores.solicitud" redirect="false" />
 			<forward name="buscarOperadores" path="/bloqOperadores.do?reqCode=consultarOperadores" redirect="false" />
 			<forward name="volver" path="/consultas.do?reqCode=saldosConsolidadosHome" redirect="false" />
