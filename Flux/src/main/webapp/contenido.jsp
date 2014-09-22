@@ -8,5 +8,6 @@
 </head>
 <body>
 	CONTENIDO
+	<input type="file">
 </body>
 </html>

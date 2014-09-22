@@ -6,7 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
-	<a href="central_1.html" target="ventana">página 1ª</a>
- 	<a href="central_2.html" target="ventana">página 2ª</a>
+	<a href="listadoDocumento.jsp" target="_parent">Lista Documento</a>	<br>
+	<a href="altaDocumento.jsp" target="_parent">Alta de Documentos</a>	<br>
+ 	<a href="editarDocumento.jsp"  target="_parent">Editar Documentos</a> <br>
+ 	<a href="eliminarDocumento.jsp"  target="_parent">Eliminar Documentos</a> <br>
+ 	<a href="asignacionUsuario.jsp" target="_parent">Asignación de Usuarios</a> <br>
+ 	<a href="detalleDocumento.jsp" target="_parent">Detalle de Documento</a> <br>
+ 	<a href="buscadorDocumento.jsp" target="_parent">Buscador de documento</a> <br>
 </body>
 </html>

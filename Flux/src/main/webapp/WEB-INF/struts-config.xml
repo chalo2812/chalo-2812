@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<data-sources>
+		<!--<data-source> <set-property property="autoCommit" value="false"/> <set-property 
+			property="description" value="DataSource de La Bragadense"/> <set-property 
+			property="driverClass" value="org.gjt.mm.mysql.Driver"/> <set-property property="maxCount" 
+			value="4"/> <set-property property="minCount" value="2"/> <set-property property="password" 
+			value=""/> <set-property property="url" value="jdbc:mysql://localhost/labragadense"/> 
+			<set-property property="user" value="root"/> </data-source> -->
+	</data-sources>
+
+	<form-beans>
+		<form-bean name="testSwapForm" dynamic="true"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="campo1" type="java.lang.String[]" />
+			<form-property name="campo2" type="java.lang.String[]" />
+			<form-property name="campo3" type="java.lang.String" />
+		</form-bean>
+
+	</form-beans>
+
+	<!-- ========== Global Exception Definitions ============================== -->
+	<global-exceptions>
+		<!-- sample exception handler <exception key="expired.password" type="app.ExpiredPasswordException" 
+			path="/changePassword.jsp"/> end sample <exception key="global.error.invalidlogin" 
+			path="/login/index.jsp" scope="request" type="com.cubika.labragadense.service.InvalidLoginException"/> -->
+		<!-- exception key="errors.cancel" type="java.lang.NullPointerException" 
+			path="/definition.do?def=home.errorPage"/ -->
+
+		<exception key="errors.page.not.found" type="java.lang.NoSuchMethodException"
+			path="/error.jsp" />
+
+		<exception key="errors.page.not.found"
+			type="com.cubika.cbank.framework.exceptions.NeedsCertifiedException"
+			path="/definition.do?def=requiredCertified.errorPage" />
+
+		<exception key="errors.page.not.found"
+			type="com.cubika.cbank.framework.exceptions.ServiceLocatorException"
+			path="/notAvailable.jsp" />
+
+		<!-- exception key="errors.page.not.found" type="javax.servlet.ServletException" 
+			path="/error.jsp" / -->
+
+		<!--exception key="errors.page.not.found" type="java.rmi.RemoteException" 
+			path="/notAvailable.jsp"/ -->
+
+	</global-exceptions>
+
+	<!-- =================================== Global Forward Definitions -->
+
+	<global-forwards>
+		<!-- Default forward to "Welcome" action -->
+		<!-- Demonstrates using index.jsp to forward -->
+		<forward name="home" path="/definition.do?def=home.principal" />
+		<forward name="homePage" path="/consultas.do?reqCode=saldosConsolidadosHome" />
+		<forward name="systemFailure" path="/systemerror.jsp" />
+		<forward name="sessionTimeOut" path="/sessiontimeout.jsp" />
+		<forward name="login" path="/userLogin.do?reqCode=setLoginPage" />
+		<forward name="functionPermissionDenied" path="/definition.do?def=function.permissionDenied"
+			redirect="false" />
+		<forward name="result" path="/definition.do?def=function.result"
+			redirect="false" />
+	</global-forwards>
+
+
+	<!-- ========== Action Mapping Definitions ============================== -->
+	<action-mappings>
+
+		<action path="/bloqOperadores" type="com.cubika.cbank.web.actions.adherente.AdherenteDispatchAction"
+			scope="request" parameter="reqCode" name="adherenteForm" input="/bloqOperadores.do?reqCode=consultarOperadores">
+			<forward name="consultarOperadores" path="/definition.do?def=adherente.bloquear.operadores" redirect="false" />
+			<forward name="solicitarPIN" path="/definition.do?def=adherente.bloquear.operadores.solicitud" redirect="false" />
+			<forward name="buscarOperadores" path="/bloqOperadores.do?reqCode=consultarOperadores" redirect="false" />
+			<forward name="volver" path="/consultas.do?reqCode=saldosConsolidadosHome" redirect="false" />
+		</action>
+		
+
+	</action-mappings>
+
+	<!-- ========== Controller Configuration ================================ -->
+	<controller processorClass="com.cubika.cbank.controllers.BancaRequestProcessor" />
+
+
+	<message-resources parameter="resources.application" />
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-parser-validate" value="true" />
+	</plug-in>
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+</struts-config>
