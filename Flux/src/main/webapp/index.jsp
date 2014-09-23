@@ -1,20 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html >
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Gestor de Documentos - Flux IT</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Gestor de Documentos - Flux IT</title>
 </head>
 
-	<frameset rows="22%,*">
-		<frame src="encabezado.jsp" scrolling="no">
-		<frameset cols="15%,*" >
-			<frame src="menu.jsp" >
-			<frame frameborder="1" src="contenido.jsp">
-		</frameset>
+<frameset rows="20%,*" frameborder="yes">
+	<frame src="encabezado.jsp" scrolling="no" frameborder="0" marginheight="0"
+	marginwidth="4">
+	<frameset cols="15%,*" frameborder="no">
+		<frame src="menu.jsp">
+		<frame frameborder="0" src="contenido.jsp">
 	</frameset>
-	<p align="center" style="text-shadow: blue;">
-	Bienvenido a la prueba Tecnica de Flux IT
-	</p>
+</frameset>
 </html>

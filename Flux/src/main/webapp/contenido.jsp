@@ -6,8 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title></title>
 </head>
-<body>
+<body bgcolor="#00CCA3">
 	CONTENIDO
-	<input type="file">
 </body>
 </html>

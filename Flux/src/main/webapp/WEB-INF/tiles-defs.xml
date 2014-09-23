@@ -9,7 +9,7 @@
 
 	<definition name="requiredCertified.errorPage" extends="inner.master">
 		 <put name="body" value="/common/errors/CertifiedRequired.jsp"/>
-		 <put name="footer" value="YYYYYYYYY"/ >                      
+		 <put name="footer" value="YYYYYYYYY"/>                      
 	  </definition>
 
     <definition name="YYYYYYYYY" path="/common/layouts/footer.jsp">	  		
@@ -29,4 +29,4 @@
     	
 </tiles-definitions>
     
-</tiles-definitions>
+
