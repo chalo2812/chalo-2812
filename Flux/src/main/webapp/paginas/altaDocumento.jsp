@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form action="altaDocumento">
-		<table bgcolor="#00CCA3" align="center" width="500px">
+		<table bgcolor="#00CCA3" align="center" width="80%">
 			<tr>
 				<td><p style="padding-left: 10px;">
 						Adjunta el documento seleccionado<b style="color: red">*</b> <input
