@@ -8,19 +8,21 @@
 <title>Alta documentos-Flux IT</title>
 </head>
 <body>
-	<form action="altaDocumento">
+	<form action="altaDocumento"  >
+		<input type="hidden" value="volver" name="reqCode">
 		<table bgcolor="#00CCA3" align="center" width="80%">
 			<tr>
 				<td><p style="padding-left: 10px;">
-						Adjunta el documento seleccionado<b style="color: red">*</b> <input
-							type="file" tabindex=""
+						Adjunta el documento seleccionado<b style="color: red">*</b> 
+						<input type="file" id="archivo" tabindex="" name="archivo"
 							title="Seleccione un archivo - Obligatorio" value="" /><br>
 					</p></td>
 			</tr>
 			<tr>
 				<td>
 					<p style="padding-left: 10px;">
-						Seleccione el tipo de documento<b style="color: red">*</b> <select>
+						Seleccione el tipo de documento<b style="color: red">*</b> <select
+							id="tipoDocumento" name="tipoDocumento">
 							<option value="" selected="selected">Seleccionar</option>
 							<option value="1">Público</option>
 							<option value="2">Privado</option>
@@ -29,14 +31,37 @@
 				</td>
 			</tr>
 			<tr>
-				<td>
-				</td>
+				<td align="center" style="padding-left: 10px;"><textarea
+						rows="7" cols="80" id="descripcion" style="" name="descripcion"></textarea></td>
 			</tr>
-			<tr >
-				<td align="center" style="padding-left: 10px;"><textarea rows="5" cols="50" id="">See	</textarea></td>
+			<tr>
+				<td><br></td>
 			</tr>
 		</table>
+		<table>
+			<tr></tr>
+		</table>
+		<input type="submit" onclick="validar(this);">
+		
 	</form>
-	<input  type="button" align="middle">
+
 </body>
 </html>
+
+<script type="text/javascript">
+	function validar() {
+
+		var formato = document.forms[0];
+		var archivo = formato[0].value;
+		var tipoDocumento = formato[1].value;
+		var descripcion = formato[2].value;
+
+		document.forms[0].archivo = archivo;
+		document.forms[0].tipoDocumento = tipoDocumento;
+		document.forms[0].descripcion = descripcion;
+
+		document.forms[0].reqCode.value = "volver";
+		document.forms[0].submit();
+
+	}
+</script>

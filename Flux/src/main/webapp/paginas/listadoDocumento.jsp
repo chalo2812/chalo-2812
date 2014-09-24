@@ -28,7 +28,7 @@
 			</td>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody align="center" 	>
 		<%   %>
 	</tbody>
 </table>

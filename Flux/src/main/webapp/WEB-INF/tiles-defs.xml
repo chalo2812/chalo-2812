@@ -26,6 +26,9 @@
         <put name="body" value="home.body"/>
     </definition>
 
+	<definition name="home" extends="inner.master">
+		 <put name="body" value="/encabezado"/>                   
+	  </definition>
     	
 </tiles-definitions>
     

@@ -6,7 +6,6 @@
 <head>
 </head>
 <body>
-	<img alt="" src="imagenes/Flux.png" width="15%" 
-		style="padding: 1% 0% 1% 5%;">
+	<img alt="" src="imagenes/Flux.png" width="15%" style="padding: 1% 0% 1% 5%;">
 </body>
 </html>
