@@ -30,8 +30,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td align="center" style="padding-left: 10px;"><textarea
-						rows="7" cols="80" id="descripcion" style=""></textarea></td>
+				<td align="center" style="padding-left: 10px;">
+					<textarea rows="7" cols="80" id="descripcion" style=""></textarea>
+				</td>
 			</tr>
 			<tr>
 				<td><br></td>

@@ -28,6 +28,11 @@
 			<form-property name="descripcion" type="java.lang.String" />
 		</form-bean>
 		
+		<form-bean name="listadoForm" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="archivo" type="java.lang.String" />
+			<form-property name="tipoDocumento" type="java.lang.String" />
+			<form-property name="descripcion" type="java.lang.String" />
+		</form-bean>
 
 	</form-beans>
 
@@ -77,6 +82,21 @@
 			name="altaDocumentoForm"
 			parameter="reqCode"  	
 			type="ar.com.fluxIT.dispatch.AltaDocumentoDispatchAction" 
+			scope="request" >
+			<forward name="volver" path="/definition.do?reqCode=home" redirect="false" />
+		</action>		
+		
+		<action path="/home"
+			name="homeForm"
+			parameter="reqCode"  	
+			type="ar.com.fluxIT.dispatch.HomeDispatchAction" 
+			scope="request" >
+		</action>	
+		
+		<action path="/listado"
+			name="listadoForm"
+			parameter="reqCode"  	
+			type="ar.com.fluxIT.dispatch.ListadoDispatchAction" 
 			scope="request" >
 			<forward name="volver" path="/definition.do?reqCode=home" redirect="false" />
 		</action>		
