@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
- <!DOCTYPE struts-config PUBLIC
-          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
           "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
 
 <struts-config>
@@ -20,18 +19,21 @@
 			<form-property name="campo1" type="java.lang.String[]" />
 			<form-property name="campo2" type="java.lang.String[]" />
 			<form-property name="campo3" type="java.lang.String" />
+			
 		</form-bean>
 		
 		<form-bean name="altaDocumentoForm" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="archivo" type="java.lang.String" />
 			<form-property name="tipoDocumento" type="java.lang.String" />
 			<form-property name="descripcion" type="java.lang.String" />
+			<form-property name="reqCode" type="java.lang.String" />
 		</form-bean>
 		
 		<form-bean name="listadoForm" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="archivo" type="java.lang.String" />
 			<form-property name="tipoDocumento" type="java.lang.String" />
 			<form-property name="descripcion" type="java.lang.String" />
+			<form-property name="reqCode" type="java.lang.String" />
 		</form-bean>
 
 	</form-beans>
@@ -44,28 +46,17 @@
 		<!-- exception key="errors.cancel" type="java.lang.NullPointerException" 
 			path="/definition.do?def=home.errorPage"/ -->
 
-		<exception key="errors.page.not.found" type="java.lang.NoSuchMethodException"
-			path="/error.jsp" />
+		<exception key="errors.page.not.found" type="java.lang.NoSuchMethodException" path="/error.jsp" />
 
-		<exception key="errors.page.not.found"
-			type="com.cubika.cbank.framework.exceptions.NeedsCertifiedException"
+		<exception key="errors.page.not.found" type="com.cubika.cbank.framework.exceptions.NeedsCertifiedException"
 			path="/definition.do?def=requiredCertified.errorPage" />
 
-		<exception key="errors.page.not.found"
-			type="com.cubika.cbank.framework.exceptions.ServiceLocatorException"
+		<exception key="errors.page.not.found" type="com.cubika.cbank.framework.exceptions.ServiceLocatorException"
 			path="/notAvailable.jsp" />
-
-		<!-- exception key="errors.page.not.found" type="javax.servlet.ServletException" 
-			path="/error.jsp" / -->
-
-		<!--exception key="errors.page.not.found" type="java.rmi.RemoteException" 
-			path="/notAvailable.jsp"/ -->
 
 	</global-exceptions>
 
 	<global-forwards>
-		<!-- Default forward to "Welcome" action -->
-		<!-- Demonstrates using index.jsp to forward -->
 		<forward name="home" path="/definition.do?def=home" />
 		<forward name="homePage" path="/consultas.do?reqCode=saldosConsolidadosHome" />
 		<forward name="systemFailure" path="/systemerror.jsp" />
@@ -80,7 +71,8 @@
 	<action-mappings>
 		<action path="/altaDocumento"
 			name="altaDocumentoForm"
-			parameter="reqCode"  	
+			parameter="reqCode"
+			validate="false"  	
 			type="ar.com.fluxIT.dispatch.AltaDocumentoDispatchAction" 
 			scope="request" >
 			<forward name="volver" path="/definition.do?reqCode=home" redirect="false" />
@@ -88,17 +80,19 @@
 		
 		<action path="/home"
 			name="homeForm"
+			validate="false"
 			parameter="reqCode"  	
 			type="ar.com.fluxIT.dispatch.HomeDispatchAction" 
 			scope="request" >
 		</action>	
 		
 		<action path="/listado"
-			name="listadoForm"
+			name="listadoForm" 
+			validate="false"
 			parameter="reqCode"  	
 			type="ar.com.fluxIT.dispatch.ListadoDispatchAction" 
 			scope="request" >
-			<forward name="volver" path="/definition.do?reqCode=home" redirect="false" />
+			<forward name="volver" path="/listado.do?reqCode=home" redirect="true" />
 		</action>		
 
 	</action-mappings>

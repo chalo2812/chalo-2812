@@ -12,11 +12,6 @@
 		 <put name="footer" value="YYYYYYYYY"/>                      
 	  </definition>
 
-    <definition name="YYYYYYYYY" path="/common/layouts/footer.jsp">	  		
-        <put name="footerSection" content="XXXXXXX" type="string"/>
-	 </definition>
-
-
     <definition name="home.principal" path="/home/home.jsp">
         <put name="logo" value="/common/layouts/logo.jsp"/>
         <put name="navBar" value="/common/layouts/navigationBar.jsp"/>
@@ -27,7 +22,7 @@
     </definition>
 
 	<definition name="home" extends="inner.master">
-		 <put name="body" value="/encabezado"/>                   
+		 <put name="body" value="/index.jsp"/>                   
 	  </definition>
     	
 </tiles-definitions>
