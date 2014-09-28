@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<data-sources>
+		<!--<data-source> <set-property property="autoCommit" value="false"/> <set-property 
+			property="description" value="DataSource de La Bragadense"/> <set-property 
+			property="driverClass" value="org.gjt.mm.mysql.Driver"/> <set-property property="maxCount" 
+			value="4"/> <set-property property="minCount" value="2"/> <set-property property="password" 
+			value=""/> <set-property property="url" value="jdbc:mysql://localhost/labragadense"/> 
+			<set-property property="user" value="root"/> </data-source> -->
+	</data-sources>
+
+	<form-beans>
+		<form-bean name="home" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="campo1" type="java.lang.String[]" />
+			<form-property name="campo2" type="java.lang.String[]" />
+			<form-property name="campo3" type="java.lang.String" />
+			
+		</form-bean>
+		
+		<form-bean name="altaDocumentoForm" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="archivo" type="java.lang.String" />
+			<form-property name="tipoDocumento" type="java.lang.String" />
+			<form-property name="descripcion" type="java.lang.String" />
+			<form-property name="reqCode" type="java.lang.String" />
+		</form-bean>
+		
+		<form-bean name="listadoForm" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="archivo" type="java.lang.String" />
+			<form-property name="tipoDocumento" type="java.lang.String" />
+			<form-property name="descripcion" type="java.lang.String" />
+			<form-property name="reqCode" type="java.lang.String" />
+		</form-bean>
+
+	</form-beans>
+
+	<!-- ========== Global Exception Definitions ============================== -->
+	<global-exceptions>
+		<!-- sample exception handler <exception key="expired.password" type="app.ExpiredPasswordException" 
+			path="/changePassword.jsp"/> end sample <exception key="global.error.invalidlogin" 
+			path="/login/index.jsp" scope="request" type="com.cubika.labragadense.service.InvalidLoginException"/> -->
+		<!-- exception key="errors.cancel" type="java.lang.NullPointerException" 
+			path="/definition.do?def=home.errorPage"/ -->
+
+		<exception key="errors.page.not.found" type="java.lang.NoSuchMethodException" path="/error.jsp" />
+
+		<exception key="errors.page.not.found" type="com.cubika.cbank.framework.exceptions.NeedsCertifiedException"
+			path="/definition.do?def=requiredCertified.errorPage" />
+
+		<exception key="errors.page.not.found" type="com.cubika.cbank.framework.exceptions.ServiceLocatorException"
+			path="/notAvailable.jsp" />
+
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="home" path="/definition.do?def=home" />
+		<forward name="homePage" path="/consultas.do?reqCode=saldosConsolidadosHome" />
+		<forward name="systemFailure" path="/systemerror.jsp" />
+		<forward name="sessionTimeOut" path="/sessiontimeout.jsp" />
+		<forward name="login" path="/userLogin.do?reqCode=setLoginPage" />
+		<forward name="functionPermissionDenied" path="/definition.do?def=function.permissionDenied" 
+			redirect="false" />
+		<forward name="result" path="/definition.do?def=function.result" redirect="false" />
+	</global-forwards>
+
+
+	<action-mappings>
+		<action path="/altaDocumento"
+			name="altaDocumentoForm"
+			parameter="reqCode"
+			validate="false"  	
+			type="ar.com.fluxIT.dispatch.AltaDocumentoDispatchAction" 
+			scope="request" >
+			<forward name="volver" path="/definition.do?reqCode=home" redirect="false" />
+		</action>		
+		
+		<action path="/home"
+			name="homeForm"
+			validate="false"
+			parameter="reqCode"  	
+			type="ar.com.fluxIT.dispatch.HomeDispatchAction" 
+			scope="request" >
+		</action>	
+		
+		<action path="/listado"
+			name="listadoForm" 
+			validate="false"
+			parameter="reqCode"  	
+			type="ar.com.fluxIT.dispatch.ListadoDispatchAction" 
+			scope="request" >
+			<forward name="volver" path="/listado.do?reqCode=home" redirect="true" />
+		</action>		
+
+	</action-mappings>
+
+	<!-- ========== Controller Configuration ================================ -->
+	<!-- controller processorClass="com.cubika.cbank.controllers.BancaRequestProcessor" /> -->
+
+
+<!-- 	<message-resources parameter="resources.application" /> -->
+<!-- 	<plug-in className="org.apache.struts.tiles.TilesPlugin"> -->
+<!-- 		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" /> -->
+<!-- 		<set-property property="moduleAware" value="true" /> -->
+<!-- 		<set-property property="definitions-parser-validate" value="true" /> -->
+<!-- 	</plug-in> -->
+<!-- 	<plug-in className="org.apache.struts.validator.ValidatorPlugIn"> -->
+<!-- 		<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" /> -->
+<!-- 	</plug-in> -->
+</struts-config>

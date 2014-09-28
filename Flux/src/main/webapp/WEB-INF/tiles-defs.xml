@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+
+<tiles-definitions>
+
+	<definition name="requiredCertified.errorPage" extends="inner.master">
+		 <put name="body" value="/common/errors/CertifiedRequired.jsp"/>
+		 <put name="footer" value="YYYYYYYYY"/>                      
+	  </definition>
+
+    <definition name="home.principal" path="/home/home.jsp">
+        <put name="logo" value="/common/layouts/logo.jsp"/>
+        <put name="navBar" value="/common/layouts/navigationBar.jsp"/>
+        <put name="menu" value="/common/layouts/menu3.jsp"/>
+        <put name="footer" value="home.footer"/>
+        <put name="header" value="/common/layouts/header.jsp"/>
+        <put name="body" value="home.body"/>
+    </definition>
+
+	<definition name="home" extends="inner.master">
+		 <put name="body" value="/index.jsp"/>                   
+	  </definition>
+    	
+</tiles-definitions>
+    
+
