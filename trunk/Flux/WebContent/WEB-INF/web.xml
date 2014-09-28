@@ -34,7 +34,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
-		<url-pattern>*</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	<jsp-config>
 		<taglib>

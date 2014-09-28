@@ -27,7 +27,7 @@ public class AltaDocumentoDispatchAction extends DispatchAction {
 	public ActionForward volver(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ALTA");
 		logger.info("ALTA");
-		return mapping.findForward("volver");
+		return mapping.findForward("home");
 	}
 
 }
