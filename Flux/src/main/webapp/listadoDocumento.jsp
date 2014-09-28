@@ -9,7 +9,7 @@
 </head>
 <body bgcolor="#00CCA3">
 	<br>
-	<form action="listado" target="" onsubmit="alert('Salir')">
+	<html:form action="/listado.do" method="" >
 		
 		<table align="center" border="1" bordercolor="black" cellpadding="6"
 			cellspacing="0">
@@ -28,8 +28,8 @@
 
 		</table>
 		<input type="submit" onclick="retornar();" value='Volver' />
-		<input type="hidden" value="volver" name="reqCode">
-	</form>
+		<input type="hidden" value="home" name="reqCode">
+	</html:form>
 </body>
 </html>
 <script type="text/javascript">
