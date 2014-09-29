@@ -9,7 +9,7 @@
 </head>
 <body bgcolor="#00CCA3">
 	<br>
-	<html:form action="/listado.do" method="" >
+	<html:form action="/listado.do"  >
 		
 		<table align="center" border="1" bordercolor="black" cellpadding="6"
 			cellspacing="0">
@@ -28,13 +28,13 @@
 
 		</table>
 		<input type="submit" onclick="retornar();" value='Volver' />
-		<input type="hidden" value="home" name="reqCode">
+		<input type="hidden" name="reqCode" value="">
 	</html:form>
 </body>
 </html>
 <script type="text/javascript">
 	function retornar() {
-		document.listado.reqCode.value = 'home';
-		document.listado.submit();
+		listadoForm.reqCode.value = 'volver';
+		listadoForm.submit();
 	}
 </script>

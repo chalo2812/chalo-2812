@@ -40,24 +40,15 @@
 
 	<!-- ========== Global Exception Definitions ============================== -->
 	<global-exceptions>
-		<!-- sample exception handler <exception key="expired.password" type="app.ExpiredPasswordException" 
-			path="/changePassword.jsp"/> end sample <exception key="global.error.invalidlogin" 
-			path="/login/index.jsp" scope="request" type="com.cubika.labragadense.service.InvalidLoginException"/> -->
-		<!-- exception key="errors.cancel" type="java.lang.NullPointerException" 
-			path="/definition.do?def=home.errorPage"/ -->
-
 		<exception key="errors.page.not.found" type="java.lang.NoSuchMethodException" path="/error.jsp" />
-
 		<exception key="errors.page.not.found" type="com.cubika.cbank.framework.exceptions.NeedsCertifiedException"
 			path="/definition.do?def=requiredCertified.errorPage" />
-
 		<exception key="errors.page.not.found" type="com.cubika.cbank.framework.exceptions.ServiceLocatorException"
 			path="/notAvailable.jsp" />
-
 	</global-exceptions>
 
 	<global-forwards>
-		<forward name="home" path="/definition.do?def=home" />
+		<forward name="home" path="/index.jsp" />
 		<forward name="homePage" path="/consultas.do?reqCode=saldosConsolidadosHome" />
 		<forward name="systemFailure" path="/systemerror.jsp" />
 		<forward name="sessionTimeOut" path="/sessiontimeout.jsp" />
@@ -75,16 +66,8 @@
 			validate="false"  	
 			type="ar.com.fluxIT.dispatch.AltaDocumentoDispatchAction" 
 			scope="request" >
-			<forward name="volver" path="/definition.do?reqCode=home" redirect="false" />
+			<!-- forward name="volver" path="/home" redirect="false" /-->
 		</action>		
-		
-		<action path="/home"
-			name="homeForm"
-			validate="false"
-			parameter="reqCode"  	
-			type="ar.com.fluxIT.dispatch.HomeDispatchAction" 
-			scope="request" >
-		</action>	
 		
 		<action path="/listado"
 			name="listadoForm" 
@@ -92,22 +75,9 @@
 			parameter="reqCode"  	
 			type="ar.com.fluxIT.dispatch.ListadoDispatchAction" 
 			scope="request" >
-			<forward name="volver" path="/listado.do?reqCode=home" redirect="true" />
+			<!--forward name="volver" path="/listado.do?reqCode=home" redirect="true" /-->
 		</action>		
 
 	</action-mappings>
 
-	<!-- ========== Controller Configuration ================================ -->
-	<!-- controller processorClass="com.cubika.cbank.controllers.BancaRequestProcessor" /> -->
-
-
-<!-- 	<message-resources parameter="resources.application" /> -->
-<!-- 	<plug-in className="org.apache.struts.tiles.TilesPlugin"> -->
-<!-- 		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" /> -->
-<!-- 		<set-property property="moduleAware" value="true" /> -->
-<!-- 		<set-property property="definitions-parser-validate" value="true" /> -->
-<!-- 	</plug-in> -->
-<!-- 	<plug-in className="org.apache.struts.validator.ValidatorPlugIn"> -->
-<!-- 		<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" /> -->
-<!-- 	</plug-in> -->
 </struts-config>
