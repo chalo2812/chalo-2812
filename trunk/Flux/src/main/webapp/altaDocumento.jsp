@@ -8,7 +8,7 @@
 <title>Alta documentos-Flux IT</title>
 </head>
 <body>
-	<html:form action="/altaDocumento.do" method=""  >
+	<html:form action="/altaDocumento.do" >
 		<input type="hidden" value="volver" name="reqCode">
 		<table bgcolor="#00CCA3" align="center" width="80%">
 			<tr>
@@ -60,7 +60,7 @@
 		document.forms[0].tipoDocumento = tipoDocumento;
 		document.forms[0].descripcion = descripcion;
 
-		document.forms[0].reqCode.value = "volver";
+		document.forms[0].reqCode.value = "guardar";
 		document.forms[0].submit();
 
 	}
