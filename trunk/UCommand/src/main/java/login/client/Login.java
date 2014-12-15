@@ -4,10 +4,10 @@ package login.client;
 //import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.Connection;
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -131,33 +131,33 @@ public class Login implements EntryPoint {
 
 	private class ButtonIngresar implements ClickHandler {
 		public void onClick(ClickEvent event) {
-			ConnManager userAuthenticationConnection = new ConnManager();
-			ResultSet rs = null;
-			boolean test = userAuthenticationConnection.doConnection();
-			if (test == true) {
-				Connection con = userAuthenticationConnection.getConnect();
-				PreparedStatement stmt = null;
-				String sql = "select password from users where user_name = ?";
-				try {
-					stmt = con.prepareStatement(sql);
-					String nombreDeUsuario = username.getText();
-					stmt.setString(1, nombreDeUsuario);
-					rs = stmt.executeQuery();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-				String passWord = null;
-				try {
-					passWord = rs.getString("password");
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				String contrasenia = password.getText();
-				if (passWord.equals(contrasenia)) {
-					exitoso.setText("Login EXITOSO");
-					userAuthenticationConnection.closeConnection();
-				}
-			}
+//			ConnManager userAuthenticationConnection = new ConnManager();
+//			ResultSet rs = null;
+//			boolean test = userAuthenticationConnection.doConnection();
+//			if (test == true) {
+//				Connection con = userAuthenticationConnection.getConnect();
+//				PreparedStatement stmt = null;
+//				String sql = "select password from users where user_name = ?";
+//				try {
+//					stmt = con.prepareStatement(sql);
+//					String nombreDeUsuario = username.getText();
+//					stmt.setString(1, nombreDeUsuario);
+//					rs = stmt.executeQuery();
+//				} catch (SQLException e1) {
+//					e1.printStackTrace();
+//				}
+//				String passWord = null;
+//				try {
+//					passWord = rs.getString("password");
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//				String contrasenia = password.getText();
+//				if (passWord.equals(contrasenia)) {
+//					exitoso.setText("Login EXITOSO");
+//					userAuthenticationConnection.closeConnection();
+//				}
+//			}
 		}
 	}
 }

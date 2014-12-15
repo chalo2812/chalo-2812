@@ -4,10 +4,66 @@
 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ar.ibm</groupId>
-	<artifactId>UCommand</artifactId>
+	<artifactId>UCommandIBM</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	<name>UCommand IBM</name>
+	<name>UCommandIBM</name>
 
-	
+	<properties>
+		<!-- Convenience property to set the GWT version -->
+		<gwtVersion>2.5.0</gwtVersion>
+		<!-- GWT needs at least java 1.5 -->
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+		<project.build.name>UCommand IBM</project.build.name>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwtVersion}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.build.name}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+			</resource>
+			<resource>
+				<directory>src/main/config</directory>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<!-- Generate compiled stuff in the folder used for developing mode -->
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+		<plugins>
+			<!-- GWT Maven Plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwtVersion}</version>
+				<executions>
+					<execution>
+						<goals>
+							<!-- TODO: descomentar en el momento que se modifique algo de los 
+								XML de GWT -->
+							<goal>compile</goal>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
+					documentation at codehaus.org -->
+				<configuration>
+					<runTarget>UCommand.html</runTarget>
+					<hostedWebapp>${webappDirectory}</hostedWebapp>
+					<extraJvmArgs>-Xmx1500m</extraJvmArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
